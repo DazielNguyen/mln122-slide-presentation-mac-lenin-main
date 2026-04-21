@@ -6,7 +6,7 @@
   <title>Nhóm 5 — Kinh tế chính trị Mác-Lên-nin</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   
   <!-- Libraries -->
   <script type="module"></script>
@@ -34,10 +34,10 @@
       --glass-border: rgba(8, 145, 178, 0.18);
 
       /* Fonts */
-      --font-serif: "Instrument Serif", serif;
-      --font-sans: "Open Sans", "Be Vietnam Pro", system-ui, sans-serif;
-      --font-display: "Poppins", "Be Vietnam Pro", sans-serif;
-      --font-vn: "Be Vietnam Pro", "Open Sans", system-ui, sans-serif;
+      --font-serif: "Raleway", "Be Vietnam Pro", serif;
+      --font-sans: "Montserrat", "Be Vietnam Pro", system-ui, sans-serif;
+      --font-display: "Raleway", "Be Vietnam Pro", sans-serif;
+      --font-vn: "Raleway", "Montserrat", "Be Vietnam Pro", sans-serif;
 
       --ease: cubic-bezier(0.23, 1, 0.32, 1);
       --dur: 0.8s;
@@ -432,14 +432,14 @@
       font-weight: 700;
       margin: 0 2.5rem 0.85rem 0;
       padding-bottom: 0.65rem;
-      border-bottom: 1px solid rgba(94, 225, 208, 0.25);
-      color: #f4f7fb;
+      border-bottom: 1px solid rgba(8, 145, 178, 0.25);
+      color: #0c4a6e;
     }
 
     .ai-usage-dialog__lead {
       font-size: clamp(0.92rem, 1.35vw, 1.02rem);
       line-height: 1.55;
-      color: rgba(200, 208, 228, 0.95);
+      color: #164e63;
       margin: 0 0 1.1rem;
     }
 
@@ -448,7 +448,7 @@
       padding: 0 0 0 1.15rem;
       font-size: clamp(0.9rem, 1.3vw, 1rem);
       line-height: 1.55;
-      color: rgba(218, 224, 240, 0.96);
+      color: #1e3a4a;
     }
 
     .ai-usage-dialog__list li {
@@ -456,17 +456,17 @@
     }
 
     .ai-usage-dialog__list strong {
-      color: var(--accent2);
+      color: #0369a1;
       font-weight: 700;
     }
 
     .ai-usage-dialog__foot {
       font-size: clamp(0.86rem, 1.2vw, 0.95rem);
       line-height: 1.5;
-      color: rgba(160, 170, 195, 0.95);
+      color: #0c4a6e;
       margin: 0;
       padding-top: 0.85rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-top: 1px solid rgba(8, 145, 178, 0.15);
     }
 
     /* Nút trong slide — mở dialog minh họa */
@@ -789,7 +789,7 @@
     .controls button {
       background: var(--glass);
       border: 1px solid var(--glass-border);
-      color: var(--text);
+      color: #fff;
       width: 40px;
       height: 40px;
       display: flex;
@@ -1053,6 +1053,11 @@
       justify-items: center;
       gap: clamp(1.25rem, 3vw, 3rem);
       padding: clamp(2.5rem, 7vw, 5.5rem) clamp(1.75rem, 7vw, 6rem);
+      background:
+        radial-gradient(ellipse 130% 100% at 50% -25%, rgba(8, 145, 178, 0.14), transparent 52%),
+        radial-gradient(ellipse 90% 70% at 100% 40%, rgba(6, 182, 212, 0.08), transparent 48%),
+        radial-gradient(ellipse 70% 55% at 0% 85%, rgba(99, 102, 241, 0.07), transparent 42%),
+        linear-gradient(180deg, #e0f7ff 0%, #f0f9ff 45%, #e8f4fd 100%);
     }
 
     .slide--content.no-media {
@@ -2198,7 +2203,7 @@
       border: 1px solid rgba(255, 255, 255, 0.12);
       background: rgba(18, 24, 42, 0.85);
       backdrop-filter: blur(10px);
-      color: var(--text);
+      color: #fff;
       cursor: pointer;
       font-size: 1.1rem;
       display: grid;
@@ -2534,8 +2539,8 @@
       <div class="slide-main">
         <span class="milestone gsap-reveal"><span class="milestone__text">Trang 5 · Liên hệ Gen Z</span></span>
         <h2 class="gsap-reveal">Liên hệ bối cảnh Gen Z & Thị trường</h2>
-        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.5rem;" class="gsap-reveal">
-          <h3 style="margin-bottom: 0.5rem; color: #fff;">Sự chuyển mình của Gen Z</h3>
+        <div style="background: rgba(8,145,178,0.08); border: 1px solid rgba(8,145,178,0.2); border-radius: 12px; padding: 1.5rem;" class="gsap-reveal">
+          <h3 style="margin-bottom: 0.5rem; color: #0c4a6e;">Sự chuyển mình của Gen Z</h3>
           <p class="lead" style="margin: 0; font-size: 1rem;">Gen Z (1997-2012) Việt Nam là lực lượng lao động số đặc hữu, chuyển mạnh từ làm thuê truyền thống sang <strong> Gig/Platform Labour </strong> (làm việc nền tảng) và đa kỹ năng (Prompt Engineering, Digital Marketing).</p>
         </div>
         <ul class="points">
@@ -2583,14 +2588,14 @@
             </thead>
             <tbody>
               <tr>
-                <td style="color:var(--accent2); font-weight: 600;">ChatGPT-4o / Gemini</td>
+                <td style="color:#0369a1; font-weight: 700;">ChatGPT-4o / Gemini</td>
                 <td>Gợi ý cấu trúc slide, rà soát thuật ngữ Marxist (Ch2, Ch3, Ch6 Giáo trình 2021) và kiểm tra chuẩn APA.</td>
                 <td>Nghiên cứu luận điểm, liên hệ bối cảnh Gen Z, dẫn chứng thực tiễn Việt Nam & biện luận các vấn đề XHCN.</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p class="lead gsap-reveal" style="font-size: 0.95rem; margin-top: 1rem; color: var(--muted);"><strong>Cam kết:</strong> Không sử dụng AI để bịa đặt học thuật. Mọi lập luận Mác-Lênin gốc đều được đối chiếu chéo giáo trình & văn kiện Đảng.</p>
+        <p class="lead gsap-reveal" style="font-size: 0.95rem; margin-top: 1rem; color: #0c4a6e;"><strong>Cam kết:</strong> Không sử dụng AI để bịa đặt học thuật. Mọi lập luận Mác-Lênin gốc đều được đối chiếu chéo giáo trình & văn kiện Đảng.</p>
       </div>
     </section>
 
@@ -2646,22 +2651,43 @@
         <span class="milestone gsap-reveal"><span class="milestone__text">Trang 9 · Phụ lục</span></span>
         <h2 class="gsap-reveal">Danh mục Định nghĩa</h2>
         <p class="lead gsap-reveal" style="margin-bottom: 1rem;">Dùng để đối chiếu và hiểu rõ bài thuyết trình chuẩn xác theo giáo trình.</p>
-        <div style="column-count: 2; column-gap: 2rem; font-size: 0.9rem;" class="gsap-reveal">
-          <div style="margin-bottom: 1rem;">
-            <strong style="color: var(--accent-gold);">1. Lao động trừu tượng:</strong><br>Hao phí sức lao động nói chung của con người sản xuất hàng hóa. Tạo ra giá trị (tr. 35).
-          </div>
-          <div style="margin-bottom: 1rem;">
-            <strong style="color: var(--accent-gold);">2. TB Bất biến (c):</strong><br>Bộ phận tư bản (Tư liệu sản xuất) bảo toàn và chuyển đổi vẹn nguyên giá trị, không sinh M (tr. 82).
-          </div>
-          <div style="margin-bottom: 1rem;">
-            <strong style="color: var(--accent-gold);">3. TB Khả biến (v):</strong><br>Bộ phận mua lao động, thông qua hao phí tạo giá trị mới lớn hơn bản thân (tr. 83).
-          </div>
-          <div style="margin-bottom: 1rem;">
-            <strong style="color: var(--accent-gold);">4. GTTD Tương đối:</strong><br>Sinh ra do rút ngắn thời gian tất yếu thông qua tăng năng suất XH chung.
-          </div>
-          <div style="margin-bottom: 1rem;">
-            <strong style="color: var(--accent-gold);">5. Kinh tế tri thức:</strong><br>Hệ thống mà việc sản sinh, phổ cập tri thức đóng vai trò tạo của cải quyết định nhất (tr. 226).
-          </div>
+        <div class="refs-table-wrap gsap-reveal">
+          <table class="refs-table">
+            <thead>
+              <tr>
+                <th scope="col" class="col-stt">STT</th>
+                <th scope="col" class="col-source">Thuật ngữ</th>
+                <th scope="col">Ý nghĩa / Căn cứ giáo trình</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-stt">1</td>
+                <td class="col-source">Lao động trừu tượng</td>
+                <td>Hao phí sức lao động nói chung của con người sản xuất hàng hóa. Tạo ra giá trị (tr. 35).</td>
+              </tr>
+              <tr>
+                <td class="col-stt">2</td>
+                <td class="col-source">TB Bất biến (c)</td>
+                <td>Bộ phận tư bản (Tư liệu sản xuất) bảo toàn và chuyển đổi vẹn nguyên giá trị, không sinh m (tr. 82).</td>
+              </tr>
+              <tr>
+                <td class="col-stt">3</td>
+                <td class="col-source">TB Khả biến (v)</td>
+                <td>Bộ phận mua sức lao động, thông qua hao phí tạo giá trị mới lớn hơn bản thân (tr. 83).</td>
+              </tr>
+              <tr>
+                <td class="col-stt">4</td>
+                <td class="col-source">GTTD Tương đối</td>
+                <td>Sinh ra do rút ngắn thời gian tất yếu thông qua tăng năng suất XH chung.</td>
+              </tr>
+              <tr>
+                <td class="col-stt">5</td>
+                <td class="col-source">Kinh tế tri thức</td>
+                <td>Hệ thống mà việc sản sinh, phổ cập tri thức đóng vai trò tạo của cải quyết định nhất (tr. 226).</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
