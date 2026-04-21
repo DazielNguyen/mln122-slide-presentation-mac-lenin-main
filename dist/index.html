@@ -1,0 +1,2687 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nhóm 5 — Kinh tế chính trị Mác-Lên-nin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  
+  <!-- Libraries -->
+  <script type="module"></script>
+  <style>
+    :root {
+      /* === LIGHT PROFESSIONAL THEME === */
+      /* Canvas */
+      --bg: #f0f9ff;
+      --bg-alt: #e0f2fe;
+
+      /* Typography */
+      --text: #0c4a6e;         /* deep ocean blue - high contrast */
+      --muted: #0369a1;        /* medium ocean blue */
+      --muted-light: #7EB3D0;  /* light accent text */
+
+      /* Accents */
+      --accent: #0891b2;       /* Cyan-600 - primary teal */
+      --accent-gold: #0369a1;  /* Deep Sky Blue instead of gold */
+      --accent2: #06b6d4;      /* Cyan-500 - secondary */
+      --accent3: #6366f1;      /* Indigo-500 - tertiary pop */
+      --danger: #0891b2;
+
+      /* Glassmorphism surfaces */
+      --glass: rgba(255, 255, 255, 0.65);
+      --glass-border: rgba(8, 145, 178, 0.18);
+
+      /* Fonts */
+      --font-serif: "Instrument Serif", serif;
+      --font-sans: "Open Sans", "Be Vietnam Pro", system-ui, sans-serif;
+      --font-display: "Poppins", "Be Vietnam Pro", sans-serif;
+      --font-vn: "Be Vietnam Pro", "Open Sans", system-ui, sans-serif;
+
+      --ease: cubic-bezier(0.23, 1, 0.32, 1);
+      --dur: 0.8s;
+
+      /* Header accent line */
+      --header-neon: #0891b2;
+      --header-neon-core: #06b6d4;
+      --header-neon-glow: rgba(6, 182, 212, 0.45);
+
+      /* Surface layers (glassmorphism on light) */
+      --surface: rgba(255, 255, 255, 0.72);
+      --surface-elevated: rgba(255, 255, 255, 0.92);
+      --surface-border: rgba(8, 145, 178, 0.15);
+      --surface-border-strong: rgba(8, 145, 178, 0.35);
+      --shadow-card: 0 8px 32px rgba(8, 145, 178, 0.12), 0 2px 8px rgba(0,0,0,0.06);
+      --radius-card: 18px;
+
+      /* Content widths */
+      --content-col-max: min(96vw, 1200px);
+      --content-prose-max: min(78ch, 100%);
+
+      --card-shine: rgba(255, 255, 255, 0.7);
+      --card-edge: rgba(8, 145, 178, 0.15);
+    }
+
+    @keyframes scroll-out-up {
+      from {
+        transform: translate3d(0, 0, 0);
+      }
+      to {
+        transform: translate3d(0, -100vh, 0);
+      }
+    }
+
+    @keyframes scroll-out-down {
+      from {
+        transform: translate3d(0, 0, 0);
+      }
+      to {
+        transform: translate3d(0, 100vh, 0);
+      }
+    }
+
+    @keyframes scroll-in-from-bottom {
+      from {
+        transform: translate3d(0, 100vh, 0);
+      }
+      to {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    @keyframes scroll-in-from-top {
+      from {
+        transform: translate3d(0, -100vh, 0);
+      }
+      to {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+
+    .deck {
+      width: 100%;
+    }
+
+    section.slide {
+      height: 100vh;
+      height: 100dvh;
+      min-height: 100vh;
+      width: 100%;
+      position: relative;
+      overflow-x: hidden;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      flex-shrink: 0;
+    }
+
+    section.slide.slide--content {
+      overflow-x: visible;
+    }
+
+    /* —— Slide bìa —— */
+    .slide--cover {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: var(--bg);
+    }
+
+    .slide-cover-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.12;
+      filter: grayscale(0.3) contrast(1.1) brightness(1.2);
+    }
+
+    .slide-cover-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, transparent 0%, rgba(240, 249, 255, 0.95) 85%);
+      z-index: 1;
+    }
+
+    .slide-cover-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: none;
+      padding-inline: clamp(1rem, 4vw, 3rem);
+      box-sizing: border-box;
+    }
+
+    .cover-kicker {
+      margin-bottom: clamp(1.25rem, 3vh, 2rem);
+    }
+
+    h1.hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 10vw, 8rem);
+      line-height: 0.9;
+      margin-bottom: 2rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      word-spacing: 0;
+      font-kerning: normal;
+    }
+
+    .cover-sub {
+      font-size: 1.25rem;
+      color: var(--muted);
+      max-width: 60ch;
+      margin: 0 auto 3rem;
+    }
+
+    .btn-start {
+      background: var(--accent);
+      border: none;
+      color: #fff;
+      padding: 1rem 3rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 50px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s var(--ease);
+      box-shadow: 0 4px 20px rgba(8, 145, 178, 0.35);
+    }
+
+    .btn-start:hover {
+      background: #0369a1;
+      box-shadow: 0 8px 32px rgba(8, 145, 178, 0.5);
+      transform: translateY(-2px);
+    }
+
+    /* Nút tròn → demo cờ Three.js + tay */
+    .fab-flag-demo {
+      position: fixed;
+      left: 1.25rem;
+      bottom: 1.25rem;
+      z-index: 1002;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.35rem;
+      line-height: 1;
+      background: linear-gradient(145deg, #0891b2, #0369a1);
+      color: #fff;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      box-shadow:
+        0 6px 24px rgba(8, 145, 178, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+      transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s var(--ease);
+    }
+
+    .fab-flag-demo:hover {
+      transform: scale(1.07);
+      border-color: rgba(255, 255, 255, 0.8);
+      box-shadow:
+        0 10px 36px rgba(8, 145, 178, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    .fab-flag-demo:active {
+      transform: scale(0.98);
+    }
+
+    .fab-flag-demo span {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Nút AI — tròn, góc trái phía trên, mở dialog khai báo usage */
+    .fab-ai-usage {
+      position: fixed;
+      top: max(5.25rem, calc(env(safe-area-inset-top, 0px) + 4.5rem));
+      left: max(1rem, env(safe-area-inset-left, 0px));
+      z-index: 1003;
+      width: 52px;
+      height: 52px;
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      background: linear-gradient(145deg, #0891b2 0%, #0369a1 60%, #075985 100%);
+      border: 2px solid rgba(255, 255, 255, 0.45);
+      box-shadow:
+        0 0 0 1px rgba(8, 145, 178, 0.15),
+        0 8px 28px rgba(8, 145, 178, 0.35),
+        0 0 24px rgba(6, 182, 212, 0.2);
+      transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s var(--ease);
+    }
+
+    .fab-ai-usage:hover {
+      transform: scale(1.08);
+      border-color: rgba(255, 255, 255, 0.7);
+      box-shadow:
+        0 0 0 1px rgba(8, 145, 178, 0.25),
+        0 12px 36px rgba(8, 145, 178, 0.45),
+        0 0 32px rgba(6, 182, 212, 0.3);
+    }
+
+    .fab-ai-usage:active {
+      transform: scale(0.97);
+    }
+
+    .fab-ai-usage svg {
+      width: 26px;
+      height: 26px;
+      display: block;
+    }
+
+    /* Botpress Webchat v3 — luôn nổi trên UI trình chiếu (inject tạo #bp-web-widget) */
+    #bp-web-widget {
+      z-index: 10050 !important;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @keyframes ai-dialog-in {
+      from {
+        opacity: 0;
+        transform: scale(0.92) translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    @keyframes ai-dialog-out {
+      from {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+      to {
+        opacity: 0;
+        transform: scale(0.92) translateY(12px);
+      }
+    }
+
+    @keyframes ai-backdrop-in {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes ai-backdrop-out {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+
+    .ai-usage-dialog {
+      max-width: min(42rem, calc(100vw - 2rem));
+      width: 100%;
+      margin: auto;
+      padding: 0;
+      border: none;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.97);
+      color: var(--text);
+      box-shadow: 0 24px 80px rgba(8, 145, 178, 0.2), 0 4px 16px rgba(0,0,0,0.08);
+      border: 1px solid rgba(8, 145, 178, 0.2);
+    }
+
+    .ai-usage-dialog[open] {
+      animation: ai-dialog-in 0.34s var(--ease) both;
+    }
+
+    .ai-usage-dialog[open]::backdrop {
+      background: rgba(2, 4, 10, 0.72);
+      backdrop-filter: blur(6px);
+      animation: ai-backdrop-in 0.3s ease both;
+    }
+
+    .ai-usage-dialog[open].ai-usage-dialog--closing {
+      animation: ai-dialog-out 0.28s var(--ease) forwards;
+    }
+
+    .ai-usage-dialog[open].ai-usage-dialog--closing::backdrop {
+      animation: ai-backdrop-out 0.26s ease forwards;
+    }
+
+    .ai-usage-dialog__inner {
+      position: relative;
+      padding: clamp(1.25rem, 3vw, 1.75rem);
+      max-height: min(78vh, 640px);
+      overflow-y: auto;
+    }
+
+    .ai-usage-dialog__close {
+      position: absolute;
+      top: 0.65rem;
+      right: 0.65rem;
+      width: 2.25rem;
+      height: 2.25rem;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      font-size: 1.35rem;
+      line-height: 1;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: background 0.2s;
+    }
+
+    .ai-usage-dialog__close:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .ai-usage-dialog h2 {
+      font-family: var(--font-vn);
+      font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+      font-weight: 700;
+      margin: 0 2.5rem 0.85rem 0;
+      padding-bottom: 0.65rem;
+      border-bottom: 1px solid rgba(94, 225, 208, 0.25);
+      color: #f4f7fb;
+    }
+
+    .ai-usage-dialog__lead {
+      font-size: clamp(0.92rem, 1.35vw, 1.02rem);
+      line-height: 1.55;
+      color: rgba(200, 208, 228, 0.95);
+      margin: 0 0 1.1rem;
+    }
+
+    .ai-usage-dialog__list {
+      margin: 0 0 1.15rem;
+      padding: 0 0 0 1.15rem;
+      font-size: clamp(0.9rem, 1.3vw, 1rem);
+      line-height: 1.55;
+      color: rgba(218, 224, 240, 0.96);
+    }
+
+    .ai-usage-dialog__list li {
+      margin-bottom: 0.75rem;
+    }
+
+    .ai-usage-dialog__list strong {
+      color: var(--accent2);
+      font-weight: 700;
+    }
+
+    .ai-usage-dialog__foot {
+      font-size: clamp(0.86rem, 1.2vw, 0.95rem);
+      line-height: 1.5;
+      color: rgba(160, 170, 195, 0.95);
+      margin: 0;
+      padding-top: 0.85rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Nút trong slide — mở dialog minh họa */
+    .btn-slide-secondary {
+      align-self: center;
+      margin-top: 0.35rem;
+      padding: 0.65rem 1.35rem;
+      font-family: var(--font-vn);
+      font-size: clamp(0.88rem, 1.2vw, 0.98rem);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      color: rgba(232, 238, 255, 0.96);
+      background: rgba(94, 225, 208, 0.1);
+      border: 1px solid rgba(94, 225, 208, 0.42);
+      border-radius: 12px;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04);
+      transition: background 0.22s var(--ease), border-color 0.22s var(--ease), transform 0.2s var(--ease);
+    }
+
+    .btn-slide-secondary:hover {
+      background: rgba(94, 225, 208, 0.18);
+      border-color: rgba(127, 255, 240, 0.55);
+      transform: translateY(-1px);
+    }
+
+    .btn-slide-secondary:active {
+      transform: translateY(0);
+    }
+
+    /* Dialog — sơ đồ ba tầng CSHT (ảnh lớn, cuộn được) */
+    .infra-chart-dialog {
+      max-width: min(97vw, 80rem);
+      width: 100%;
+      margin: auto;
+      padding: 0;
+      border: none;
+      border-radius: 16px;
+      background: linear-gradient(165deg, rgba(22, 28, 44, 0.98), rgba(10, 12, 22, 0.98));
+      color: var(--text);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+    }
+
+    .infra-chart-dialog[open] {
+      animation: ai-dialog-in 0.34s var(--ease) both;
+    }
+
+    .infra-chart-dialog[open]::backdrop {
+      background: rgba(2, 4, 10, 0.72);
+      backdrop-filter: blur(6px);
+      animation: ai-backdrop-in 0.3s ease both;
+    }
+
+    .infra-chart-dialog[open].infra-chart-dialog--closing {
+      animation: ai-dialog-out 0.28s var(--ease) forwards;
+    }
+
+    .infra-chart-dialog[open].infra-chart-dialog--closing::backdrop {
+      animation: ai-backdrop-out 0.26s ease forwards;
+    }
+
+    .infra-chart-dialog__inner {
+      position: relative;
+      padding: clamp(1.1rem, 2.5vw, 1.5rem);
+      padding-top: clamp(2.5rem, 4vw, 2.85rem);
+      max-height: min(95vh, 1240px);
+      overflow: auto;
+    }
+
+    .infra-chart-dialog h2 {
+      font-family: var(--font-vn);
+      font-size: clamp(1rem, 1.9vw, 1.2rem);
+      font-weight: 700;
+      margin: 0 2.5rem 0.75rem 0;
+      padding-bottom: 0.55rem;
+      border-bottom: 1px solid rgba(94, 225, 208, 0.22);
+      color: #f4f7fb;
+      line-height: 1.35;
+    }
+
+    .infra-chart-dialog__figure {
+      margin: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.25);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    }
+
+    .infra-chart-dialog__img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* —— Content Slides —— */
+    .slide--content {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 4rem;
+      padding: 6rem;
+      align-items: center;
+    }
+
+    .slide-main {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(1.15rem, 2.2vh, 1.65rem);
+    }
+
+    /* —— Header neon + đường kẻ tắt (phụ lục / bìa / slide nội dung) —— */
+    .toc-eyebrow,
+    .slide--cover .cover-kicker,
+    .slide--content .milestone {
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(0.55rem, 1.8vw, 1rem);
+      font-family: var(--font-display), "Inter", system-ui, sans-serif;
+      font-size: clamp(0.52rem, 0.85vw, 0.72rem);
+      font-weight: 800;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--header-neon-core);
+      text-shadow:
+        0 0 6px var(--header-neon-glow),
+        0 0 16px rgba(64, 220, 200, 0.5),
+        0 0 32px rgba(40, 180, 160, 0.22);
+    }
+
+    .toc-eyebrow,
+    .slide--cover .cover-kicker {
+      display: inline-flex;
+      max-width: 100%;
+    }
+
+    .slide--content .milestone {
+      display: flex;
+      width: 100%;
+      max-width: var(--content-col-max);
+      margin-inline: auto;
+      text-align: center;
+      line-height: 1.35;
+    }
+
+    .slide--content .milestone__text {
+      flex: 0 1 auto;
+      min-width: 0;
+    }
+
+    .toc-eyebrow::before,
+    .toc-eyebrow::after,
+    .slide--cover .cover-kicker::before,
+    .slide--cover .cover-kicker::after,
+    .slide--content .milestone::before,
+    .slide--content .milestone::after {
+      content: "";
+      flex: 1 1 0;
+      height: 1px;
+      min-width: 1.25rem;
+      max-width: min(30vw, 220px);
+    }
+
+    .toc-eyebrow::before,
+    .slide--cover .cover-kicker::before,
+    .slide--content .milestone::before {
+      background: linear-gradient(90deg, transparent, var(--header-neon));
+      box-shadow: 0 0 8px rgba(94, 225, 208, 0.55), 0 0 18px rgba(50, 200, 180, 0.28);
+    }
+
+    .toc-eyebrow::after,
+    .slide--cover .cover-kicker::after,
+    .slide--content .milestone::after {
+      background: linear-gradient(90deg, var(--header-neon), transparent);
+      box-shadow: 0 0 8px rgba(94, 225, 208, 0.55), 0 0 18px rgba(50, 200, 180, 0.28);
+    }
+
+    h2 {
+      font-family: var(--font-vn);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.1;
+      font-weight: 600;
+      letter-spacing: 0;
+      word-spacing: 0;
+      font-kerning: normal;
+    }
+
+    .lead {
+      font-size: 1.25rem;
+      color: var(--muted);
+      max-width: 50ch;
+    }
+
+    .points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .points li {
+      padding-left: 2rem;
+      position: relative;
+      font-size: 1.1rem;
+    }
+
+    .points li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.6em;
+      width: 10px;
+      height: 1px;
+      background: var(--accent-gold);
+    }
+
+    .slide-aside {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .slide-thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--bg-alt);
+      border: 1px solid var(--glass-border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(0.2) contrast(1.1);
+      transition: transform 0.8s var(--ease);
+    }
+
+    .slide-thumb:hover img {
+      transform: scale(1.05);
+    }
+
+    .link-strip {
+      display: flex;
+      gap: 0.5rem;
+      background: var(--bg-alt);
+      padding: 0.75rem;
+      border: 1px solid var(--glass-border);
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+
+    /* UI Chrome */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: rgba(8, 145, 178, 0.08);
+      z-index: 1000;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      width: 0%;
+    }
+
+    .slide-nav {
+      position: fixed;
+      left: 3rem;
+      bottom: 3rem;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .nav-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(8, 145, 178, 0.2);
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.3s var(--ease);
+    }
+
+    .nav-dot.active {
+      background: var(--accent);
+      transform: scale(1.5);
+    }
+
+    .slide-counter {
+      position: fixed;
+      right: 3rem;
+      bottom: 2rem;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      z-index: 1001;
+      pointer-events: none;
+    }
+    .slide-counter span {
+      color: var(--accent);
+    }
+
+    .controls {
+      position: fixed;
+      right: 1.5rem;
+      top: 1.5rem;
+      bottom: auto;
+      display: flex;
+      gap: 0.75rem;
+      z-index: 1001;
+    }
+
+    .controls button {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      color: var(--text);
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: all 0.3s var(--ease);
+    }
+
+    .controls button:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Custom Animations for GSAP */
+    .gsap-reveal {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(30px);
+    }
+    
+    .gsap-line { overflow: hidden; }
+
+    @media (max-width: 1024px) {
+      .slide--content {
+        grid-template-columns: 1fr;
+        padding: 3rem 1.5rem;
+        gap: 2rem;
+      }
+      .slide-aside { order: -1; }
+      h2 { font-size: 2rem; }
+    }
+
+    /* —— Phụ lục trình chiếu —— */
+    .slide--toc {
+      grid-template-columns: 1fr;
+      padding: clamp(1rem, 3vh, 2rem) clamp(1rem, 4vw, 2rem);
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(ellipse 130% 100% at 50% -25%, rgba(8, 145, 178, 0.14), transparent 52%),
+        radial-gradient(ellipse 90% 70% at 100% 40%, rgba(6, 182, 212, 0.08), transparent 48%),
+        radial-gradient(ellipse 70% 55% at 0% 85%, rgba(99, 102, 241, 0.07), transparent 42%),
+        linear-gradient(180deg, #e0f7ff 0%, #f0f9ff 42%, #e8f4fd 100%);
+    }
+
+    .toc-shell {
+      width: min(1120px, 94vw);
+      max-height: min(92vh, 900px);
+      overflow: auto;
+      margin-inline: auto;
+      padding: clamp(1rem, 2.5vw, 1.75rem);
+      display: flex;
+      flex-direction: column;
+      gap: clamp(1.1rem, 2.5vh, 1.75rem);
+    }
+
+    .toc-header {
+      text-align: center;
+      max-width: min(40rem, 100%);
+      margin-inline: auto;
+    }
+
+    .toc-header .toc-eyebrow {
+      display: flex;
+      width: 100%;
+      margin-bottom: 0.65rem;
+    }
+
+    .toc-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4.8vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.06;
+      margin: 0 0 0.5rem;
+      color: var(--text);
+    }
+
+    .toc-title em {
+      font-style: italic;
+      color: var(--accent-gold);
+    }
+
+    .toc-lead {
+      font-size: clamp(0.9rem, 1.25vw, 1.02rem);
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .toc-hero {
+      position: relative;
+      padding: clamp(1.15rem, 2.4vw, 1.55rem) clamp(1.2rem, 2.8vw, 1.65rem);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(8, 145, 178, 0.18);
+      box-shadow:
+        0 0 0 1px rgba(8, 145, 178, 0.08),
+        0 12px 32px rgba(8, 145, 178, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+    }
+
+    .toc-hero-label {
+      font-family: var(--font-display);
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 0.4rem;
+    }
+
+    .toc-hero-title {
+      font-family: var(--font-vn);
+      font-size: clamp(1.08rem, 1.85vw, 1.28rem);
+      font-weight: 700;
+      color: var(--text);
+      margin: 0 0 0.45rem;
+      line-height: 1.25;
+    }
+
+    .toc-hero .toc-meta {
+      font-size: clamp(0.84rem, 1.15vw, 0.96rem);
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .toc-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(0.55rem, 1.2vw, 0.75rem);
+    }
+
+    @media (min-width: 720px) {
+      .toc-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .toc-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.7rem 0.85rem;
+      }
+    }
+
+    .toc-node {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem 1rem;
+      padding: clamp(0.75rem, 1.5vw, 0.95rem) clamp(0.85rem, 1.8vw, 1.1rem);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(8, 145, 178, 0.15);
+      backdrop-filter: blur(8px);
+      transition:
+        border-color 0.25s var(--ease),
+        background 0.25s var(--ease),
+        transform 0.25s var(--ease),
+        box-shadow 0.25s var(--ease);
+    }
+
+    .toc-node[data-target] {
+      cursor: pointer;
+    }
+
+    .toc-node[data-target]:hover {
+      border-color: rgba(8, 145, 178, 0.4);
+      background: rgba(255, 255, 255, 0.9);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(8, 145, 178, 0.15);
+    }
+
+    .toc-node[data-target]:active {
+      transform: translateY(0);
+    }
+
+    .toc-node[data-target]:focus-visible {
+      outline: 2px solid rgba(8, 145, 178, 0.65);
+      outline-offset: 2px;
+    }
+
+    .toc-num {
+      flex-shrink: 0;
+      min-width: 2.35rem;
+      padding: 0.2rem 0;
+      font-family: var(--font-display);
+      font-size: clamp(0.78rem, 1.1vw, 0.88rem);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      text-align: center;
+      line-height: 1.2;
+      border-radius: 8px;
+      background: rgba(8, 145, 178, 0.1);
+      border: 1px solid rgba(8, 145, 178, 0.25);
+    }
+
+    .toc-node-body {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .toc-node strong {
+      display: block;
+      font-family: var(--font-vn);
+      font-size: clamp(0.92rem, 1.3vw, 1.05rem);
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+      line-height: 1.3;
+    }
+
+    .toc-node .toc-meta {
+      display: block;
+      font-size: clamp(0.78rem, 1.05vw, 0.9rem);
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .slide--toc .gsap-reveal {
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+    }
+
+    .slide--toc.toc--entering {
+      transform: translateY(110vh) scale(0.96);
+      opacity: 0;
+    }
+
+    .slide--toc.active.toc--entering {
+      animation: tocRise 1.15s var(--slide-ease) forwards;
+      z-index: 14;
+    }
+
+    @keyframes tocRise {
+      0% {
+        transform: translateY(110vh) scale(0.96);
+        opacity: 0;
+      }
+      55% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* —— Slide nội dung —— */
+    .slide--content {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: minmax(0, 1fr);
+      align-content: center;
+      align-items: center;
+      justify-items: center;
+      gap: clamp(1.25rem, 3vw, 3rem);
+      padding: clamp(2.5rem, 7vw, 5.5rem) clamp(1.75rem, 7vw, 6rem);
+    }
+
+    .slide--content.no-media {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .slide--content.no-media .slide-aside {
+      display: none;
+    }
+
+    .slide--content.no-media .slide-main {
+      max-width: var(--content-col-max);
+    }
+
+    .slide--content .slide-main {
+      max-width: var(--content-col-max);
+      width: 100%;
+      margin-block: auto;
+      flex: 0 1 auto;
+      padding: clamp(1.35rem, 3vw, 2rem) clamp(1rem, 3vw, 1.5rem);
+      padding-top: clamp(2.1rem, 4.5vh, 3.25rem);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(8, 145, 178, 0.12);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        0 8px 32px rgba(8, 145, 178, 0.1);
+      backdrop-filter: blur(14px);
+    }
+
+    .slide--content h2 {
+      font-size: clamp(2.35rem, 5.2vw, 3.85rem);
+      letter-spacing: 0;
+      font-family: var(--font-vn);
+      font-weight: 600;
+    }
+
+    /* Tiêu đề slide: full chiều ngang viewport + gạch gradient dưới */
+    .slide.slide--content .slide-main > h2 {
+      position: relative;
+      width: 100vw;
+      max-width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      margin-bottom: clamp(0.35rem, 1.2vh, 0.75rem);
+      padding-inline: clamp(1.25rem, 5vw, 4rem);
+      padding-bottom: clamp(0.75rem, 2vh, 1.15rem);
+      box-sizing: border-box;
+      text-align: center;
+      line-height: 1.12;
+      font-size: clamp(2.55rem, 6.2vw, 4.35rem);
+      color: var(--text);
+      text-shadow: none;
+    }
+
+    .slide.slide--content .slide-main > h2::after {
+      content: "";
+      display: block;
+      width: min(11rem, 42vw);
+      height: 2px;
+      margin: clamp(0.55rem, 1.4vh, 0.95rem) auto 0;
+      border-radius: 2px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(8, 145, 178, 0.3) 20%,
+        var(--accent) 50%,
+        rgba(99, 102, 241, 0.5) 78%,
+        transparent
+      );
+      box-shadow: 0 0 14px rgba(8, 145, 178, 0.2);
+    }
+
+    .slide--content .lead,
+    .slide--content .slide-panel .lead {
+      font-size: clamp(1.12rem, 2vw, 1.52rem);
+      line-height: 1.58;
+      max-width: var(--content-prose-max);
+      margin-inline: auto;
+      color: var(--text);
+    }
+
+    .slide--content .lead--note {
+      margin-top: clamp(0.85rem, 2vh, 1.25rem);
+      padding: clamp(0.95rem, 2vw, 1.2rem) clamp(1.05rem, 2.2vw, 1.35rem);
+      border-radius: var(--radius-card);
+      border: 1px dashed rgba(94, 225, 208, 0.38);
+      background: rgba(8, 40, 42, 0.28);
+      box-shadow: inset 0 0 0 1px rgba(94, 225, 208, 0.06);
+    }
+
+    .slide--content .lead--note code {
+      font-size: 0.88em;
+      padding: 0.12em 0.35em;
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .slide--content .lead--after-list {
+      margin-top: clamp(0.85rem, 2vh, 1.2rem);
+    }
+
+    .slide--content ul.points {
+      margin-top: clamp(0.35rem, 1vh, 0.65rem);
+    }
+
+    .question-block {
+      font-family: var(--font-vn);
+      font-size: clamp(1.1rem, 1.9vw, 1.38rem);
+      font-weight: 500;
+      line-height: 1.55;
+      padding: clamp(1.05rem, 2vw, 1.35rem) clamp(1.15rem, 2.2vw, 1.45rem);
+      margin: clamp(0.25rem, 1vh, 0.5rem) auto clamp(0.75rem, 2vh, 1.1rem);
+      max-width: var(--content-prose-max);
+      border-radius: var(--radius-card);
+      border: 1px solid rgba(8, 145, 178, 0.3);
+      border-left: 4px solid var(--accent);
+      background: rgba(224, 247, 255, 0.7);
+      box-shadow: var(--shadow-card);
+      color: var(--text);
+    }
+
+    .cite-footer {
+      margin-top: clamp(1rem, 2.5vh, 1.5rem);
+      padding-top: clamp(0.75rem, 1.8vh, 1rem);
+      border-top: 1px solid rgba(8, 145, 178, 0.2);
+      font-size: clamp(0.86rem, 1.15vw, 0.98rem);
+      color: var(--muted);
+      font-style: italic;
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+
+    .apa-list {
+      list-style: none;
+      margin: 0.75rem 0 0;
+      padding: 0;
+      font-size: clamp(0.82rem, 1.15vw, 0.98rem);
+      color: var(--text);
+    }
+
+    .apa-list li {
+      padding: 0.45rem 0;
+      border-bottom: 1px solid rgba(8, 145, 178, 0.1);
+    }
+
+    /* Slide bảng nguồn trích dẫn (APA) */
+    .slide--refs.slide--content.no-media .slide-main {
+      max-width: min(96vw, 72rem);
+    }
+
+    .slide--refs.slide--content .slide-main > h2 {
+      font-size: clamp(1.85rem, 4.2vw, 3rem);
+    }
+
+    .refs-table-wrap {
+      width: 100%;
+      margin-top: clamp(0.35rem, 1.2vh, 0.75rem);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 14px;
+      border: 1px solid rgba(8, 145, 178, 0.15);
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 2px 8px rgba(8, 145, 178, 0.08);
+    }
+
+    .refs-table {
+      width: 100%;
+      min-width: 36rem;
+      border-collapse: collapse;
+      font-family: var(--font-vn);
+      font-size: clamp(0.72rem, 1.05vw, 0.9rem);
+      line-height: 1.45;
+      color: var(--text);
+    }
+
+    .refs-table thead th {
+      text-align: left;
+      padding: 0.65rem 0.75rem;
+      font-weight: 700;
+      font-size: 0.92em;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(8, 145, 178, 0.06);
+      border-bottom: 1px solid rgba(8, 145, 178, 0.2);
+      white-space: nowrap;
+    }
+
+    .refs-table tbody td {
+      padding: 0.65rem 0.75rem;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(8, 145, 178, 0.1);
+      word-break: break-word;
+    }
+
+    .refs-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .refs-table tbody tr:hover td {
+      background: rgba(8, 145, 178, 0.04);
+    }
+
+    .refs-table .col-stt {
+      width: 2.75rem;
+      text-align: center;
+      font-weight: 700;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .refs-table .col-source {
+      width: 22%;
+      min-width: 9rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .refs-table a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .refs-table a:hover {
+      color: #0369a1;
+    }
+
+    /* Slide CQ10 — cùng layout slide--content; chỉ thêm watermark KHÔNG phía sau khối glass */
+    .slide.slide--content.slide--cq10 {
+      position: relative;
+    }
+
+    .slide.slide--content.slide--cq10 .slide--cq10-watermark {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 0;
+      pointer-events: none;
+      user-select: none;
+      font-family: var(--font-display), system-ui, sans-serif;
+      font-weight: 800;
+      font-size: clamp(4rem, 17vw, 11rem);
+      letter-spacing: -0.03em;
+      color: rgba(232, 238, 255, 0.055);
+      text-shadow: 0 0 100px rgba(94, 225, 208, 0.06);
+    }
+
+    .slide.slide--content.slide--cq10 .slide-main {
+      position: relative;
+      z-index: 1;
+    }
+
+    .slide.slide--content.slide--cq10 .card-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (max-width: 720px) {
+      .slide.slide--content.slide--cq10 .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .slide.slide--content.slide--cq10 .slide-main > h2 .slide--cq10-subline {
+      display: block;
+      margin-top: clamp(0.12rem, 0.7vh, 0.4rem);
+      font-size: clamp(1.55rem, 4.2vw, 2.75rem);
+      font-weight: 700;
+    }
+
+    .slide.slide--content.slide--cq10 .slide--cq10-khong {
+      color: var(--accent-gold);
+      text-shadow: 0 0 28px rgba(207, 181, 59, 0.35);
+      border-bottom: 2px solid rgba(218, 37, 29, 0.7);
+      padding: 0 0.06em;
+    }
+
+    /* Slide thăm dò — 3 nút + gợi ý theo lựa chọn */
+    .slide-poll__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem 0.85rem;
+      justify-content: center;
+      align-items: center;
+      margin: clamp(1rem, 2.2vh, 1.5rem) auto 0;
+      max-width: 42rem;
+    }
+
+    .slide-poll__btn {
+      flex: 1 1 auto;
+      min-width: 8.5rem;
+      padding: 0.7rem 1.2rem;
+      font-family: var(--font-vn);
+      font-size: clamp(0.86rem, 1.2vw, 0.98rem);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      border-radius: 999px;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(16, 22, 40, 0.55);
+      color: rgba(240, 244, 255, 0.95);
+      transition: opacity 0.2s var(--ease), transform 0.2s var(--ease), border-color 0.2s var(--ease);
+    }
+
+    .slide-poll__btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      border-color: rgba(94, 225, 208, 0.45);
+    }
+
+    .slide-poll__btn--active {
+      box-shadow:
+        0 0 0 2px rgba(94, 225, 208, 0.35),
+        0 8px 28px rgba(0, 0, 0, 0.35);
+      border-color: rgba(127, 255, 240, 0.55) !important;
+    }
+
+    .slide-poll__btn--agree.slide-poll__btn--active {
+      box-shadow:
+        0 0 0 2px rgba(94, 225, 208, 0.4),
+        0 8px 28px rgba(0, 0, 0, 0.35);
+    }
+
+    .slide-poll__btn--disagree.slide-poll__btn--active {
+      box-shadow:
+        0 0 0 2px rgba(218, 37, 29, 0.45),
+        0 8px 28px rgba(0, 0, 0, 0.35);
+    }
+
+    .slide-poll__btn--neutral.slide-poll__btn--active {
+      box-shadow:
+        0 0 0 2px rgba(207, 181, 59, 0.45),
+        0 8px 28px rgba(0, 0, 0, 0.35);
+    }
+
+    .slide-poll__btn--agree {
+      border-color: rgba(94, 225, 208, 0.55);
+      box-shadow: 0 0 0 1px rgba(94, 225, 208, 0.12);
+    }
+
+    .slide-poll__btn--disagree {
+      border-color: rgba(218, 37, 29, 0.55);
+      box-shadow: 0 0 0 1px rgba(218, 37, 29, 0.12);
+    }
+
+    .slide-poll__btn--neutral {
+      border-color: rgba(207, 181, 59, 0.5);
+      box-shadow: 0 0 0 1px rgba(207, 181, 59, 0.1);
+    }
+
+    .slide-poll__panel {
+      margin-top: clamp(1rem, 2vh, 1.35rem);
+      padding: clamp(1rem, 2vw, 1.35rem) clamp(1.1rem, 2.2vw, 1.5rem);
+      border-radius: var(--radius-card);
+      text-align: left;
+      border: 1px solid rgba(8, 145, 178, 0.18);
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: var(--shadow-card);
+      backdrop-filter: blur(8px);
+    }
+
+    .slide-poll__panel[hidden] {
+      display: none !important;
+    }
+
+    .slide-poll__hint {
+      font-size: clamp(0.72rem, 1vw, 0.82rem);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 0.45rem;
+    }
+
+    .slide-poll__panel h3 {
+      font-family: var(--font-vn);
+      font-size: clamp(1.05rem, 1.8vw, 1.28rem);
+      font-weight: 700;
+      margin: 0 0 0.65rem;
+      color: var(--text);
+    }
+
+    .slide-poll__panel ul {
+      margin: 0;
+      padding-left: 1.15rem;
+      font-family: var(--font-vn);
+      font-size: clamp(0.9rem, 1.35vw, 1.05rem);
+      line-height: 1.55;
+      color: var(--text);
+    }
+
+    .slide-poll__panel li + li {
+      margin-top: 0.45rem;
+    }
+
+    .slide-chapter {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.65rem 1.25rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid rgba(232, 197, 71, 0.15);
+    }
+
+    .slide.slide--cover .slide-cover-inner {
+      padding-top: clamp(1.5rem, 4vh, 2.75rem);
+    }
+
+    .slide.slide--content .slide-main > .milestone:first-child {
+      margin-top: 0;
+      margin-bottom: clamp(0.25rem, 1vh, 0.65rem);
+      pointer-events: none;
+    }
+
+    .chapter-name {
+      font-size: clamp(0.88rem, 1.25vw, 1.05rem);
+      color: var(--accent2);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+    }
+
+    /* Cầu nối giữa các slide — luồng trình bày liên tục */
+    .slide-bridge {
+      font-size: clamp(0.78rem, 1.05vw, 0.9rem);
+      color: rgba(139, 149, 174, 0.98);
+      font-style: italic;
+      line-height: 1.5;
+      margin: 0 0 0.75rem;
+      padding: 0.55rem 0.85rem;
+      border-left: 3px solid rgba(61, 214, 199, 0.55);
+      background: rgba(224, 247, 255, 0.7);
+      border-radius: 0 10px 10px 0;
+    }
+
+    .slide-bridge strong {
+      font-style: normal;
+      color: var(--accent2);
+      font-weight: 700;
+    }
+
+    .two-col .col-head {
+      display: block;
+      font-size: clamp(0.82rem, 1.05vw, 0.95rem);
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.45rem;
+    }
+
+    /* Lưới nội dung: chữ chiếm phần lớn — cột phụ = icon liên kết + ảnh thumb (không full màn hình) */
+    .slide__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(148px, 210px);
+      gap: clamp(0.85rem, 2vw, 1.35rem);
+      align-items: start;
+      min-height: 0;
+      flex: 1;
+    }
+
+    .slide-aside {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.6rem;
+      min-width: 0;
+    }
+
+    /* Dải icon: luôn thể hiện mạch CSHT ↔ KTTT, từng slide có biến thể nhẹ */
+    .link-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem 0.45rem;
+      padding: 0.45rem 0.5rem;
+      border-radius: 11px;
+      background: rgba(18, 24, 42, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: clamp(0.62rem, 0.78vw, 0.74rem);
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .link-strip__item {
+      padding: 0.2rem 0.35rem;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .link-strip__item--q {
+      color: var(--accent2);
+      font-size: 1.05em;
+    }
+
+    .link-strip__item--csht {
+      color: var(--accent2);
+    }
+
+    .link-strip__item--kttt {
+      color: var(--accent);
+    }
+
+    .link-strip__item--fam {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .link-strip__conn {
+      color: rgba(139, 149, 174, 0.95);
+      font-weight: 700;
+      opacity: 0.9;
+    }
+
+    .link-strip__conn--neq {
+      color: var(--danger);
+      font-size: 1.1em;
+    }
+
+    .slide-thumb {
+      margin: 0;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.38);
+      background: rgba(10, 14, 26, 0.55);
+      aspect-ratio: 4 / 3;
+    }
+
+    .slide-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      min-height: 0 !important;
+      transform: none;
+      transition: opacity 0.35s ease;
+    }
+
+    .slide.active .slide-thumb img {
+      transform: none;
+    }
+
+    .slide-thumb figcaption {
+      margin: 0;
+      padding: 0.42rem 0.5rem 0.52rem;
+      font-size: clamp(0.62rem, 0.72vw, 0.72rem);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      line-height: 1.35;
+      color: rgba(197, 204, 224, 0.92);
+      text-align: center;
+      background: rgba(10, 14, 26, 0.94);
+    }
+
+    .slide-thumb-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.45rem;
+      align-items: stretch;
+    }
+
+    .slide-thumb-row .slide-thumb {
+      aspect-ratio: 3 / 2;
+    }
+
+    /* Slide: chuyển cảnh kiểu cuộn dọc (standardGoTo) */
+    .slide {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.88fr) minmax(280px, 1fr);
+      gap: clamp(1rem, 2.8vw, 2.25rem);
+      align-items: stretch;
+      padding: clamp(0.85rem, 2vw, 1.75rem) clamp(1rem, 2.5vw, 2.5rem);
+      opacity: 1;
+      visibility: visible;
+      transform: translate3d(0, 0, 0);
+      transition: opacity 0.35s ease;
+      z-index: 1;
+      will-change: transform;
+    }
+
+    .slide.slide-anim-out-up {
+      animation: scroll-out-up var(--scroll-dur) var(--scroll-ease) forwards;
+      z-index: 8;
+      visibility: visible;
+      opacity: 1;
+      pointer-events: none;
+    }
+
+    .slide.slide-anim-out-down {
+      animation: scroll-out-down var(--scroll-dur) var(--scroll-ease) forwards;
+      z-index: 8;
+      visibility: visible;
+      opacity: 1;
+      pointer-events: none;
+    }
+
+    .slide.slide-anim-in-up {
+      animation: scroll-in-from-bottom var(--scroll-dur) var(--scroll-ease) forwards;
+      z-index: 9;
+      visibility: visible;
+      opacity: 1;
+      pointer-events: none;
+    }
+
+    .slide.slide-anim-in-down {
+      animation: scroll-in-from-top var(--scroll-dur) var(--scroll-ease) forwards;
+      z-index: 9;
+      visibility: visible;
+      opacity: 1;
+      pointer-events: none;
+    }
+
+    /* Ghi đè display/grid cho từng loại slide (selector .slide đứng sau trong file) */
+    .slide.slide--cover {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      grid-template-columns: unset;
+      padding: clamp(1.5rem, 4vw, 3rem);
+    }
+
+    .slide.slide--toc {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      grid-template-columns: unset;
+      padding-block: clamp(1rem, 3vh, 2rem);
+    }
+
+    .slide.slide--content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      grid-template-columns: unset;
+      grid-template-rows: unset;
+      min-height: 100%;
+      box-sizing: border-box;
+      padding: clamp(1rem, 3.5vh, 2.25rem) clamp(0.75rem, 2.5vw, 1.5rem);
+      gap: 0;
+      background:
+        radial-gradient(ellipse 100% 80% at 50% 0%, rgba(189, 30, 30, 0.08), transparent 55%),
+        radial-gradient(ellipse 90% 70% at 100% 30%, rgba(94, 225, 208, 0.06), transparent 50%),
+        radial-gradient(ellipse 70% 50% at 0% 100%, rgba(207, 181, 59, 0.05), transparent 45%),
+        linear-gradient(180deg, #06070c 0%, var(--bg) 35%, #040406 100%);
+    }
+
+    .slide.slide--outro {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto minmax(0, 1fr);
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translate3d(0, 0, 0);
+      transition: opacity 0.35s ease;
+      z-index: 2;
+      pointer-events: auto;
+    }
+
+    .slide.active.slide-anim-out-up,
+    .slide.active.slide-anim-out-down {
+      pointer-events: none;
+    }
+
+    .slide--cover.cover--exiting {
+      z-index: 18;
+    }
+
+    .slide--cover.cover--entering {
+      z-index: 22;
+    }
+
+    .slide.exiting {
+      opacity: 0;
+      transform: translate3d(0, 0, 0);
+    }
+
+    /* Kết luận: cùng layout compact, không full-bleed */
+    .slide--outro h2.outro-title {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(1.65rem, 3.2vw, 2.55rem);
+      font-weight: 400;
+      line-height: 1.18;
+      color: #fff;
+      max-width: 22ch;
+    }
+
+    .slide--outro .slide-panel {
+      gap: clamp(0.65rem, 1.4vw, 1rem);
+    }
+
+    .slide-panel {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.85rem, 1.8vw, 1.35rem);
+      justify-content: flex-start;
+      min-width: 0;
+      padding: clamp(0.25rem, 1vw, 0.75rem) 0;
+    }
+
+    .slide--content .slide-panel .lead {
+      max-width: var(--content-prose-max);
+    }
+
+    .slide--outro .slide-panel .lead {
+      max-width: min(68ch, 100%);
+    }
+
+    .kicker {
+      font-size: clamp(0.82rem, 1.1vw, 0.98rem);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+      opacity: 0;
+      transform: translateY(12px);
+      animation: rise 0.7s var(--slide-ease) forwards;
+    }
+
+    .slide.active .kicker { animation-delay: 0.1s; }
+
+    h1 {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(2.65rem, 6.2vw, 4.35rem);
+      font-weight: 400;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      word-spacing: 0;
+      font-kerning: normal;
+    }
+
+    h2 {
+      font-family: var(--font-vn);
+      font-size: clamp(1.85rem, 3.6vw, 2.85rem);
+      font-weight: 600;
+      line-height: 1.18;
+      color: #fff;
+      letter-spacing: 0;
+      word-spacing: 0;
+      font-kerning: normal;
+    }
+
+    .lead {
+      font-size: clamp(1.12rem, 1.95vw, 1.42rem);
+      color: var(--muted);
+      line-height: 1.62;
+      max-width: 48ch;
+    }
+
+    .slide--outro .lead {
+      max-width: min(58ch, 100%);
+    }
+
+    ul.points {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+      gap: clamp(0.95rem, 1.8vw, 1.35rem);
+      margin-top: clamp(0.65rem, 1.5vh, 1rem);
+    }
+
+    ul.points li {
+      position: relative;
+      padding: clamp(1.2rem, 2.2vw, 1.5rem) clamp(1.2rem, 2.4vw, 1.45rem);
+      padding-top: clamp(1.4rem, 2.5vw, 1.7rem);
+      font-size: clamp(0.98rem, 1.42vw, 1.12rem);
+      line-height: 1.58;
+      color: rgba(224, 230, 248, 0.97);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--card-edge);
+      background:
+        radial-gradient(ellipse 95% 70% at 100% 0%, rgba(94, 225, 208, 0.09), transparent 52%),
+        radial-gradient(ellipse 80% 55% at 0% 100%, rgba(189, 30, 30, 0.07), transparent 48%),
+        linear-gradient(168deg, rgba(28, 34, 54, 0.96) 0%, rgba(14, 18, 32, 0.94) 100%);
+      box-shadow:
+        var(--shadow-card),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.22);
+      backdrop-filter: blur(14px);
+      opacity: 0;
+      transform: translateY(12px);
+      transition:
+        border-color 0.3s var(--ease),
+        box-shadow 0.3s var(--ease),
+        transform 0.3s var(--ease);
+      overflow: hidden;
+    }
+
+    .slide--content ul.points li::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      border-radius: var(--radius-card) var(--radius-card) 0 0;
+      z-index: 0;
+    }
+
+    .slide--content ul.points li:nth-child(3n + 1)::before {
+      background: linear-gradient(90deg, transparent 0%, var(--accent2) 38%, rgba(94, 225, 208, 0.35) 72%, transparent 100%);
+      box-shadow: 0 0 18px rgba(94, 225, 208, 0.35);
+    }
+
+    .slide--content ul.points li:nth-child(3n + 2)::before {
+      background: linear-gradient(90deg, transparent 0%, var(--accent-gold) 40%, rgba(232, 200, 90, 0.4) 70%, transparent 100%);
+      box-shadow: 0 0 16px rgba(207, 181, 59, 0.28);
+    }
+
+    .slide--content ul.points li:nth-child(3n)::before {
+      background: linear-gradient(90deg, transparent 0%, var(--accent) 42%, rgba(189, 30, 30, 0.45) 68%, transparent 100%);
+      box-shadow: 0 0 16px rgba(189, 30, 30, 0.22);
+    }
+
+    .slide--content ul.points li:hover {
+      border-color: rgba(94, 225, 208, 0.28);
+      transform: translateY(-2px);
+      box-shadow:
+        var(--shadow-card),
+        0 0 0 1px rgba(94, 225, 208, 0.12),
+        0 22px 48px rgba(0, 0, 0, 0.48),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    .slide.active ul.points li {
+      animation: slideIn 0.55s var(--slide-ease) forwards;
+    }
+
+    .slide.active ul.points li:nth-child(1) { animation-delay: 0.2s; }
+    .slide.active ul.points li:nth-child(2) { animation-delay: 0.32s; }
+    .slide.active ul.points li:nth-child(3) { animation-delay: 0.44s; }
+    .slide.active ul.points li:nth-child(4) { animation-delay: 0.56s; }
+    .slide.active ul.points li:nth-child(5) { animation-delay: 0.68s; }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+      gap: clamp(1rem, 2vw, 1.35rem);
+      margin-top: clamp(0.85rem, 2vh, 1.2rem);
+    }
+
+    .slide--content .card-grid + ul.points {
+      margin-top: clamp(1rem, 2.2vh, 1.35rem);
+    }
+
+    /** Biện chứng 1 (slide 7): 2×2 đều nhau */
+    .card-grid--2x2 {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      align-items: stretch;
+    }
+
+    @media (max-width: 720px) {
+      .card-grid--2x2 {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+      }
+    }
+
+    /** Slide 9: 2 card trên + 1 card dưới full */
+    .card-stack-9 {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.85rem, 1.6vw, 1.25rem);
+      margin-top: 1.1rem;
+      width: 100%;
+    }
+
+    .card-stack-9 .card-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(0.85rem, 1.6vw, 1.35rem);
+      align-items: stretch;
+    }
+
+    @media (max-width: 720px) {
+      .card-stack-9 .card-row-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card-stack-9 .info-card--wide {
+      width: 100%;
+    }
+
+    .info-card {
+      position: relative;
+      padding: clamp(1.2rem, 2.2vw, 1.55rem) clamp(1.25rem, 2.5vw, 1.6rem);
+      padding-top: clamp(1.45rem, 2.6vw, 1.85rem);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--card-edge);
+      background:
+        radial-gradient(ellipse 100% 75% at 100% 0%, rgba(94, 225, 208, 0.1), transparent 55%),
+        radial-gradient(ellipse 85% 60% at 0% 100%, rgba(207, 181, 59, 0.06), transparent 50%),
+        linear-gradient(170deg, rgba(30, 36, 58, 0.98) 0%, rgba(16, 20, 38, 0.95) 48%, rgba(10, 12, 24, 0.96) 100%);
+      box-shadow:
+        var(--shadow-card),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(16px);
+      overflow: hidden;
+      transition: transform 0.35s var(--ease), border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
+    }
+
+    .info-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      z-index: 1;
+      background: linear-gradient(90deg, var(--accent2) 0%, var(--accent-gold) 42%, var(--accent) 100%);
+      box-shadow: 0 4px 20px rgba(94, 225, 208, 0.22);
+    }
+
+    .card-grid .info-card:nth-child(3n + 1)::before {
+      background: linear-gradient(90deg, rgba(94, 225, 208, 0.35) 0%, var(--accent2) 45%, rgba(64, 200, 185, 0.9) 100%);
+    }
+
+    .card-grid .info-card:nth-child(3n + 2)::before {
+      background: linear-gradient(90deg, rgba(207, 181, 59, 0.4) 0%, var(--accent-gold) 50%, rgba(240, 210, 120, 0.95) 100%);
+      box-shadow: 0 4px 20px rgba(207, 181, 59, 0.2);
+    }
+
+    .card-grid .info-card:nth-child(3n)::before {
+      background: linear-gradient(90deg, rgba(189, 30, 30, 0.5) 0%, var(--accent) 48%, rgba(220, 60, 55, 0.85) 100%);
+      box-shadow: 0 4px 20px rgba(189, 30, 30, 0.2);
+    }
+
+    .info-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      z-index: 0;
+      background: linear-gradient(155deg, var(--card-shine) 0%, transparent 40%, transparent 58%, rgba(0, 0, 0, 0.12));
+    }
+
+    .info-card--wide {
+      padding-top: clamp(1.55rem, 2.8vw, 1.95rem);
+    }
+
+    .info-card--wide::before {
+      height: 5px;
+      background: linear-gradient(
+        90deg,
+        var(--accent2),
+        var(--accent-gold) 33%,
+        var(--accent) 66%,
+        rgba(94, 225, 208, 0.85)
+      );
+      box-shadow: 0 4px 24px rgba(94, 225, 208, 0.25), 0 4px 20px rgba(189, 30, 30, 0.15);
+    }
+
+    .slide--content .info-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(94, 225, 208, 0.32);
+      box-shadow:
+        var(--shadow-card),
+        0 0 0 1px rgba(94, 225, 208, 0.14),
+        0 28px 64px rgba(0, 0, 0, 0.52),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .info-card h4 {
+      position: relative;
+      margin: 0 0 0.65rem;
+      padding-bottom: 0.5rem;
+      font-size: clamp(1.04rem, 1.48vw, 1.2rem);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      font-family: var(--font-vn);
+      z-index: 2;
+    }
+
+    .info-card h4::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 2.75rem;
+      height: 3px;
+      border-radius: 3px;
+      background: currentColor;
+      opacity: 0.45;
+    }
+
+    .info-card p {
+      position: relative;
+      margin: 0;
+      font-size: clamp(0.95rem, 1.38vw, 1.08rem);
+      color: rgba(202, 210, 232, 0.95);
+      line-height: 1.56;
+      z-index: 2;
+    }
+
+    .info-card p strong {
+      color: #f2f4fc;
+      font-weight: 700;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: clamp(0.78rem, 1vw, 0.88rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent2);
+      margin-bottom: 0.25rem;
+    }
+
+    .highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .thanks {
+      margin-top: 0.35rem;
+      font-size: clamp(1.05rem, 1.75vw, 1.25rem);
+      color: var(--muted);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(1rem, 2vw, 1.5rem);
+      margin-top: 0.5rem;
+    }
+
+    .two-col .lead {
+      max-width: none;
+      font-size: clamp(1.05rem, 1.75vw, 1.28rem);
+    }
+
+    @media (max-width: 1100px) {
+      .slide--content,
+      .slide--outro {
+        overflow-y: auto;
+        align-items: center;
+      }
+
+      .slide.slide--content {
+        justify-content: center;
+      }
+
+      .slide--content .slide__grid,
+      .slide--outro .slide__grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+      }
+
+      .slide--content .slide-aside,
+      .slide--outro .slide-aside {
+        order: -1;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 0.65rem 1rem;
+      }
+
+      .slide--content .slide-aside .link-strip,
+      .slide--outro .slide-aside .link-strip {
+        flex: 1 1 100%;
+      }
+
+      .slide-thumb-row {
+        flex: 1 1 100%;
+        max-width: 28rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .two-col { grid-template-columns: 1fr; }
+    }
+
+    .counter--dim {
+      opacity: 0.35;
+    }
+
+    .counter--hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .hint--cover {
+      opacity: 0.5;
+    }
+
+    @keyframes rise {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* UI chrome */
+    .progress {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform 0.5s var(--slide-ease);
+      z-index: 100;
+    }
+
+    .controls {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.25rem;
+      bottom: auto;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 100;
+    }
+
+    .controls button {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(18, 24, 42, 0.85);
+      backdrop-filter: blur(10px);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: grid;
+      place-items: center;
+      transition: transform 0.2s, border-color 0.2s, background 0.2s;
+    }
+
+    .controls button:hover {
+      transform: translateY(-2px);
+      border-color: rgba(232, 197, 71, 0.4);
+    }
+
+    .counter {
+      position: fixed;
+      bottom: 1.25rem;
+      left: 1.25rem;
+      font-size: clamp(0.82rem, 1.1vw, 0.95rem);
+      font-variant-numeric: tabular-nums;
+      color: var(--muted);
+      z-index: 100;
+      letter-spacing: 0.08em;
+    }
+
+    .counter strong {
+      color: var(--accent);
+      font-size: clamp(1.05rem, 1.35vw, 1.25rem);
+    }
+
+    .hint {
+      position: fixed;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: clamp(0.78rem, 1vw, 0.88rem);
+      color: rgba(139, 149, 174, 0.7);
+      z-index: 100;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .slide--toc.toc--exiting {
+      animation: tocExit 1s var(--slide-ease) forwards;
+      z-index: 12;
+    }
+
+    @keyframes tocExit {
+      to {
+        transform: translateY(105vh) scale(0.97);
+        opacity: 0;
+      }
+    }
+
+    .slide--cover.cover--entering {
+      animation: coverEnter 1s var(--slide-ease) forwards;
+    }
+
+    @keyframes coverEnter {
+      from {
+        transform: translateY(-100vh) scale(1.05);
+        opacity: 0;
+        filter: blur(10px);
+      }
+      to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+        filter: blur(0);
+      }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+        scroll-snap-type: none;
+      }
+      .slide, .slide-thumb img, ul.points li {
+        animation: none !important;
+        transition: none !important;
+      }
+      .slide {
+        transform: none !important;
+      }
+      .slide--toc.toc--exiting,
+      .slide--cover.cover--entering,
+      .slide--cover.cover--exiting {
+        animation: none !important;
+      }
+      .ai-usage-dialog[open],
+      .ai-usage-dialog[open]::backdrop,
+      .ai-usage-dialog[open].ai-usage-dialog--closing,
+      .ai-usage-dialog[open].ai-usage-dialog--closing::backdrop,
+      .infra-chart-dialog[open],
+      .infra-chart-dialog[open]::backdrop,
+      .infra-chart-dialog[open].infra-chart-dialog--closing,
+      .infra-chart-dialog[open].infra-chart-dialog--closing::backdrop {
+        animation: none !important;
+      }
+    }
+  </style>
+  <script type="module" crossorigin src="/assets/index-BZoNlrmW.js"></script>
+</head>
+<body>
+  <div class="progress-bar">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
+
+  <a class="fab-flag-demo" href="flag-hands.html" target="_blank" rel="noopener" title="Demo cờ Việt Nam — Three.js &amp; bàn tay">
+    ★
+    <span>Mở demo cờ Việt Nam điều khiển bằng tay (Three.js)</span>
+  </a>
+
+  <button type="button" class="fab-ai-usage" id="btn-ai-usage" aria-haspopup="dialog" aria-controls="ai-usage-dialog" title="Khai báo sử dụng AI trong đề tài">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 3l-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z" />
+      <path d="M5 3v4M19 17v4M3 19h4M17 5h4" stroke-width="1.25" opacity="0.55" />
+    </svg>
+    <span class="sr-only">Mở khai báo nội dung AI nhóm đã sử dụng</span>
+  </button>
+
+  <dialog id="ai-usage-dialog" class="ai-usage-dialog" aria-labelledby="ai-usage-dialog-title">
+    <div class="ai-usage-dialog__inner">
+      <button type="button" class="ai-usage-dialog__close" id="ai-usage-dialog-close" aria-label="Đóng hộp thoại">&times;</button>
+      <h2 id="ai-usage-dialog-title">Các nội dung AI nhóm đã sử dụng</h2>
+      <p class="ai-usage-dialog__lead">Trang này chỉ ghi nhận các hạng mục AI đã dùng trong đề tài. AI đóng vai trò hỗ trợ; toàn bộ nội dung học thuật cuối cùng do nhóm kiểm tra, chỉnh sửa và chịu trách nhiệm.</p>
+      <ol class="ai-usage-dialog__list">
+        <li><strong>NoteLM</strong> — dùng để lấy nội dung (tóm tắt, gợi ý, khung ý) làm điểm xuất phát; nhóm biên soạn lại, bổ sung lập luận và đối chiếu với giáo trình LLCT cùng nguồn chính thống.</li>
+        <li><strong>Gemini</strong> — dùng để tạo ảnh minh họa; nhóm chọn phiên bản phù hợp, chỉnh sửa/ghi chú ngữ cảnh và đảm bảo ảnh không làm sai lệch nội dung học thuật.</li>
+        <li><strong>Gamma</strong> — dùng tính năng generate slide để lấy ý tưởng bố cục và trình bày; toàn bộ nội dung chữ trên slide trình chiếu cuối do nhóm hoàn thiện và kiểm chứng.</li>
+      </ol>
+      <p class="ai-usage-dialog__foot"><strong>Cam kết:</strong> không để AI thay thế hoàn toàn bài tập; có phân định rõ phần AI hỗ trợ và phần nhóm tự chỉnh sửa. Nhóm chịu trách nhiệm về tính chính xác và bản nộp cuối cùng.</p>
+    </div>
+  </dialog>
+
+  <dialog id="infra-chart-dialog" class="infra-chart-dialog" aria-labelledby="infra-chart-dialog-title">
+    <div class="infra-chart-dialog__inner">
+      <button type="button" class="ai-usage-dialog__close" id="infra-chart-dialog-close" aria-label="Đóng hộp thoại">&times;</button>
+      <h2 id="infra-chart-dialog-title">Minh họa: Cấu trúc của Cơ sở hạ tầng</h2>
+      <figure class="infra-chart-dialog__figure">
+        <img class="infra-chart-dialog__img" src="/assets/%C4%91n-D0O19DP3.jpg" alt="Sơ đồ cấu trúc ba tầng quan hệ sản xuất trong cơ sở hạ tầng theo triết học Mác–Lênin" decoding="async" loading="lazy" />
+      </figure>
+    </div>
+  </dialog>
+
+  <dialog id="kttt-chart-dialog" class="infra-chart-dialog" aria-labelledby="kttt-chart-dialog-title">
+    <div class="infra-chart-dialog__inner">
+      <button type="button" class="ai-usage-dialog__close" id="kttt-chart-dialog-close" aria-label="Đóng hộp thoại">&times;</button>
+      <h2 id="kttt-chart-dialog-title">Minh họa: Kiến trúc thượng tầng (bản chất &amp; vận động)</h2>
+      <figure class="infra-chart-dialog__figure">
+        <img class="infra-chart-dialog__img" src="/assets/tt-CrleeJ-K.jpg" alt="Sơ đồ kiến trúc thượng tầng: cấu trúc hệ thống và mối quan hệ biện chứng với cơ sở hạ tầng" decoding="async" loading="lazy" />
+      </figure>
+    </div>
+  </dialog>
+
+  <div class="slide-nav" id="slide-nav">
+    <!-- Will be populated by JS -->
+  </div>
+
+  <div class="slide-counter" id="slide-counter">
+    <span id="current-slide">01</span> / <span id="total-slides">11</span>
+  </div>
+
+  <div class="deck" id="deck">
+
+    <!-- 0 · Hero Section (Cập nhật tiêu đề từ nội dung mới) -->
+    <section class="slide slide--cover" data-i="0">
+      <div class="slide-cover-bg" style="background-image: url('/assets/philo-01-base-superstructure-Bm3qHzeb.png');"></div>
+      <div class="slide-cover-vignette"></div>
+      <div class="slide-cover-inner">
+        <span class="cover-kicker gsap-reveal">Nhóm 5 · Kinh tế chính trị Mác — Lênin</span>
+        <h1 class="hero-title gsap-reveal">Giá trị và Lao động<br/><span style="color: var(--accent);">trong kỷ nguyên</span><br/>& <span style="color: var(--accent-gold);">AI & Robot</span></h1>
+        <p class="cover-sub gsap-reveal">Chủ đề phân tích: Sự chuyển hóa của lao động và nguồn nhân lực chất lượng cao thời đại số.</p>
+        <div class="gsap-reveal">
+          <button type="button" class="btn-start">Bắt đầu khám phá</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1 · Mục lục -->
+    <section class="slide slide--toc" data-i="1">
+      <div class="toc-shell">
+        <header class="toc-header gsap-reveal">
+          <p class="toc-eyebrow">Trang 0</p>
+          <h2 class="toc-title">Mục lục <em>trình chiếu</em></h2>
+          <p class="toc-lead">Chọn một mục để nhảy tới slide tương ứng hoặc dùng phím điều hướng.</p>
+        </header>
+
+        <nav class="toc-nav gsap-reveal" aria-label="Danh sách slide nội dung">
+          <ul class="toc-list">
+            <li class="toc-node gsap-reveal" data-target="2" role="button" tabindex="0">
+              <span class="toc-num" aria-hidden="true">01</span>
+              <div class="toc-node-body">
+                <strong>Bối cảnh & Câu hỏi</strong>
+                <span class="toc-meta">Tiếp cận & Định hướng</span>
+              </div>
+            </li>
+            <li class="toc-node gsap-reveal" data-target="3" role="button" tabindex="0">
+              <span class="toc-num" aria-hidden="true">02</span>
+              <div class="toc-node-body">
+                <strong>Lý luận Mác về Lao động</strong>
+                <span class="toc-meta">Lao động cụ thể, trừu tượng & Quá trình tạo giá trị</span>
+              </div>
+            </li>
+            <li class="toc-node gsap-reveal" data-target="4" role="button" tabindex="0">
+              <span class="toc-num" aria-hidden="true">03</span>
+              <div class="toc-node-body">
+                <strong>Giá trị & Giá trị thặng dư</strong>
+                <span class="toc-meta">Kỷ nguyên số & AI</span>
+              </div>
+            </li>
+            <li class="toc-node gsap-reveal" data-target="5" role="button" tabindex="0">
+              <span class="toc-num" aria-hidden="true">04</span>
+              <div class="toc-node-body">
+                <strong>Mối quan hệ biện chứng</strong>
+                <span class="toc-meta">Lao động – Công nghệ & Phát triển NNL</span>
+              </div>
+            </li>
+            <li class="toc-node gsap-reveal" data-target="6" role="button" tabindex="0">
+              <span class="toc-num" aria-hidden="true">05</span>
+              <div class="toc-node-body">
+                <strong>Dẫn chứng & Liên hệ</strong>
+                <span class="toc-meta">Bối cảnh Gen Z & Thực tiễn VN</span>
+              </div>
+            </li>
+            <li class="toc-node gsap-reveal" data-target="7" role="button" tabindex="0">
+              <span class="toc-num" aria-hidden="true">06</span>
+              <div class="toc-node-body">
+                <strong>Kết luận bài học</strong>
+                <span class="toc-meta">Định hướng XHCN & Câu hỏi BGK</span>
+              </div>
+            </li>
+            <li class="toc-node gsap-reveal" data-target="8" role="button" tabindex="0">
+              <span class="toc-num" aria-hidden="true">07</span>
+              <div class="toc-node-body">
+                <strong>AI Usage</strong>
+                <span class="toc-meta">Tuyên bố liêm chính & minh bạch</span>
+              </div>
+            </li>
+            <li class="toc-node gsap-reveal" data-target="9" role="button" tabindex="0">
+              <span class="toc-num" aria-hidden="true">08</span>
+              <div class="toc-node-body">
+                <strong>Reference</strong>
+                <span class="toc-meta">Nguồn tài liệu APA</span>
+              </div>
+            </li>
+            <li class="toc-node gsap-reveal" data-target="10" role="button" tabindex="0">
+              <span class="toc-num" aria-hidden="true">09</span>
+              <div class="toc-node-body">
+                <strong>[Phụ lục] Định nghĩa</strong>
+                <span class="toc-meta">Danh mục thuật ngữ & khái niệm</span>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <!-- 2 · Bối cảnh & Câu hỏi trung tâm -->
+    <section class="slide slide--content no-media" data-i="2">
+      <div class="slide-main">
+        <span class="milestone gsap-reveal"><span class="milestone__text">Trang 1 · Bối cảnh</span></span>
+        <h2 class="gsap-reveal">Câu hỏi trung tâm</h2>
+        <p class="question-block gsap-reveal">«Khi AI và robot thay thế ngày càng nhiều lao động thủ công và trí óc, bản chất của lao động và cơ chế tạo ra giá trị có bị 'xóa sổ' theo lý thuyết Mác, hay đang 'chuyển hóa' sang hình thái mới? Việt Nam cần phát triển nguồn nhân lực chất lượng cao thế nào?»</p>
+        <p class="lead gsap-reveal" style="margin-top: 1rem;"><strong>Giải pháp tiếp cận:</strong></p>
+        <ol class="points">
+          <li class="gsap-reveal">Kế thừa học thuyết giá trị & chức năng hai mặt của lao động của C. Mác.</li>
+          <li class="gsap-reveal">Phân tích vai trò mới của máy móc, AI trong quá trình tạo giá trị (c & v).</li>
+          <li class="gsap-reveal">Làm rõ nguồn gốc thặng dư trong nền kinh tế tri thức số.</li>
+          <li class="gsap-reveal">Liên hệ: CNH-HĐH ở VN và đột phá nhân lực chất lượng cao theo hướng XHCN.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 3 · Lý luận Mác về lao động cụ thể, trừu tượng -->
+    <section class="slide slide--content no-media" data-i="3">
+      <div class="slide-main">
+        <span class="milestone gsap-reveal"><span class="milestone__text">Trang 2 · Lý luận Mác - Lênin</span></span>
+        <h2 class="gsap-reveal">Lao động cụ thể & trừu tượng</h2>
+        <div class="card-grid">
+          <div class="info-card gsap-reveal">
+            <h4 style="color: var(--accent2);">Lao động cụ thể</h4>
+            <p>Hao phí sức lao động tạo ra <strong>giá trị sử dụng</strong> đặc thù.</p>
+            <p>→ <em>Kỷ nguyên AI:</em> Chuyển từ thao tác vật lý sang lập trình, thiết kế thuật toán, giám sát hệ thống tự động, sáng tạo nội dung số.</p>
+          </div>
+          <div class="info-card gsap-reveal">
+            <h4 style="color: var(--accent-gold);">Lao động trừu tượng</h4>
+            <p>Hao phí thần kinh, trí óc nói chung, tạo ra <strong>giá trị</strong> của hàng hóa.</p>
+            <p>→ <em>Kỷ nguyên AI:</em> Trở thành hao phí trí tuệ sâu, xử lý dữ liệu phức tạp. Chính chất xám này mới là nguồn gốc của giá trị mới xã hội.</p>
+          </div>
+        </div>
+        <p class="lead lead--after-list gsap-reveal" style="margin-top: 1.5rem;">
+          <strong>Quá trình tạo giá trị:</strong> <br>AI & Máy móc chỉ chuyển dần hao mòn (c) vào sản phẩm. Giá trị mới (v+m) <em>vẫn bắt nguồn từ sức lao động (sống)</em>, nhưng chuyển đổi mạnh thành lao động trí tuệ, phức tạp.
+        </p>
+      </div>
+    </section>
+
+    <!-- 4 · Giá trị & Giá trị thặng dư trong kỷ nguyên AI -->
+    <section class="slide slide--content no-media" data-i="4">
+      <div class="slide-main">
+        <span class="milestone gsap-reveal"><span class="milestone__text">Trang 3 · Giá trị thặng dư thời đại số</span></span>
+        <h2 class="gsap-reveal">Giá trị thặng dư từ đâu?</h2>
+        <p class="lead gsap-reveal">Máy móc tinh vi đến đâu vẫn thuộc <em>Tư bản bất biến (c)</em> - không tự đẻ ra giá trị thặng dư. Lợi nhuận siêu ngạch đến từ đâu?</p>
+        <ul class="points">
+          <li class="gsap-reveal">Từ <strong>lao động sống</strong> của con người: kỹ sư dữ liệu, người huấn luyện thuật toán, lao động sáng tạo trên nền tảng số.</li>
+          <li class="gsap-reveal">Khai thác <strong>Giá trị thặng dư tương đối</strong>: AI gián tiếp làm tăng năng suất, tối ưu hóa chuỗi cung ứng, hạ thấp giá trị sức lao động (v) để kéo dài thời gian lao động thặng dư (m).</li>
+          <li class="gsap-reveal"><strong style="color: var(--accent2);">Hiện tượng mới (Lao động số vô hình):</strong> Dữ liệu người dùng, UGC (User-generated content), hành vi click chuột trở thành nguyên liệu vô giá tạo nên giá trị khổng lồ cho các Big Tech mà không được trả lương (sự mở rộng biện chứng).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 5 · Mối quan hệ biện chứng & Phát triển NNL -->
+    <section class="slide slide--content no-media" data-i="5">
+      <div class="slide-main">
+        <span class="milestone gsap-reveal"><span class="milestone__text">Trang 4 · Biện chứng & NNL VN</span></span>
+        <h2 class="gsap-reveal">Công nghệ & Nguồn nhân lực</h2>
+        <div class="card-grid">
+          <div class="info-card gsap-reveal">
+            <h4 style="color: var(--header-neon);">Biện chứng C.Nghệ - L.Động</h4>
+            <p>LLSX kỹ thuật hóa (AI) bắt buộc thay đổi QHSX lao động tổ chức. Lao động giản đơn bị đào thải mạnh, tạo cầu kéo cho kỹ năng số, tư duy sáng tạo phản biện.</p>
+          </div>
+          <div class="info-card gsap-reveal">
+            <h4 style="color: var(--accent-gold);">Định hướng Việt Nam</h4>
+            <p>Bỏ mô hình giá rẻ, thâm dụng, chuyển hướng Đào tạo <em>STEM, AI, dữ liệu lớn</em> theo <strong>kinh tế tri thức</strong> nhằm thích ứng CNH-HĐH.</p>
+          </div>
+        </div>
+        <div class="info-card gsap-reveal" style="margin-top: 1rem;">
+          <h4 style="color: var(--danger);">Bản chất XHCN</h4>
+          <p>Phát triển AI, tự động hóa để <em>giải phóng con người</em> khỏi tha hóa lao động, <strong>kết hợp công bằng, tiến bộ xã hội</strong> thay vì để con người làm nô lệ cho thuật toán thu lợi siêu ngạch mù quáng.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 · Dẫn chứng & Liên hệ Gen Z -->
+    <section class="slide slide--content no-media" data-i="6">
+      <div class="slide-main">
+        <span class="milestone gsap-reveal"><span class="milestone__text">Trang 5 · Liên hệ Gen Z</span></span>
+        <h2 class="gsap-reveal">Liên hệ bối cảnh Gen Z & Thị trường</h2>
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.5rem;" class="gsap-reveal">
+          <h3 style="margin-bottom: 0.5rem; color: #fff;">Sự chuyển mình của Gen Z</h3>
+          <p class="lead" style="margin: 0; font-size: 1rem;">Gen Z (1997-2012) Việt Nam là lực lượng lao động số đặc hữu, chuyển mạnh từ làm thuê truyền thống sang <strong> Gig/Platform Labour </strong> (làm việc nền tảng) và đa kỹ năng (Prompt Engineering, Digital Marketing).</p>
+        </div>
+        <ul class="points">
+          <li class="gsap-reveal"><strong>Công nghệ → Lao động → Giá trị:</strong> Nền tảng tự động sinh nội dung thay thế cơ bản, còn giá trị gia tăng nằm ở sự độc bản của <em>kỹ sư prompt & biên tập</em>.</li>
+          <li class="gsap-reveal"><strong>Mâu thuẫn mới:</strong> Tiềm năng thất nghiệp cấu trúc. Nhưng cũng là động lực để đẩy mạnh <em>Reskilling / Upskilling</em>.</li>
+          <li class="gsap-reveal">Thanh niên cần chủ động ứng biến, đồng thời Nhà nước áp dụng chính sách <em>Make in Vietnam</em> để nắm công nghệ lõi.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 7 · Kết luận bài học & Câu hỏi BGK -->
+    <section class="slide slide--content no-media" data-i="7">
+      <div class="slide-main">
+        <span class="milestone gsap-reveal"><span class="milestone__text">Trang 6 · Tổng kết</span></span>
+        <h2 class="gsap-reveal">Kết luận bài học</h2>
+        <ol class="points" style="margin-bottom: 2rem;">
+          <li class="gsap-reveal">AI không hề "phủ định" lý luận Mác, mà minh chứng vai trò của <strong>lao động trí tuệ phức tạp</strong> quyết định lượng giá trị.</li>
+          <li class="gsap-reveal">GTTD thời đại số tinh gọn hơn (Tương đối, lao động hành vi).</li>
+          <li class="gsap-reveal">Giáo dục, NNL chất lượng cao là chìa khóa CNH-HĐH bền vững.</li>
+        </ol>
+        <div style="background: rgba(189, 30, 30, 0.1); border-left: 4px solid var(--accent); padding: 1rem; border-radius: 6px;" class="gsap-reveal">
+          <h3 style="color: var(--accent); margin-bottom: 0.5rem;">Câu hỏi dự kiến BGK:</h3>
+          <ul style="font-size: 0.95rem; margin-left: 1.25rem;">
+            <li>Nếu AI tự động hóa 90% sản xuất, bộ phận nào quyết định giá trị mới (Trong c + v + m)?</li>
+            <li>GTTD tương đối kỷ nguyên số có giống thời công nghiệp cơ khí hoá Marx sống không?</li>
+            <li>Cần ưu tiên "đào tạo mới chuyên gia AI" hay "đào tạo lại"?</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 · AI Usage -->
+    <section class="slide slide--content no-media" data-i="8">
+      <div class="slide-main">
+        <span class="milestone gsap-reveal"><span class="milestone__text">Trang 7 · Disclosure</span></span>
+        <h2 class="gsap-reveal">Sử dụng AI & Tính Liêm Chính</h2>
+        <div class="refs-table-wrap gsap-reveal">
+          <table class="refs-table">
+            <thead>
+              <tr>
+                <th scope="col" style="width:20%">Công cụ</th>
+                <th scope="col" style="width:30%">Mục đích dùng AI</th>
+                <th scope="col">Đóng góp độc lập của nhóm</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="color:var(--accent2); font-weight: 600;">ChatGPT-4o / Gemini</td>
+                <td>Gợi ý cấu trúc slide, rà soát thuật ngữ Marxist (Ch2, Ch3, Ch6 Giáo trình 2021) và kiểm tra chuẩn APA.</td>
+                <td>Nghiên cứu luận điểm, liên hệ bối cảnh Gen Z, dẫn chứng thực tiễn Việt Nam & biện luận các vấn đề XHCN.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="lead gsap-reveal" style="font-size: 0.95rem; margin-top: 1rem; color: var(--muted);"><strong>Cam kết:</strong> Không sử dụng AI để bịa đặt học thuật. Mọi lập luận Mác-Lênin gốc đều được đối chiếu chéo giáo trình & văn kiện Đảng.</p>
+      </div>
+    </section>
+
+    <!-- 9 · Reference -->
+    <section class="slide slide--content no-media slide--refs" data-i="9">
+      <div class="slide-main">
+        <span class="milestone gsap-reveal"><span class="milestone__text">Trang 8 · Tham khảo</span></span>
+        <h2 class="gsap-reveal">Tài liệu tham khảo APA</h2>
+        <div class="refs-table-wrap gsap-reveal">
+          <table class="refs-table">
+            <thead>
+              <tr>
+                <th scope="col" class="col-stt">STT</th>
+                <th scope="col" class="col-source">Nguồn</th>
+                <th scope="col">Trích dẫn (APA 7th)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-stt">1</td>
+                <td class="col-source">Giáo trình KTCT</td>
+                <td>Bộ Giáo dục và Đào tạo. (2021). <em>Giáo trình Kinh tế chính trị Mác-Lênin</em>. Hà Nội: NXB Chính trị quốc gia Sự thật.</td>
+              </tr>
+              <tr>
+                <td class="col-stt">2</td>
+                <td class="col-source">Văn kiện Đại hội XIII</td>
+                <td>Đảng Cộng sản Việt Nam. (2021). <em>Văn kiện Đại hội đại biểu toàn quốc lần thứ XIII (Tập 1)</em>. Hà Nội: NXB CTQG Sự thật.</td>
+              </tr>
+              <tr>
+                <td class="col-stt">3</td>
+                <td class="col-source">Đề án quốc gia</td>
+                <td>Thủ tướng Chính phủ. (2022). <em>Quyết định số 123/QĐ-TTg phê duyệt Đề án PT NNL CNTT ...</em>. Hà Nội: VP Chính phủ.</td>
+              </tr>
+              <tr>
+                <td class="col-stt">4</td>
+                <td class="col-source">Dữ liệu thống kê</td>
+                <td>Tổng cục Thống kê. (2024). <em>Thông cáo BC Tình hình kinh tế - xã hội quý IV/2024</em>. Truy xuất từ www.gso.gov.vn.</td>
+              </tr>
+              <tr>
+                <td class="col-stt">5</td>
+                <td class="col-source">Báo cáo Kinh tế số</td>
+                <td>Bộ Thông tin và Truyền thông. (2024). <em>Báo cáo Kinh tế số Việt Nam 2024</em>. Cục Tin học hóa.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 · Phụ lục Định nghĩa -->
+    <section class="slide slide--content no-media" data-i="10">
+      <div class="slide-main">
+        <span class="milestone gsap-reveal"><span class="milestone__text">Trang 9 · Phụ lục</span></span>
+        <h2 class="gsap-reveal">Danh mục Định nghĩa</h2>
+        <p class="lead gsap-reveal" style="margin-bottom: 1rem;">Dùng để đối chiếu và hiểu rõ bài thuyết trình chuẩn xác theo giáo trình.</p>
+        <div style="column-count: 2; column-gap: 2rem; font-size: 0.9rem;" class="gsap-reveal">
+          <div style="margin-bottom: 1rem;">
+            <strong style="color: var(--accent-gold);">1. Lao động trừu tượng:</strong><br>Hao phí sức lao động nói chung của con người sản xuất hàng hóa. Tạo ra giá trị (tr. 35).
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <strong style="color: var(--accent-gold);">2. TB Bất biến (c):</strong><br>Bộ phận tư bản (Tư liệu sản xuất) bảo toàn và chuyển đổi vẹn nguyên giá trị, không sinh M (tr. 82).
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <strong style="color: var(--accent-gold);">3. TB Khả biến (v):</strong><br>Bộ phận mua lao động, thông qua hao phí tạo giá trị mới lớn hơn bản thân (tr. 83).
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <strong style="color: var(--accent-gold);">4. GTTD Tương đối:</strong><br>Sinh ra do rút ngắn thời gian tất yếu thông qua tăng năng suất XH chung.
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <strong style="color: var(--accent-gold);">5. Kinh tế tri thức:</strong><br>Hệ thống mà việc sản sinh, phổ cập tri thức đóng vai trò tạo của cải quyết định nhất (tr. 226).
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+
+  <div class="controls">
+    <button type="button" id="btn-prev" aria-label="Slide trước">◀</button>
+    <button type="button" id="btn-fs" aria-label="Toàn màn hình">⛶</button>
+    <button type="button" id="btn-next" aria-label="Slide sau">▶</button>
+  </div>
+
+
+  <!-- Botpress Webchat v3.6 (inject + cấu hình bot trên bpcontent.cloud) -->
+ 
+  <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+  <script src="https://files.bpcontent.cloud/2026/04/16/04/20260416042414-UR5RGXMO.js" defer></script>
+      
+</body>
+</html>
+
