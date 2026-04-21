@@ -1,0 +1,231 @@
+﻿TRANG 0: MỤC LỤC
+1. Bối cảnh & Câu hỏi trung tâm
+2. Lý luận Mác về lao động cụ thể, trừu tượng & quá trình tạo giá trị
+3. Giá trị & Giá trị thặng dư trong kỷ nguyên AI & Robot
+4. Mối quan hệ biện chứng Lao động – Công nghệ & Phát triển nguồn nhân lực
+5. Dẫn Chứng & Liên hệ bối cảnh Gen Z
+6. Kết Luận Bài Học & Câu hỏi BGK
+7. AI Usage
+8. Reference
+9. [PHỤ LỤC] Danh mục định nghĩa đã sử dụng
+________________
+
+
+TRANG 1: BỐI CẢNH & CÂU HỎI TRUNG TÂM
+Câu hỏi trung tâm:
+"Khi AI và robot thay thế ngày càng nhiều lao động thủ công và trí óc, bản chất của lao động và cơ chế tạo ra giá trị có bị 'xóa sổ' theo lý thuyết Mác, hay đang 'chuyển hóa' sang hình thái mới? Việt Nam cần phát triển nguồn nhân lực chất lượng cao thế nào trong quá trình công nghiệp hóa – hiện đại hóa?"
+Giải pháp tiếp cận:
+1. Khơi lại học thuyết giá trị & tính hai mặt của lao động (cụ thể/trừu tượng) của C. Mác.
+2. Phân tích vai trò mới của máy móc, AI, robot trong quá trình tạo giá trị và giá trị thặng dư.
+3. Làm rõ nguồn gốc giá trị thặng dư trong nền kinh tế số & kinh tế tri thức.
+4. Liên hệ thực tiễn Việt Nam: định hướng CNH-HĐH gắn với kinh tế tri thức, chuyển đổi số, và đột phá nguồn nhân lực chất lượng cao.
+Định nghĩa & Cấu trúc:
+1. Lao động cụ thể & Lao động trừu tượng
+2. Quá trình lao động tạo giá trị & Làm tăng giá trị
+3. Tư bản bất biến (c) & Tư bản khả biến (v)
+4. Giá trị thặng dư tương đối & Kinh tế số
+5. Nguồn nhân lực chất lượng cao & CMCN 4.0
+Kết luận định hướng (sẽ trình bày chi tiết ở Trang 6):
+1. AI/Robot không phủ định lý luận giá trị Marxist, mà làm sâu sắc thêm vai trò của lao động trí tuệ, sáng tạo và quản lý công nghệ.
+2. Giá trị thặng dư trong kỷ nguyên số vẫn bắt nguồn từ lao động sống, nhưng phương thức khai thác chuyển sang giá trị thặng dư tương đối và lao động số không trả lương trực tiếp.
+3. Việt Nam cần đột phá nguồn nhân lực chất lượng cao, coi giáo dục-đào tạo là quốc sách, gắn CNH-HĐH với phát triển kinh tế tri thức, đảm bảo AI phục vụ con người theo định hướng XHCN.
+________________
+
+
+TRANG 2: LÝ LUẬN MÁC VỀ LAO ĐỘNG CỤ THỂ, TRỪU TƯỢNG & QUÁ TRÌNH TẠO GIÁ TRỊ
+1. Tính hai mặt của lao động trong kỷ nguyên AI
+Lao động cụ thể: Lao động có ích dưới hình thức cụ thể, tạo ra giá trị sử dụng.
+* → Trong kỷ nguyên AI: Chuyển từ thao tác vật lý, lặp lại sang lập trình, thiết kế thuật toán, huấn luyện mô hình, giám sát hệ thống tự động, sáng tạo nội dung số.
+Lao động trừu tượng: Hao phí sức lao động nói chung (cơ bắp, thần kinh, trí óc), tạo ra giá trị hàng hóa.
+* → Trong kỷ nguyên AI: Hao phí trí tuệ, xử lý dữ liệu phức tạp, ra quyết định chiến lược, đạo đức AI trở thành lao động trừu tượng chủ yếu, quyết định lượng giá trị xã hội.
+2. Quá trình lao động tạo giá trị & Làm tăng giá trị
+* Quá trình lao động là sự thống nhất giữa: (1) tạo ra giá trị sử dụng; (2) làm tăng giá trị (tạo ra giá trị thặng dư).
+* AI, robot, phần mềm tự động hóa là tư liệu lao động cực kỳ phát triển. Chúng làm tăng năng suất lao động xã hội, rút ngắn thời gian lao động tất yếu, nhưng bản thân chúng chỉ chuyển giá trị cũ (hao mòn) vào sản phẩm, không tự tạo ra giá trị mới.
+* Giá trị mới (v+m) vẫn do lao động sống của con người tạo ra, nhưng thay đổi cơ cấu: tỷ trọng lao động giản đơn giảm, lao động phức tạp & lao động trí tuệ tăng lên.
+📖 Giáo trình KTCT M-L (2021), tr. 34–36 (Ch2), tr. 75–84 (Ch3), tr. 204–206 (Ch6)
+________________
+
+
+TRANG 3: GIÁ TRỊ & GIÁ TRỊ THẶNG DƯ TRONG KỶ NGUYÊN AI & ROBOT
+1. Nếu máy móc thay thế lao động người, giá trị được tạo ra như thế nào?
+* Máy móc/AI thuộc tư bản bất biến (c): Chỉ chuyển dần giá trị hao mòn vào sản phẩm. Dù tự động hóa đến đâu, nếu không có lao động sống thiết kế, vận hành, bảo trì và sáng tạo, quy trình sản xuất sẽ dừng lại hoặc tạo ra giá trị bằng 0.
+* Giá trị đơn vị hàng hóa giảm do năng suất tăng, nhưng tổng khối lượng giá trị phụ thuộc vào số lượng, chất lượng và cường độ lao động trí tuệ còn lại trong dây chuyền.
+2. Giá trị thặng dư (m) được tạo ra trong kỷ nguyên số
+* Vẫn bắt nguồn từ lao động không công của người lao động (kỹ sư dữ liệu, lập trình viên, người vận hành AI, sáng tạo nội dung, lao động nền tảng).
+* AI giúp nhà tư bản/tổ chức khai thác giá trị thặng dư tương đối: tăng năng suất gián tiếp, tối ưu hóa chuỗi cung ứng, giám sát hiệu quả, rút ngắn thời gian lao động tất yếu → kéo dài thời gian lao động thặng dư.
+* Hiện tượng mới: Dữ liệu người dùng & lao động số không trả lương trực tiếp (user-generated content, clickwork, training data labeling) trở thành "nguyên liệu" mới tạo ra giá trị thặng dư cho các tập đoàn công nghệ. Đây là sự mở rộng biện chứng của học thuyết giá trị thặng dư.
+📖 Giáo trình KTCT M-L (2021), tr. 82–84, 87–93 (Ch3), tr. 206–208, 226–227 (Ch6)
+________________
+
+
+TRANG 4: MỐI QUAN HỆ BIỆN CHỨNG LAO ĐỘNG – CÔNG NGHỆ & PHÁT TRIỂN NGUỒN NHÂN LỰC
+1. Quan hệ biện chứng giữa Công nghệ & Lao động
+* Công nghệ (LLSX) phát triển → thay đổi tổ chức lao động (QHSX): AI thay thế lao động giản đơn, lặp lại → đòi hỏi lao động phức tạp, kỹ năng số, tư duy phản biện.
+* Nguồn nhân lực chất lượng cao tác động trở lại: Con người làm chủ công nghệ, định hướng AI phục vụ sản xuất & xã hội, ngăn ngừa "tha hóa lao động" trong kỷ nguyên số.
+2. Định hướng phát triển nguồn nhân lực chất lượng cao của Việt Nam
+* Chuyển từ mô hình "lao động giá rẻ, thâm dụng tài nguyên" sang "lao động tri thức, kỹ năng số, sáng tạo & thích ứng nhanh".
+* Gắn đào tạo với thực tiễn doanh nghiệp, STEM, AI, dữ liệu lớn, chuyển đổi số quốc gia.
+* Hoàn thiện an sinh xã hội, đào tạo lại (reskilling/upskilling) cho lao động bị thay thế, chuyển dịch cơ cấu lao động theo hướng hiện đại.
+3. Bản chất định hướng XHCN trong CNH-HĐH
+* CNH-HĐH ở Việt Nam không chạy theo lợi nhuận đơn thuần hay thay thế con người bằng máy móc một cách vô điều kiện, mà hướng tới: con người là trung tâm, là chủ thể và là mục tiêu của phát triển.
+* Phát triển kinh tế tri thức gắn với tiến bộ & công bằng xã hội, đảm bảo AI và tự động hóa phục vụ nâng cao đời sống, giảm bất bình đẳng, thực hiện mục tiêu dân giàu, nước mạnh, dân chủ, công bằng, văn minh.
+📖 Giáo trình KTCT M-L (2021), tr. 208–210, 232–233 (Ch6), tr. 166–167 (Ch5)
+________________
+
+
+TRANG 5: DẪN CHỨNG & LIÊN HỆ BỐI CẢNH GEN Z
+MỐI LIÊN HỆ BIỆN CHỨNG GIỮA CÁC KHÁI NIỆM
+Loại liên hệ
+	Biểu hiện cụ thể trong Chủ đề
+	Nhân – Quả (Công nghệ → Lao động → Giá trị)
+	- CMCN 4.0 & AI (nguyên nhân) → thay đổi cấu trúc lao động, nâng cao yêu cầu kỹ năng số (kết quả).
+- Lao động trí tuệ & quản lý AI → tạo ra giá trị thặng dư tương đối & kinh tế số. Ví dụ: Nền tảng AI tạo nội dung giảm chi phí sản xuất, nhưng giá trị gia tăng đến từ kỹ sư prompt & người kiểm duyệt dữ liệu.
+	Mâu thuẫn (Động lực chuyển đổi thể chế)
+	- Mâu thuẫn giữa năng suất AI tăng vọt và nguy cơ thất nghiệp cấu trúc, phân hóa kỹ năng. 
+- Thị trường lao động số phân cực → Nhà nước dùng chính sách đào tạo lại, BHXH linh hoạt, thuế công nghệ để điều hòa.
+	Kế thừa & Thích ứng (Đổi mới CNH-HĐH)
+	- Kế thừa nguyên tắc CNH-HĐH truyền thống, bổ sung "kinh tế tri thức & chuyển đổi số" phù hợp bối cảnh mới. 
+- Ví dụ: Đề án 123/QĐ-TTg phát triển nhân lực số, chương trình "Make in Vietnam" thúc đẩy làm chủ công nghệ lõi thay vì gia công lắp ráp.
+	LIÊN HỆ BỐI CẢNH GEN Z HIỆN TẠI
+* Gen Z Việt Nam (1997–2012) là lực lượng lao động số chủ chốt, tiên phong ứng dụng AI trong học tập, khởi nghiệp, sáng tạo nội dung.
+* Xu hướng: Lao động linh hoạt (remote/freelance), đa kỹ năng (AI prompt, data analysis, digital marketing), quan tâm đạo đức AI & quyền sở hữu dữ liệu cá nhân.
+* Phân tích biện chứng:
+   * AI/LLMX → tạo cơ hội việc làm mới, giảm lao động thủ công, đòi hỏi tư duy phản biện & sáng tạo.
+   * Chính sách/Thể chế → Đề án phát triển nhân lực số, chuẩn kỹ năng AI quốc gia, hỗ trợ startup công nghệ Gen Z.
+   * Tác động qua lại → Gen Z thúc đẩy minh bạch dữ liệu, đòi hỏi đào tạo thực chiến; Nhà nước hoàn thiện thể chế an sinh số & giáo dục suốt đời.
+📊 Số liệu: TCTK (2024), Bộ TT&TT (2024), Đề án 123/QĐ-TTg, ILO Report on Digital Labour 2024
+________________
+
+
+TRANG 6: KẾT LUẬN BÀI HỌC & CÂU HỎI BGK
+Kết luận:
+1. AI & robot không phủ định lý luận giá trị Marxist, mà làm sâu sắc thêm vai trò của lao động trí tuệ, sáng tạo và quản lý công nghệ trong quá trình tạo giá trị.
+2. Giá trị thặng dư trong kỷ nguyên số vẫn bắt nguồn từ lao động sống, nhưng phương thức khai thác chuyển sang giá trị thặng dư tương đối và lao động số không trả lương trực tiếp.
+3. Việt Nam cần đột phá nguồn nhân lực chất lượng cao, coi giáo dục-đào tạo là quốc sách, gắn CNH-HĐH với phát triển kinh tế tri thức & chuyển đổi số.
+4. Định hướng XHCN đảm bảo AI phục vụ con người, không để con người trở thành "nô lệ" của thuật toán; phát triển công nghệ đi đôi với tiến bộ & công bằng xã hội.
+❓ Câu hỏi BGK gợi ý:
+1. Nếu AI tự động hóa 90% dây chuyền sản xuất, bộ phận nào trong G = c + v + m sẽ quyết định giá trị mới được tạo ra?
+2. Giá trị thặng dư tương đối trong kỷ nguyên số khác gì so với thời đại cơ khí hóa của Marx? Lấy ví dụ thực tế.
+3. Việt Nam đang thiếu hụt ~1 triệu nhân lực số. Chính sách CNH-HĐH cần ưu tiên "đào tạo lại lao động truyền thống" hay "đào tạo mới chuyên gia AI"? Phân tích theo góc độ QHSX phù hợp LLSX.
+________________
+
+
+TRANG 7: AI USAGE
+Mục
+	Nội dung minh bạch
+	Công cụ
+	ChatGPT-4o and Gemini
+	Mục đích
+	Gợi ý cấu trúc slide, kiểm tra thuật ngữ Marxist, tạo poll tương tác, rà soát citation APA
+	Prompt chính
+	"Dựa trên Chương 6 (và Ch2, Ch3) Giáo trình KTCT M-L 2021, trích dẫn chính xác các trang về lao động cụ thể/trừu tượng, giá trị thặng dư, CMCN 4.0 và nguồn nhân lực chất lượng cao. Kiểm tra tính chính xác học thuật, tránh sai thuật ngữ."
+	Phần nhóm chỉnh sửa
+	Toàn bộ luận điểm, số liệu TCTK 2024, khung debate, liên hệ Gen Z, bảng biện chứng → nhóm tự nghiên cứu & viết. AI chỉ hỗ trợ định dạng & gợi ý câu hỏi.
+	Cam kết liêm chính
+	Đối chiếu 100% nội dung AI với Giáo trình 2021 & Văn kiện Đảng. Không sử dụng AI tạo luận điểm thay thế nghiên cứu nhóm.
+	________________
+
+
+TRANG 8: REFERENCE
+1. Bộ Giáo dục và Đào tạo. (2021). Giáo trình Kinh tế chính trị Mác-Lênin. Hà Nội: Nxb. Chính trị quốc gia Sự thật, tr. 34–36, 75–93, 201–255.
+2. Đảng Cộng sản Việt Nam. (2021). Văn kiện Đại hội đại biểu toàn quốc lần thứ XIII. Hà Nội: Nxb. Chính trị quốc gia Sự thật, t.I, tr. 210–216.
+3. Thủ tướng Chính phủ. (2022). Quyết định số 123/QĐ-TTg phê duyệt Đề án phát triển nguồn nhân lực ngành công nghệ thông tin đến năm 2025, định hướng đến 2030. Hà Nội: Văn phòng Chính phủ.
+4. Tổng cục Thống kê. (2024). Thông cáo báo chí tình hình kinh tế - xã hội quý IV và năm 2024. https://www.gso.gov.vn
+5. Bộ Thông tin và Truyền thông. (2024). Báo cáo Kinh tế số Việt Nam 2024. Hà Nội: Cục Tin học hóa.
+________________
+
+
+📎 TRANG 9: [PHỤ LỤC] DANH MỤC ĐỊNH NGHĨA ĐÃ SỬ DỤNG
+(Dùng để kiểm chứng nguồn, trả lời phản biện & đảm bảo tính chính xác học thuật)
+I. ĐỊNH NGHĨA LÝ LUẬN MÁC VỀ LAO ĐỘNG & GIÁ TRỊ
+STT
+	Khái niệm
+	Định nghĩa (theo Giáo trình KTCT M-L 2021)
+	Trang
+	1
+	Lao động cụ thể
+	Là lao động có ích dưới một hình thức cụ thể của những nghề nghiệp chuyên môn nhất định, tạo ra giá trị sử dụng của hàng hóa.
+	tr. 34–35
+	2
+	Lao động trừu tượng
+	Là lao động xã hội của người sản xuất hàng hóa không kể đến hình thức cụ thể; đó là sự hao phí sức lao động nói chung, tạo ra giá trị hàng hóa.
+	tr. 35
+	3
+	Quá trình lao động tạo giá trị
+	Là sự thống nhất giữa quá trình tạo ra giá trị sử dụng và quá trình làm tăng giá trị (tạo ra giá trị mới lớn hơn giá trị sức lao động).
+	tr. 79–81
+	4
+	Tư bản bất biến (c)
+	Bộ phận tư bản tồn tại dưới hình thái tư liệu sản xuất, giá trị được bảo toàn và chuyển nguyên vẹn vào giá trị sản phẩm, không tạo ra giá trị thặng dư.
+	tr. 82–83
+	5
+	Tư bản khả biến (v)
+	Bộ phận tư bản dùng để mua hàng hóa sức lao động, thông qua lao động trừu tượng của công nhân tạo ra giá trị mới lớn hơn giá trị bản thân nó (v+m).
+	tr. 83
+	6
+	Giá trị thặng dư (m)
+	Bộ phận giá trị mới dôi ra ngoài giá trị sức lao động do công nhân tạo ra, là kết quả của lao động không công cho người mua sức lao động.
+	tr. 81–82
+	II. ĐỊNH NGHĨA VỀ CÔNG NGHỆ & GIÁ TRỊ THẶNG DƯ TRONG KỶ NGUYÊN MỚI
+STT
+	Khái niệm
+	Định nghĩa (theo Giáo trình KTCT M-L 2021)
+	Trang
+	7
+	Giá trị thặng dư tương đối
+	Giá trị thặng dư thu được nhờ rút ngắn thời gian lao động tất yếu (tăng năng suất lao động xã hội), kéo dài thời gian lao động thặng dư trong khi độ dài ngày lao động không đổi.
+	tr. 91–92
+	8
+	Kinh tế tri thức
+	Nền kinh tế trong đó sự sản sinh ra, phổ cập và sử dụng tri thức giữ vai trò quyết định nhất đối với sự phát triển kinh tế, tạo ra của cải, nâng cao chất lượng cuộc sống.
+	tr. 226
+	9
+	Cách mạng công nghiệp lần thứ 4
+	Cuộc cách mạng hình thành trên cơ sở cuộc cách mạng số, gắn với IoT, AI, big data, robot, in 3D..., xóa nhòa ranh giới giữa thế giới vật lý, số hóa và sinh học.
+	tr. 205–206
+	10
+	Tự động hóa & AI trong sản xuất
+	Ứng dụng công nghệ cao, trí tuệ nhân tạo và hệ thống máy móc thông minh để thay thế hoặc hỗ trợ lao động con người, nâng cao năng suất và độ chính xác.
+	tr. 208–210, 230
+	III. ĐỊNH NGHĨA VỀ CNH-HĐH & NGUỒN NHÂN LỰC VIỆT NAM
+STT
+	Khái niệm
+	Định nghĩa (theo Giáo trình KTCT M-L 2021)
+	Trang
+	11
+	Công nghiệp hóa, hiện đại hóa
+	Quá trình chuyển đổi căn bản, toàn diện các hoạt động sản xuất, dịch vụ và quản lý từ sử dụng lao động thủ công là chính sang sử dụng phổ biến công nghệ, phương tiện tiên tiến hiện đại.
+	tr. 220–221
+	12
+	Nguồn nhân lực chất lượng cao
+	Lực lượng lao động có trình độ chuyên môn, kỹ năng nghề, tư duy sáng tạo, khả năng thích ứng và làm chủ công nghệ hiện đại, đáp ứng yêu cầu phát triển kinh tế tri thức.
+	tr. 232–233
+	13
+	Định hướng XHCN trong phát triển
+	Phương hướng phát triển lấy con người làm trung tâm, gắn tăng trưởng kinh tế với công bằng xã hội, phát triển văn hóa, bảo vệ môi trường và thực hiện tiến bộ xã hội ngay trong từng bước đi.
+	tr. 166–167, 223
+	14
+	Chuyển đổi số quốc gia
+	Quá trình thay đổi tổng thể và toàn diện của cá nhân, tổ chức về cách sống, cách làm việc và phương thức sản xuất dựa trên công nghệ số, dữ liệu và kết nối mạng.
+	tr. 230–231
+	IV. ĐỊNH NGHĨA BỔ TRỢ (LIÊN HỆ THỰC TIỄN & GEN Z)
+STT
+	Khái niệm
+	Định nghĩa/Giải thích (theo văn bản chính thống)
+	Nguồn
+	15
+	Lao động nền tảng (Gig/Platform Labour)
+	Mô hình lao động linh hoạt thông qua ứng dụng/nền tảng số, không có hợp đồng dài hạn, thu nhập phụ thuộc vào đơn hàng/dự án.
+	ILO Report 2024
+	16
+	Reskilling / Upskilling
+	Đào tạo lại kỹ năng mới hoặc nâng cao kỹ năng hiện có để thích ứng với yêu cầu công việc thay đổi do tự động hóa & AI.
+	Đề án 123/QĐ-TTg
+	17
+	Dữ liệu lớn (Big Data)
+	Khối lượng dữ liệu khổng lồ, đa dạng, được xử lý bằng công nghệ để trích xuất thông tin, hỗ trợ ra quyết định và tối ưu hóa sản xuất.
+	Bộ TT&TT, 2024
+	18
+	Thất nghiệp cấu trúc
+	Tình trạng người lao động mất việc do sự thay đổi công nghệ hoặc cơ cấu ngành nghề, trong khi kỹ năng hiện có không đáp ứng yêu cầu mới.
+	TCTK, 2024
