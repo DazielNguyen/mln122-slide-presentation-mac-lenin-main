@@ -6,7 +6,7 @@
   <title>Nhóm 5 — Kinh tế chính trị Mác-Lên-nin</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   
   <!-- Libraries -->
   <script type="module"></script>
@@ -34,10 +34,10 @@
       --glass-border: rgba(8, 145, 178, 0.18);
 
       /* Fonts */
-      --font-serif: "Instrument Serif", serif;
-      --font-sans: "Open Sans", "Be Vietnam Pro", system-ui, sans-serif;
-      --font-display: "Poppins", "Be Vietnam Pro", sans-serif;
-      --font-vn: "Be Vietnam Pro", "Open Sans", system-ui, sans-serif;
+      --font-serif: "Raleway", "Be Vietnam Pro", serif;
+      --font-sans: "Montserrat", "Be Vietnam Pro", system-ui, sans-serif;
+      --font-display: "Raleway", "Be Vietnam Pro", sans-serif;
+      --font-vn: "Raleway", "Montserrat", "Be Vietnam Pro", sans-serif;
 
       --ease: cubic-bezier(0.23, 1, 0.32, 1);
       --dur: 0.8s;
@@ -432,14 +432,14 @@
       font-weight: 700;
       margin: 0 2.5rem 0.85rem 0;
       padding-bottom: 0.65rem;
-      border-bottom: 1px solid rgba(94, 225, 208, 0.25);
-      color: #f4f7fb;
+      border-bottom: 1px solid rgba(8, 145, 178, 0.25);
+      color: #0c4a6e;
     }
 
     .ai-usage-dialog__lead {
       font-size: clamp(0.92rem, 1.35vw, 1.02rem);
       line-height: 1.55;
-      color: rgba(200, 208, 228, 0.95);
+      color: #164e63;
       margin: 0 0 1.1rem;
     }
 
@@ -448,7 +448,7 @@
       padding: 0 0 0 1.15rem;
       font-size: clamp(0.9rem, 1.3vw, 1rem);
       line-height: 1.55;
-      color: rgba(218, 224, 240, 0.96);
+      color: #1e3a4a;
     }
 
     .ai-usage-dialog__list li {
@@ -456,17 +456,17 @@
     }
 
     .ai-usage-dialog__list strong {
-      color: var(--accent2);
+      color: #0369a1;
       font-weight: 700;
     }
 
     .ai-usage-dialog__foot {
       font-size: clamp(0.86rem, 1.2vw, 0.95rem);
       line-height: 1.5;
-      color: rgba(160, 170, 195, 0.95);
+      color: #0c4a6e;
       margin: 0;
       padding-top: 0.85rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-top: 1px solid rgba(8, 145, 178, 0.15);
     }
 
     /* Nút trong slide — mở dialog minh họa */
@@ -495,6 +495,24 @@
 
     .btn-slide-secondary:active {
       transform: translateY(0);
+    }
+
+    .btn-slide-secondary.btn-slide-secondary--primary {
+      color: #ffffff;
+      background: linear-gradient(145deg, var(--accent), #0369a1);
+      border: 1px solid rgba(3, 105, 161, 0.85);
+      box-shadow:
+        0 6px 18px rgba(8, 145, 178, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.22);
+    }
+
+    .btn-slide-secondary.btn-slide-secondary--primary:hover {
+      background: linear-gradient(145deg, #06b6d4, #0369a1);
+      border-color: rgba(3, 105, 161, 0.95);
+      box-shadow:
+        0 10px 26px rgba(8, 145, 178, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
     }
 
     /* Dialog — sơ đồ ba tầng CSHT (ảnh lớn, cuộn được) */
@@ -789,7 +807,7 @@
     .controls button {
       background: var(--glass);
       border: 1px solid var(--glass-border);
-      color: var(--text);
+      color: #fff;
       width: 40px;
       height: 40px;
       display: flex;
@@ -1053,6 +1071,11 @@
       justify-items: center;
       gap: clamp(1.25rem, 3vw, 3rem);
       padding: clamp(2.5rem, 7vw, 5.5rem) clamp(1.75rem, 7vw, 6rem);
+      background:
+        radial-gradient(ellipse 130% 100% at 50% -25%, rgba(8, 145, 178, 0.14), transparent 52%),
+        radial-gradient(ellipse 90% 70% at 100% 40%, rgba(6, 182, 212, 0.08), transparent 48%),
+        radial-gradient(ellipse 70% 55% at 0% 85%, rgba(99, 102, 241, 0.07), transparent 42%),
+        linear-gradient(180deg, #e0f7ff 0%, #f0f9ff 45%, #e8f4fd 100%);
     }
 
     .slide--content.no-media {
@@ -1711,6 +1734,15 @@
         linear-gradient(180deg, #06070c 0%, var(--bg) 35%, #040406 100%);
     }
 
+    /* Trang 3 dùng cùng nền như Trang 2 */
+    .slide.slide--content.slide--bg-like-page2 {
+      background:
+        radial-gradient(ellipse 100% 80% at 50% 0%, rgba(189, 30, 30, 0.08), transparent 55%),
+        radial-gradient(ellipse 90% 70% at 100% 30%, rgba(94, 225, 208, 0.06), transparent 50%),
+        radial-gradient(ellipse 70% 50% at 0% 100%, rgba(207, 181, 59, 0.05), transparent 45%),
+        linear-gradient(180deg, #d8efff 0%, var(--bg) 35%, #d5ebff 100%);
+    }
+
     .slide.slide--outro {
       grid-template-columns: 1fr;
       grid-template-rows: auto minmax(0, 1fr);
@@ -2069,6 +2101,61 @@
       font-weight: 700;
     }
 
+    /* Tăng độ tương phản cho các trang 4-6: nền sáng, chữ đậm, dễ đọc */
+    .slide[data-i="3"] .info-card,
+    .slide[data-i="5"] .info-card,
+    .slide[data-i="6"] .info-card {
+      background:
+        radial-gradient(ellipse 95% 70% at 100% 0%, rgba(6, 182, 212, 0.08), transparent 56%),
+        linear-gradient(170deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 249, 255, 0.95) 100%);
+      border: 1px solid rgba(8, 145, 178, 0.22);
+      box-shadow:
+        0 10px 28px rgba(8, 145, 178, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+
+    .slide[data-i="3"] .info-card h4,
+    .slide[data-i="5"] .info-card h4,
+    .slide[data-i="6"] .info-card h4 {
+      color: #0369a1 !important;
+    }
+
+    .slide[data-i="3"] .info-card p,
+    .slide[data-i="5"] .info-card p,
+    .slide[data-i="6"] .info-card p {
+      color: #0c4a6e;
+    }
+
+    .slide[data-i="3"] .info-card p strong,
+    .slide[data-i="5"] .info-card p strong,
+    .slide[data-i="6"] .info-card p strong {
+      color: #0a3e61;
+    }
+
+    .slide[data-i="3"] ul.points li,
+    .slide[data-i="4"] ul.points li,
+    .slide[data-i="5"] ul.points li,
+    .slide[data-i="6"] ul.points li {
+      color: #0c4a6e;
+      border: 1px solid rgba(8, 145, 178, 0.2);
+      background:
+        radial-gradient(ellipse 95% 70% at 100% 0%, rgba(6, 182, 212, 0.07), transparent 56%),
+        linear-gradient(168deg, rgba(255, 255, 255, 0.94) 0%, rgba(240, 249, 255, 0.92) 100%);
+      box-shadow:
+        0 8px 24px rgba(8, 145, 178, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.92);
+    }
+
+    .slide[data-i="3"] ul.points li:hover,
+    .slide[data-i="4"] ul.points li:hover,
+    .slide[data-i="5"] ul.points li:hover,
+    .slide[data-i="6"] ul.points li:hover {
+      border-color: rgba(8, 145, 178, 0.35);
+      box-shadow:
+        0 12px 30px rgba(8, 145, 178, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    }
+
     .tag {
       display: inline-flex;
       align-items: center;
@@ -2198,7 +2285,7 @@
       border: 1px solid rgba(255, 255, 255, 0.12);
       background: rgba(18, 24, 42, 0.85);
       backdrop-filter: blur(10px);
-      color: var(--text);
+      color: #fff;
       cursor: pointer;
       font-size: 1.1rem;
       display: grid;
@@ -2298,7 +2385,7 @@
       }
     }
   </style>
-  <script type="module" crossorigin src="/assets/index-BZoNlrmW.js"></script>
+  <script type="module" crossorigin src="/assets/index-DhpYk86A.js"></script>
 </head>
 <body>
   <div class="progress-bar">
@@ -2348,6 +2435,36 @@
       <h2 id="kttt-chart-dialog-title">Minh họa: Kiến trúc thượng tầng (bản chất &amp; vận động)</h2>
       <figure class="infra-chart-dialog__figure">
         <img class="infra-chart-dialog__img" src="/assets/tt-CrleeJ-K.jpg" alt="Sơ đồ kiến trúc thượng tầng: cấu trúc hệ thống và mối quan hệ biện chứng với cơ sở hạ tầng" decoding="async" loading="lazy" />
+      </figure>
+    </div>
+  </dialog>
+
+  <dialog id="gttd-chart-dialog" class="infra-chart-dialog" aria-labelledby="gttd-chart-dialog-title">
+    <div class="infra-chart-dialog__inner">
+      <button type="button" class="ai-usage-dialog__close" id="gttd-chart-dialog-close" aria-label="Đóng hộp thoại">&times;</button>
+      <h2 id="gttd-chart-dialog-title">Minh họa: Giá trị thặng dư trong nền kinh tế số</h2>
+      <figure class="infra-chart-dialog__figure">
+        <img class="infra-chart-dialog__img" src="/assets/gia-tri-thang-du-2gVXcJ_l.png" alt="Minh họa cơ chế hình thành giá trị thặng dư trong bối cảnh AI và kinh tế số" decoding="async" loading="lazy" />
+      </figure>
+    </div>
+  </dialog>
+
+  <dialog id="ldtt-chart-dialog" class="infra-chart-dialog" aria-labelledby="ldtt-chart-dialog-title">
+    <div class="infra-chart-dialog__inner">
+      <button type="button" class="ai-usage-dialog__close" id="ldtt-chart-dialog-close" aria-label="Đóng hộp thoại">&times;</button>
+      <h2 id="ldtt-chart-dialog-title">Minh họa: Lao động cụ thể và lao động trừu tượng</h2>
+      <figure class="infra-chart-dialog__figure">
+        <img class="infra-chart-dialog__img" src="/assets/lao-dong-cu-the-va-lao-dong-truu-tuong-Cl-a7eil.png" alt="Infographic về lao động cụ thể và lao động trừu tượng theo lý luận Mác" decoding="async" loading="lazy" />
+      </figure>
+    </div>
+  </dialog>
+
+  <dialog id="ai-hr-chart-dialog" class="infra-chart-dialog" aria-labelledby="ai-hr-chart-dialog-title">
+    <div class="infra-chart-dialog__inner">
+      <button type="button" class="ai-usage-dialog__close" id="ai-hr-chart-dialog-close" aria-label="Đóng hộp thoại">&times;</button>
+      <h2 id="ai-hr-chart-dialog-title">Minh họa: AI và nguồn nhân lực</h2>
+      <figure class="infra-chart-dialog__figure">
+        <img class="infra-chart-dialog__img" src="/assets/AI-va-nguon-nhan-luc-CnzahdPH.png" alt="Infographic về mối quan hệ giữa AI và phát triển nguồn nhân lực" decoding="async" loading="lazy" />
       </figure>
     </div>
   </dialog>
@@ -2456,7 +2573,7 @@
     </section>
 
     <!-- 2 · Bối cảnh & Câu hỏi trung tâm -->
-    <section class="slide slide--content no-media" data-i="2">
+    <section class="slide slide--content no-media slide--bg-like-page2" data-i="2">
       <div class="slide-main">
         <span class="milestone gsap-reveal"><span class="milestone__text">Trang 1 · Bối cảnh</span></span>
         <h2 class="gsap-reveal">Câu hỏi trung tâm</h2>
@@ -2472,7 +2589,7 @@
     </section>
 
     <!-- 3 · Lý luận Mác về lao động cụ thể, trừu tượng -->
-    <section class="slide slide--content no-media" data-i="3">
+    <section class="slide slide--content no-media slide--bg-like-page2" data-i="3">
       <div class="slide-main">
         <span class="milestone gsap-reveal"><span class="milestone__text">Trang 2 · Lý luận Mác - Lênin</span></span>
         <h2 class="gsap-reveal">Lao động cụ thể & trừu tượng</h2>
@@ -2491,11 +2608,12 @@
         <p class="lead lead--after-list gsap-reveal" style="margin-top: 1.5rem;">
           <strong>Quá trình tạo giá trị:</strong> <br>AI & Máy móc chỉ chuyển dần hao mòn (c) vào sản phẩm. Giá trị mới (v+m) <em>vẫn bắt nguồn từ sức lao động (sống)</em>, nhưng chuyển đổi mạnh thành lao động trí tuệ, phức tạp.
         </p>
+        <button type="button" class="btn-slide-secondary btn-slide-secondary--primary gsap-reveal" id="btn-ldtt-chart">(Minh họa Inforgraphic)</button>
       </div>
     </section>
 
     <!-- 4 · Giá trị & Giá trị thặng dư trong kỷ nguyên AI -->
-    <section class="slide slide--content no-media" data-i="4">
+    <section class="slide slide--content no-media slide--bg-like-page2" data-i="4">
       <div class="slide-main">
         <span class="milestone gsap-reveal"><span class="milestone__text">Trang 3 · Giá trị thặng dư thời đại số</span></span>
         <h2 class="gsap-reveal">Giá trị thặng dư từ đâu?</h2>
@@ -2505,11 +2623,12 @@
           <li class="gsap-reveal">Khai thác <strong>Giá trị thặng dư tương đối</strong>: AI gián tiếp làm tăng năng suất, tối ưu hóa chuỗi cung ứng, hạ thấp giá trị sức lao động (v) để kéo dài thời gian lao động thặng dư (m).</li>
           <li class="gsap-reveal"><strong style="color: var(--accent2);">Hiện tượng mới (Lao động số vô hình):</strong> Dữ liệu người dùng, UGC (User-generated content), hành vi click chuột trở thành nguyên liệu vô giá tạo nên giá trị khổng lồ cho các Big Tech mà không được trả lương (sự mở rộng biện chứng).</li>
         </ul>
+        <button type="button" class="btn-slide-secondary btn-slide-secondary--primary gsap-reveal" id="btn-gttd-chart">(Minh họa Inforgraphic)</button>
       </div>
     </section>
 
     <!-- 5 · Mối quan hệ biện chứng & Phát triển NNL -->
-    <section class="slide slide--content no-media" data-i="5">
+    <section class="slide slide--content no-media slide--bg-like-page2" data-i="5">
       <div class="slide-main">
         <span class="milestone gsap-reveal"><span class="milestone__text">Trang 4 · Biện chứng & NNL VN</span></span>
         <h2 class="gsap-reveal">Công nghệ & Nguồn nhân lực</h2>
@@ -2527,16 +2646,17 @@
           <h4 style="color: var(--danger);">Bản chất XHCN</h4>
           <p>Phát triển AI, tự động hóa để <em>giải phóng con người</em> khỏi tha hóa lao động, <strong>kết hợp công bằng, tiến bộ xã hội</strong> thay vì để con người làm nô lệ cho thuật toán thu lợi siêu ngạch mù quáng.</p>
         </div>
+        <button type="button" class="btn-slide-secondary btn-slide-secondary--primary gsap-reveal" id="btn-ai-hr-chart">(Minh họa Inforgraphic)</button>
       </div>
     </section>
 
     <!-- 6 · Dẫn chứng & Liên hệ Gen Z -->
-    <section class="slide slide--content no-media" data-i="6">
+    <section class="slide slide--content no-media slide--bg-like-page2" data-i="6">
       <div class="slide-main">
         <span class="milestone gsap-reveal"><span class="milestone__text">Trang 5 · Liên hệ Gen Z</span></span>
-        <h2 class="gsap-reveal">Liên hệ bối cảnh Gen Z & Thị trường</h2>
-        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.5rem;" class="gsap-reveal">
-          <h3 style="margin-bottom: 0.5rem; color: #fff;">Sự chuyển mình của Gen Z</h3>
+        <h2 class="gsap-reveal">Liên hệ bối cảnh GenZ & Thị trường</h2>
+        <div style="background: rgba(8,145,178,0.08); border: 1px solid rgba(8,145,178,0.2); border-radius: 12px; padding: 1.5rem;" class="gsap-reveal">
+          <h3 style="margin-bottom: 0.5rem; color: #0c4a6e;">Sự chuyển mình của Gen Z</h3>
           <p class="lead" style="margin: 0; font-size: 1rem;">Gen Z (1997-2012) Việt Nam là lực lượng lao động số đặc hữu, chuyển mạnh từ làm thuê truyền thống sang <strong> Gig/Platform Labour </strong> (làm việc nền tảng) và đa kỹ năng (Prompt Engineering, Digital Marketing).</p>
         </div>
         <ul class="points">
@@ -2548,7 +2668,7 @@
     </section>
 
     <!-- 7 · Kết luận bài học & Câu hỏi BGK -->
-    <section class="slide slide--content no-media" data-i="7">
+    <section class="slide slide--content no-media slide--bg-like-page2" data-i="7">
       <div class="slide-main">
         <span class="milestone gsap-reveal"><span class="milestone__text">Trang 6 · Tổng kết</span></span>
         <h2 class="gsap-reveal">Kết luận bài học</h2>
@@ -2569,7 +2689,7 @@
     </section>
 
     <!-- 8 · AI Usage -->
-    <section class="slide slide--content no-media" data-i="8">
+    <section class="slide slide--content no-media slide--bg-like-page2" data-i="8">
       <div class="slide-main">
         <span class="milestone gsap-reveal"><span class="milestone__text">Trang 7 · Disclosure</span></span>
         <h2 class="gsap-reveal">Sử dụng AI & Tính Liêm Chính</h2>
@@ -2584,19 +2704,24 @@
             </thead>
             <tbody>
               <tr>
-                <td style="color:var(--accent2); font-weight: 600;">ChatGPT-4o / Gemini</td>
+                <td style="color:#0369a1; font-weight: 700;">ChatGPT-4o / Gemini</td>
                 <td>Gợi ý cấu trúc slide, rà soát thuật ngữ Marxist (Ch2, Ch3, Ch6 Giáo trình 2021) và kiểm tra chuẩn APA.</td>
                 <td>Nghiên cứu luận điểm, liên hệ bối cảnh Gen Z, dẫn chứng thực tiễn Việt Nam & biện luận các vấn đề XHCN.</td>
+              </tr>
+              <tr>
+                <td style="color:#0369a1; font-weight: 700;">Notebook LLM</td>
+                <td>Tạo Inforgraphic trình bày như lý thuyết trong nội dung của phần Bối cảnh, Lý luận Mác Lê-nin, Giá trị thặng dư thời đại số, Biện chứng & Nguồn Nhân Lực Việt Nam.</td>
+                <td>Tạo ra sản phẩm sáng tạo, giúp người học nhìn thấy trực quan hóa về nội dung trình bày và hiểu rõ hơn về phần thuyết trình của nhóm.</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p class="lead gsap-reveal" style="font-size: 0.95rem; margin-top: 1rem; color: var(--muted);"><strong>Cam kết:</strong> Không sử dụng AI để bịa đặt học thuật. Mọi lập luận Mác-Lênin gốc đều được đối chiếu chéo giáo trình & văn kiện Đảng.</p>
+        <p class="lead gsap-reveal" style="font-size: 0.95rem; margin-top: 1rem; color: #0c4a6e;"><strong>Cam kết:</strong> Không sử dụng AI để bịa đặt học thuật. Mọi lập luận Mác-Lênin gốc đều được đối chiếu chéo giáo trình & văn kiện Đảng.</p>
       </div>
     </section>
 
     <!-- 9 · Reference -->
-    <section class="slide slide--content no-media slide--refs" data-i="9">
+    <section class="slide slide--content no-media slide--refs slide--bg-like-page2" data-i="9">
       <div class="slide-main">
         <span class="milestone gsap-reveal"><span class="milestone__text">Trang 8 · Tham khảo</span></span>
         <h2 class="gsap-reveal">Tài liệu tham khảo APA</h2>
@@ -2642,27 +2767,48 @@
     </section>
 
     <!-- 10 · Phụ lục Định nghĩa -->
-    <section class="slide slide--content no-media" data-i="10">
+    <section class="slide slide--content no-media slide--bg-like-page2" data-i="10">
       <div class="slide-main">
         <span class="milestone gsap-reveal"><span class="milestone__text">Trang 9 · Phụ lục</span></span>
         <h2 class="gsap-reveal">Danh mục Định nghĩa</h2>
         <p class="lead gsap-reveal" style="margin-bottom: 1rem;">Dùng để đối chiếu và hiểu rõ bài thuyết trình chuẩn xác theo giáo trình.</p>
-        <div style="column-count: 2; column-gap: 2rem; font-size: 0.9rem;" class="gsap-reveal">
-          <div style="margin-bottom: 1rem;">
-            <strong style="color: var(--accent-gold);">1. Lao động trừu tượng:</strong><br>Hao phí sức lao động nói chung của con người sản xuất hàng hóa. Tạo ra giá trị (tr. 35).
-          </div>
-          <div style="margin-bottom: 1rem;">
-            <strong style="color: var(--accent-gold);">2. TB Bất biến (c):</strong><br>Bộ phận tư bản (Tư liệu sản xuất) bảo toàn và chuyển đổi vẹn nguyên giá trị, không sinh M (tr. 82).
-          </div>
-          <div style="margin-bottom: 1rem;">
-            <strong style="color: var(--accent-gold);">3. TB Khả biến (v):</strong><br>Bộ phận mua lao động, thông qua hao phí tạo giá trị mới lớn hơn bản thân (tr. 83).
-          </div>
-          <div style="margin-bottom: 1rem;">
-            <strong style="color: var(--accent-gold);">4. GTTD Tương đối:</strong><br>Sinh ra do rút ngắn thời gian tất yếu thông qua tăng năng suất XH chung.
-          </div>
-          <div style="margin-bottom: 1rem;">
-            <strong style="color: var(--accent-gold);">5. Kinh tế tri thức:</strong><br>Hệ thống mà việc sản sinh, phổ cập tri thức đóng vai trò tạo của cải quyết định nhất (tr. 226).
-          </div>
+        <div class="refs-table-wrap gsap-reveal">
+          <table class="refs-table">
+            <thead>
+              <tr>
+                <th scope="col" class="col-stt">STT</th>
+                <th scope="col" class="col-source">Thuật ngữ</th>
+                <th scope="col">Ý nghĩa / Căn cứ giáo trình</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-stt">1</td>
+                <td class="col-source">Lao động trừu tượng</td>
+                <td>Hao phí sức lao động nói chung của con người sản xuất hàng hóa. Tạo ra giá trị (tr. 35).</td>
+              </tr>
+              <tr>
+                <td class="col-stt">2</td>
+                <td class="col-source">TB Bất biến (c)</td>
+                <td>Bộ phận tư bản (Tư liệu sản xuất) bảo toàn và chuyển đổi vẹn nguyên giá trị, không sinh m (tr. 82).</td>
+              </tr>
+              <tr>
+                <td class="col-stt">3</td>
+                <td class="col-source">TB Khả biến (v)</td>
+                <td>Bộ phận mua sức lao động, thông qua hao phí tạo giá trị mới lớn hơn bản thân (tr. 83).</td>
+              </tr>
+              <tr>
+                <td class="col-stt">4</td>
+                <td class="col-source">GTTD Tương đối</td>
+                <td>Sinh ra do rút ngắn thời gian tất yếu thông qua tăng năng suất XH chung.</td>
+              </tr>
+              <tr>
+                <td class="col-stt">5</td>
+                <td class="col-source">Kinh tế tri thức</td>
+                <td>Hệ thống mà việc sản sinh, phổ cập tri thức đóng vai trò tạo của cải quyết định nhất (tr. 226).</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
