@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cờ VN — hạt &amp; bàn tay (Three.js + MediaPipe)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ui: rgba(8, 10, 18, 0.82);
+      --border: rgba(255, 255, 255, 0.12);
+      --text: #e8ecf4;
+      --muted: #9aa3b8;
+      --accent: #da251d;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background: #020308;
+      color: var(--text);
+      font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+    }
+    #canvas {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+      touch-action: none;
+    }
+    /* Video vẫn chạy cho MediaPipe nhưng không hiển thị trên giao diện */
+    #webcam {
+      position: fixed;
+      left: -9999px;
+      top: 0;
+      width: 320px;
+      height: 240px;
+      opacity: 0;
+      pointer-events: none;
+      z-index: -1;
+      transform: scaleX(-1);
+      object-fit: cover;
+    }
+    #exit {
+      position: fixed;
+      right: 12px;
+      top: 12px;
+      z-index: 4;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--ui);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      backdrop-filter: blur(12px);
+    }
+    #exit:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    #ui {
+      position: fixed;
+      left: 12px;
+      top: 12px;
+      max-width: min(420px, 92vw);
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: var(--ui);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      z-index: 3;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    #ui h1 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+    }
+    .hints {
+      list-style: none;
+      margin: 0 0 10px;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .hints li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+    .hints .ic {
+      flex-shrink: 0;
+      width: 1.75rem;
+      text-align: center;
+      font-size: 1.15rem;
+      line-height: 1;
+    }
+    .hints li span:last-child { color: var(--text); opacity: 0.92; }
+    #btn {
+      margin-top: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 13px;
+      background: linear-gradient(135deg, var(--accent), #8b1010);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(218, 37, 29, 0.35);
+    }
+    #btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+    /* Khung xem camera — góc phải dưới (cùng stream với video ẩn cho MediaPipe) */
+    .camera-preview-wrap {
+      position: fixed;
+      right: max(12px, env(safe-area-inset-right, 0px));
+      bottom: max(12px, env(safe-area-inset-bottom, 0px));
+      z-index: 2;
+      width: min(280px, 42vw);
+      aspect-ratio: 4 / 3;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.55);
+      background: #0a0c12;
+      opacity: 0;
+      transform: translateY(8px) scale(0.98);
+      pointer-events: none;
+      transition: opacity 0.28s ease, transform 0.28s ease;
+    }
+    .camera-preview-wrap.is-on {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    .camera-preview-wrap__video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scaleX(-1);
+    }
+  </style>
+  <script type="module" crossorigin src="/assets/flag-hands-2qFywYgJ.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-wMinxHhO.js">
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <video id="webcam" playsinline muted aria-hidden="true"></video>
+  <div id="camera-preview-wrap" class="camera-preview-wrap" aria-hidden="true">
+    <video id="webcam-preview" class="camera-preview-wrap__video" playsinline muted tabindex="-1"></video>
+  </div>
+  <a id="exit" href="index.html">Thoát</a>
+  <div id="ui">
+    <h1>Cờ VN — điều khiển bằng tay</h1>
+    <ul class="hints" aria-label="Gợi ý cử chỉ">
+      <li><span class="ic" aria-hidden="true">✊</span><span>Tụ cờ — <strong>một tay</strong> nắm đấm (hai tay trong khung = tim)</span></li>
+      <li><span class="ic" aria-hidden="true">✋</span><span>Tản + <strong>4 card một hàng</strong> · trỏ ngang → card nổi bật · <strong>OK 👌</strong> giữ → card đó phóng giữa màn, các card khác ẩn</span></li>
+      <li><span class="ic" aria-hidden="true">↔</span><span>Hất ngang nhanh · xung hạt</span></li>
+      <li><span class="ic" aria-hidden="true">🫶</span><span><strong>Hai tay</strong> trong khung (cổ tay tách vừa) → tim + THANKS FOR WATCHING</span></li>
+    </ul>
+    <button type="button" id="btn">Bật camera &amp; bắt đầu</button>
+  </div>
+
+</body>
+</html>
