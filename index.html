@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,8 +8,10 @@
   <title>Nhóm 5 — Kinh tế chính trị Mác-Lên-nin</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+
   <!-- Libraries -->
   <script type="module"></script>
   <style>
@@ -19,15 +22,22 @@
       --bg-alt: #e0f2fe;
 
       /* Typography */
-      --text: #0c4a6e;         /* deep ocean blue - high contrast */
-      --muted: #0369a1;        /* medium ocean blue */
-      --muted-light: #7EB3D0;  /* light accent text */
+      --text: #0c4a6e;
+      /* deep ocean blue - high contrast */
+      --muted: #0369a1;
+      /* medium ocean blue */
+      --muted-light: #7EB3D0;
+      /* light accent text */
 
       /* Accents */
-      --accent: #0891b2;       /* Cyan-600 - primary teal */
-      --accent-gold: #0369a1;  /* Deep Sky Blue instead of gold */
-      --accent2: #06b6d4;      /* Cyan-500 - secondary */
-      --accent3: #6366f1;      /* Indigo-500 - tertiary pop */
+      --accent: #0891b2;
+      /* Cyan-600 - primary teal */
+      --accent-gold: #0369a1;
+      /* Deep Sky Blue instead of gold */
+      --accent2: #06b6d4;
+      /* Cyan-500 - secondary */
+      --accent3: #6366f1;
+      /* Indigo-500 - tertiary pop */
       --danger: #0891b2;
 
       /* Glassmorphism surfaces */
@@ -53,7 +63,7 @@
       --surface-elevated: rgba(255, 255, 255, 0.92);
       --surface-border: rgba(8, 145, 178, 0.15);
       --surface-border-strong: rgba(8, 145, 178, 0.35);
-      --shadow-card: 0 8px 32px rgba(8, 145, 178, 0.12), 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-card: 0 8px 32px rgba(8, 145, 178, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
       --radius-card: 18px;
 
       /* Content widths */
@@ -68,6 +78,7 @@
       from {
         transform: translate3d(0, 0, 0);
       }
+
       to {
         transform: translate3d(0, -100vh, 0);
       }
@@ -77,6 +88,7 @@
       from {
         transform: translate3d(0, 0, 0);
       }
+
       to {
         transform: translate3d(0, 100vh, 0);
       }
@@ -86,6 +98,7 @@
       from {
         transform: translate3d(0, 100vh, 0);
       }
+
       to {
         transform: translate3d(0, 0, 0);
       }
@@ -95,6 +108,7 @@
       from {
         transform: translate3d(0, -100vh, 0);
       }
+
       to {
         transform: translate3d(0, 0, 0);
       }
@@ -121,9 +135,18 @@
     }
 
     /* Custom Scrollbar */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 10px;
+    }
 
     .deck {
       width: 100%;
@@ -340,6 +363,7 @@
         opacity: 0;
         transform: scale(0.92) translateY(14px);
       }
+
       to {
         opacity: 1;
         transform: scale(1) translateY(0);
@@ -351,6 +375,7 @@
         opacity: 1;
         transform: scale(1) translateY(0);
       }
+
       to {
         opacity: 0;
         transform: scale(0.92) translateY(12px);
@@ -358,13 +383,23 @@
     }
 
     @keyframes ai-backdrop-in {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
 
     @keyframes ai-backdrop-out {
-      from { opacity: 1; }
-      to { opacity: 0; }
+      from {
+        opacity: 1;
+      }
+
+      to {
+        opacity: 0;
+      }
     }
 
     .ai-usage-dialog {
@@ -376,7 +411,7 @@
       border-radius: 16px;
       background: rgba(255, 255, 255, 0.97);
       color: var(--text);
-      box-shadow: 0 24px 80px rgba(8, 145, 178, 0.2), 0 4px 16px rgba(0,0,0,0.08);
+      box-shadow: 0 24px 80px rgba(8, 145, 178, 0.2), 0 4px 16px rgba(0, 0, 0, 0.08);
       border: 1px solid rgba(8, 145, 178, 0.2);
     }
 
@@ -919,6 +954,7 @@
       z-index: 1001;
       pointer-events: none;
     }
+
     .slide-counter span {
       color: var(--accent);
     }
@@ -958,8 +994,10 @@
       visibility: hidden;
       transform: translateY(30px);
     }
-    
-    .gsap-line { overflow: hidden; }
+
+    .gsap-line {
+      overflow: hidden;
+    }
 
     @media (max-width: 1024px) {
       .slide--content {
@@ -967,8 +1005,14 @@
         padding: 3rem 1.5rem;
         gap: 2rem;
       }
-      .slide-aside { order: -1; }
-      h2 { font-size: 2rem; }
+
+      .slide-aside {
+        order: -1;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
     }
 
     /* —— Phụ lục trình chiếu —— */
@@ -1182,9 +1226,11 @@
         transform: translateY(110vh) scale(0.96);
         opacity: 0;
       }
+
       55% {
         opacity: 1;
       }
+
       100% {
         transform: translateY(0) scale(1);
         opacity: 1;
@@ -1243,7 +1289,7 @@
     }
 
     /* Tiêu đề slide: full chiều ngang viewport + gạch gradient dưới */
-    .slide.slide--content .slide-main > h2 {
+    .slide.slide--content .slide-main>h2 {
       position: relative;
       width: 100vw;
       max-width: 100vw;
@@ -1260,21 +1306,19 @@
       text-shadow: none;
     }
 
-    .slide.slide--content .slide-main > h2::after {
+    .slide.slide--content .slide-main>h2::after {
       content: "";
       display: block;
       width: min(11rem, 42vw);
       height: 2px;
       margin: clamp(0.55rem, 1.4vh, 0.95rem) auto 0;
       border-radius: 2px;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(8, 145, 178, 0.3) 20%,
-        var(--accent) 50%,
-        rgba(99, 102, 241, 0.5) 78%,
-        transparent
-      );
+      background: linear-gradient(90deg,
+          transparent,
+          rgba(8, 145, 178, 0.3) 20%,
+          var(--accent) 50%,
+          rgba(99, 102, 241, 0.5) 78%,
+          transparent);
       box-shadow: 0 0 14px rgba(8, 145, 178, 0.2);
     }
 
@@ -1357,7 +1401,7 @@
       max-width: min(96vw, 72rem);
     }
 
-    .slide--refs.slide--content .slide-main > h2 {
+    .slide--refs.slide--content .slide-main>h2 {
       font-size: clamp(1.85rem, 4.2vw, 3rem);
     }
 
@@ -1472,7 +1516,7 @@
       }
     }
 
-    .slide.slide--content.slide--cq10 .slide-main > h2 .slide--cq10-subline {
+    .slide.slide--content.slide--cq10 .slide-main>h2 .slide--cq10-subline {
       display: block;
       margin-top: clamp(0.12rem, 0.7vh, 0.4rem);
       font-size: clamp(1.55rem, 4.2vw, 2.75rem);
@@ -1599,7 +1643,7 @@
       color: var(--text);
     }
 
-    .slide-poll__panel li + li {
+    .slide-poll__panel li+li {
       margin-top: 0.45rem;
     }
 
@@ -1616,7 +1660,7 @@
       padding-top: clamp(1.5rem, 4vh, 2.75rem);
     }
 
-    .slide.slide--content .slide-main > .milestone:first-child {
+    .slide.slide--content .slide-main>.milestone:first-child {
       margin-top: 0;
       margin-bottom: clamp(0.25rem, 1vh, 0.65rem);
       pointer-events: none;
@@ -1946,7 +1990,9 @@
       animation: rise 0.7s var(--slide-ease) forwards;
     }
 
-    .slide.active .kicker { animation-delay: 0.1s; }
+    .slide.active .kicker {
+      animation-delay: 0.1s;
+    }
 
     h1 {
       font-family: "Instrument Serif", Georgia, serif;
@@ -2055,11 +2101,25 @@
       animation: slideIn 0.55s var(--slide-ease) forwards;
     }
 
-    .slide.active ul.points li:nth-child(1) { animation-delay: 0.2s; }
-    .slide.active ul.points li:nth-child(2) { animation-delay: 0.32s; }
-    .slide.active ul.points li:nth-child(3) { animation-delay: 0.44s; }
-    .slide.active ul.points li:nth-child(4) { animation-delay: 0.56s; }
-    .slide.active ul.points li:nth-child(5) { animation-delay: 0.68s; }
+    .slide.active ul.points li:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+
+    .slide.active ul.points li:nth-child(2) {
+      animation-delay: 0.32s;
+    }
+
+    .slide.active ul.points li:nth-child(3) {
+      animation-delay: 0.44s;
+    }
+
+    .slide.active ul.points li:nth-child(4) {
+      animation-delay: 0.56s;
+    }
+
+    .slide.active ul.points li:nth-child(5) {
+      animation-delay: 0.68s;
+    }
 
     .card-grid {
       display: grid;
@@ -2068,7 +2128,7 @@
       margin-top: clamp(0.85rem, 2vh, 1.2rem);
     }
 
-    .slide--content .card-grid + ul.points {
+    .slide--content .card-grid+ul.points {
       margin-top: clamp(1rem, 2.2vh, 1.35rem);
     }
 
@@ -2173,13 +2233,11 @@
 
     .info-card--wide::before {
       height: 5px;
-      background: linear-gradient(
-        90deg,
-        var(--accent2),
-        var(--accent-gold) 33%,
-        var(--accent) 66%,
-        rgba(94, 225, 208, 0.85)
-      );
+      background: linear-gradient(90deg,
+          var(--accent2),
+          var(--accent-gold) 33%,
+          var(--accent) 66%,
+          rgba(94, 225, 208, 0.85));
       box-shadow: 0 4px 24px rgba(94, 225, 208, 0.25), 0 4px 20px rgba(189, 30, 30, 0.15);
     }
 
@@ -2230,8 +2288,9 @@
       font-weight: 700;
     }
 
-    /* Tăng độ tương phản cho các trang 3, 5, 6: nền trắng, chữ tối, dễ đọc */
+    /* Tăng độ tương phản cho các trang 3, 4, 5, 6: nền trắng, chữ tối, dễ đọc */
     .slide[data-i="3"] .info-card,
+    .slide[data-i="4"] .info-card,
     .slide[data-i="5"] .info-card,
     .slide[data-i="6"] .info-card {
       background: #ffffff !important;
@@ -2241,18 +2300,21 @@
     }
 
     .slide[data-i="3"] .info-card h4,
+    .slide[data-i="4"] .info-card h4,
     .slide[data-i="5"] .info-card h4,
     .slide[data-i="6"] .info-card h4 {
       color: #0369a1 !important;
     }
 
     .slide[data-i="3"] .info-card p,
+    .slide[data-i="4"] .info-card p,
     .slide[data-i="5"] .info-card p,
     .slide[data-i="6"] .info-card p {
       color: #0c4a6e !important;
     }
 
     .slide[data-i="3"] .info-card p strong,
+    .slide[data-i="4"] .info-card p strong,
     .slide[data-i="5"] .info-card p strong,
     .slide[data-i="6"] .info-card p strong {
       color: #0a3e61 !important;
@@ -2318,6 +2380,7 @@
     }
 
     @media (max-width: 1100px) {
+
       .slide--content,
       .slide--outro {
         overflow-y: auto;
@@ -2356,7 +2419,9 @@
         margin-right: auto;
       }
 
-      .two-col { grid-template-columns: 1fr; }
+      .two-col {
+        grid-template-columns: 1fr;
+      }
     }
 
     .counter--dim {
@@ -2373,11 +2438,17 @@
     }
 
     @keyframes rise {
-      to { opacity: 1; transform: translateY(0); }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @keyframes slideIn {
-      to { opacity: 1; transform: translateY(0); }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* UI chrome */
@@ -2474,6 +2545,7 @@
         opacity: 0;
         filter: blur(10px);
       }
+
       to {
         transform: translateY(0) scale(1);
         opacity: 1;
@@ -2487,18 +2559,24 @@
         scroll-behavior: auto;
         scroll-snap-type: none;
       }
-      .slide, .slide-thumb img, ul.points li {
+
+      .slide,
+      .slide-thumb img,
+      ul.points li {
         animation: none !important;
         transition: none !important;
       }
+
       .slide {
         transform: none !important;
       }
+
       .slide--toc.toc--exiting,
       .slide--cover.cover--entering,
       .slide--cover.cover--exiting {
         animation: none !important;
       }
+
       .ai-usage-dialog[open],
       .ai-usage-dialog[open]::backdrop,
       .ai-usage-dialog[open].ai-usage-dialog--closing,
@@ -2512,6 +2590,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="progress-bar">
     <div class="progress-fill" id="progress-fill"></div>
@@ -2522,9 +2601,12 @@
     <span>Mở Lab MediaPipe c + v + m</span>
   </a>
 
-  <button type="button" class="fab-ai-usage" id="btn-ai-usage" aria-haspopup="dialog" aria-controls="ai-usage-dialog" title="Khai báo sử dụng AI trong đề tài">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M12 3l-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z" />
+  <button type="button" class="fab-ai-usage" id="btn-ai-usage" aria-haspopup="dialog" aria-controls="ai-usage-dialog"
+    title="Khai báo sử dụng AI trong đề tài">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round"
+      stroke-linejoin="round" aria-hidden="true">
+      <path
+        d="M12 3l-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z" />
       <path d="M5 3v4M19 17v4M3 19h4M17 5h4" stroke-width="1.25" opacity="0.55" />
     </svg>
     <span class="sr-only">Mở khai báo nội dung AI nhóm đã sử dụng</span>
@@ -2532,64 +2614,84 @@
 
   <dialog id="ai-usage-dialog" class="ai-usage-dialog" aria-labelledby="ai-usage-dialog-title">
     <div class="ai-usage-dialog__inner">
-      <button type="button" class="ai-usage-dialog__close" id="ai-usage-dialog-close" aria-label="Đóng hộp thoại">&times;</button>
+      <button type="button" class="ai-usage-dialog__close" id="ai-usage-dialog-close"
+        aria-label="Đóng hộp thoại">&times;</button>
       <h2 id="ai-usage-dialog-title">Các nội dung AI nhóm đã sử dụng</h2>
-      <p class="ai-usage-dialog__lead">Trang này chỉ ghi nhận các hạng mục AI đã dùng trong đề tài. AI đóng vai trò hỗ trợ; toàn bộ nội dung học thuật cuối cùng do nhóm kiểm tra, chỉnh sửa và chịu trách nhiệm.</p>
+      <p class="ai-usage-dialog__lead">Trang này chỉ ghi nhận các hạng mục AI đã dùng trong đề tài. AI đóng vai trò hỗ
+        trợ; toàn bộ nội dung học thuật cuối cùng do nhóm kiểm tra, chỉnh sửa và chịu trách nhiệm.</p>
       <ol class="ai-usage-dialog__list">
-        <li><strong>NoteLM</strong> — dùng để lấy nội dung (tóm tắt, gợi ý, khung ý) làm điểm xuất phát; nhóm biên soạn lại, bổ sung lập luận và đối chiếu với giáo trình LLCT cùng nguồn chính thống.</li>
-        <li><strong>Gemini</strong> — dùng để tạo ảnh minh họa; nhóm chọn phiên bản phù hợp, chỉnh sửa/ghi chú ngữ cảnh và đảm bảo ảnh không làm sai lệch nội dung học thuật.</li>
-        <li><strong>Gamma</strong> — dùng tính năng generate slide để lấy ý tưởng bố cục và trình bày; toàn bộ nội dung chữ trên slide trình chiếu cuối do nhóm hoàn thiện và kiểm chứng.</li>
+        <li><strong>NoteLM</strong> — dùng để lấy nội dung (tóm tắt, gợi ý, khung ý) làm điểm xuất phát; nhóm biên soạn
+          lại, bổ sung lập luận và đối chiếu với giáo trình LLCT cùng nguồn chính thống.</li>
+        <li><strong>Gemini</strong> — dùng để tạo ảnh minh họa; nhóm chọn phiên bản phù hợp, chỉnh sửa/ghi chú ngữ cảnh
+          và đảm bảo ảnh không làm sai lệch nội dung học thuật.</li>
+        <li><strong>Gamma</strong> — dùng tính năng generate slide để lấy ý tưởng bố cục và trình bày; toàn bộ nội dung
+          chữ trên slide trình chiếu cuối do nhóm hoàn thiện và kiểm chứng.</li>
       </ol>
-      <p class="ai-usage-dialog__foot"><strong>Cam kết:</strong> không để AI thay thế hoàn toàn bài tập; có phân định rõ phần AI hỗ trợ và phần nhóm tự chỉnh sửa. Nhóm chịu trách nhiệm về tính chính xác và bản nộp cuối cùng.</p>
+      <p class="ai-usage-dialog__foot"><strong>Cam kết:</strong> không để AI thay thế hoàn toàn bài tập; có phân định rõ
+        phần AI hỗ trợ và phần nhóm tự chỉnh sửa. Nhóm chịu trách nhiệm về tính chính xác và bản nộp cuối cùng.</p>
     </div>
   </dialog>
 
   <dialog id="infra-chart-dialog" class="infra-chart-dialog" aria-labelledby="infra-chart-dialog-title">
     <div class="infra-chart-dialog__inner">
-      <button type="button" class="ai-usage-dialog__close" id="infra-chart-dialog-close" aria-label="Đóng hộp thoại">&times;</button>
+      <button type="button" class="ai-usage-dialog__close" id="infra-chart-dialog-close"
+        aria-label="Đóng hộp thoại">&times;</button>
       <h2 id="infra-chart-dialog-title">Minh họa: Cấu trúc của Cơ sở hạ tầng</h2>
       <figure class="infra-chart-dialog__figure">
-        <img class="infra-chart-dialog__img" src="assets/đn.jpg" alt="Sơ đồ cấu trúc ba tầng quan hệ sản xuất trong cơ sở hạ tầng theo triết học Mác–Lênin" decoding="async" loading="lazy" />
+        <img class="infra-chart-dialog__img" src="assets/đn.jpg"
+          alt="Sơ đồ cấu trúc ba tầng quan hệ sản xuất trong cơ sở hạ tầng theo triết học Mác–Lênin" decoding="async"
+          loading="lazy" />
       </figure>
     </div>
   </dialog>
 
   <dialog id="kttt-chart-dialog" class="infra-chart-dialog" aria-labelledby="kttt-chart-dialog-title">
     <div class="infra-chart-dialog__inner">
-      <button type="button" class="ai-usage-dialog__close" id="kttt-chart-dialog-close" aria-label="Đóng hộp thoại">&times;</button>
+      <button type="button" class="ai-usage-dialog__close" id="kttt-chart-dialog-close"
+        aria-label="Đóng hộp thoại">&times;</button>
       <h2 id="kttt-chart-dialog-title">Minh họa: Kiến trúc thượng tầng (bản chất &amp; vận động)</h2>
       <figure class="infra-chart-dialog__figure">
-        <img class="infra-chart-dialog__img" src="assets/tt.jpg" alt="Sơ đồ kiến trúc thượng tầng: cấu trúc hệ thống và mối quan hệ biện chứng với cơ sở hạ tầng" decoding="async" loading="lazy" />
+        <img class="infra-chart-dialog__img" src="assets/tt.jpg"
+          alt="Sơ đồ kiến trúc thượng tầng: cấu trúc hệ thống và mối quan hệ biện chứng với cơ sở hạ tầng"
+          decoding="async" loading="lazy" />
       </figure>
     </div>
   </dialog>
 
   <dialog id="gttd-chart-dialog" class="infra-chart-dialog" aria-labelledby="gttd-chart-dialog-title">
     <div class="infra-chart-dialog__inner">
-      <button type="button" class="ai-usage-dialog__close" id="gttd-chart-dialog-close" aria-label="Đóng hộp thoại">&times;</button>
+      <button type="button" class="ai-usage-dialog__close" id="gttd-chart-dialog-close"
+        aria-label="Đóng hộp thoại">&times;</button>
       <h2 id="gttd-chart-dialog-title">Minh họa: Giá trị thặng dư trong nền kinh tế số</h2>
       <figure class="infra-chart-dialog__figure">
-        <img class="infra-chart-dialog__img" src="assets/gia-tri-thang-du.png" alt="Minh họa cơ chế hình thành giá trị thặng dư trong bối cảnh AI và kinh tế số" decoding="async" loading="lazy" />
+        <img class="infra-chart-dialog__img" src="assets/gia-tri-thang-du.png"
+          alt="Minh họa cơ chế hình thành giá trị thặng dư trong bối cảnh AI và kinh tế số" decoding="async"
+          loading="lazy" />
       </figure>
     </div>
   </dialog>
 
   <dialog id="ldtt-chart-dialog" class="infra-chart-dialog" aria-labelledby="ldtt-chart-dialog-title">
     <div class="infra-chart-dialog__inner">
-      <button type="button" class="ai-usage-dialog__close" id="ldtt-chart-dialog-close" aria-label="Đóng hộp thoại">&times;</button>
+      <button type="button" class="ai-usage-dialog__close" id="ldtt-chart-dialog-close"
+        aria-label="Đóng hộp thoại">&times;</button>
       <h2 id="ldtt-chart-dialog-title">Minh họa: Lao động cụ thể và lao động trừu tượng</h2>
       <figure class="infra-chart-dialog__figure">
-        <img class="infra-chart-dialog__img" src="assets/lao-dong-cu-the-va-lao-dong-truu-tuong.png" alt="Infographic về lao động cụ thể và lao động trừu tượng theo lý luận Mác" decoding="async" loading="lazy" />
+        <img class="infra-chart-dialog__img" src="assets/lao-dong-cu-the-va-lao-dong-truu-tuong.png"
+          alt="Infographic về lao động cụ thể và lao động trừu tượng theo lý luận Mác" decoding="async"
+          loading="lazy" />
       </figure>
     </div>
   </dialog>
 
   <dialog id="ai-hr-chart-dialog" class="infra-chart-dialog" aria-labelledby="ai-hr-chart-dialog-title">
     <div class="infra-chart-dialog__inner">
-      <button type="button" class="ai-usage-dialog__close" id="ai-hr-chart-dialog-close" aria-label="Đóng hộp thoại">&times;</button>
+      <button type="button" class="ai-usage-dialog__close" id="ai-hr-chart-dialog-close"
+        aria-label="Đóng hộp thoại">&times;</button>
       <h2 id="ai-hr-chart-dialog-title">Minh họa: AI và nguồn nhân lực</h2>
       <figure class="infra-chart-dialog__figure">
-        <img class="infra-chart-dialog__img" src="assets/AI-va-nguon-nhan-luc.png" alt="Infographic về mối quan hệ giữa AI và phát triển nguồn nhân lực" decoding="async" loading="lazy" />
+        <img class="infra-chart-dialog__img" src="assets/AI-va-nguon-nhan-luc.png"
+          alt="Infographic về mối quan hệ giữa AI và phát triển nguồn nhân lực" decoding="async" loading="lazy" />
       </figure>
     </div>
   </dialog>
@@ -2610,8 +2712,10 @@
       <div class="slide-cover-vignette"></div>
       <div class="slide-cover-inner">
         <span class="cover-kicker gsap-reveal">Nhóm 5 · Kinh tế chính trị Mác — Lênin</span>
-        <h1 class="hero-title gsap-reveal">Giá trị và Lao động<br/><span style="color: var(--accent);">trong kỷ nguyên</span><br/>& <span style="color: var(--accent-gold);">AI & Robot</span></h1>
-        <p class="cover-sub gsap-reveal">Chủ đề phân tích: Sự chuyển hóa của lao động và nguồn nhân lực chất lượng cao thời đại số.</p>
+        <h1 class="hero-title gsap-reveal">Giá trị và Lao động<br /><span style="color: var(--accent);">trong kỷ
+            nguyên</span><br />& <span style="color: var(--accent-gold);">AI & Robot</span></h1>
+        <p class="cover-sub gsap-reveal">Chủ đề phân tích: Sự chuyển hóa của lao động và nguồn nhân lực chất lượng cao
+          thời đại số.</p>
         <div class="gsap-reveal">
           <button type="button" class="btn-start">Bắt đầu khám phá</button>
         </div>
@@ -2702,13 +2806,19 @@
       <div class="slide-main">
         <span class="milestone gsap-reveal"><span class="milestone__text">Trang 1 · Bối cảnh</span></span>
         <h2 class="gsap-reveal">Câu hỏi trung tâm</h2>
-        <p class="question-block gsap-reveal"><em>"Khi <strong>AI và robot thay thế ngày càng nhiều lao động thủ công và trí óc</strong>, bản chất của <strong>lao động và cơ chế tạo ra giá trị có bị 'xóa sổ' theo lý thuyết Mác</strong>, hay đang 'chuyển hóa' sang hình thái mới? Việt Nam cần phát triển nguồn nhân lực chất lượng cao như thế nào trong quá trình công nghiệp hóa – hiện đại hóa?"</em></p>
+        <p class="question-block gsap-reveal"><em>"Khi <strong>AI và robot thay thế ngày càng nhiều lao động thủ công và
+              trí óc</strong>, bản chất của <strong>lao động và cơ chế tạo ra giá trị có bị 'xóa sổ' theo lý thuyết
+              Mác</strong>, hay đang 'chuyển hóa' sang hình thái mới? Việt Nam cần phát triển nguồn nhân lực chất lượng
+            cao như thế nào trong quá trình công nghiệp hóa – hiện đại hóa?"</em></p>
         <p class="lead gsap-reveal" style="margin-top: 1rem;"><strong>Giải pháp tiếp cận:</strong></p>
         <ol class="points points--approach">
-          <li class="gsap-reveal">Khơi lại học thuyết giá trị & tính hai mặt của lao động (cụ thể/trừu tượng) của C. Mác.</li>
-          <li class="gsap-reveal">Phân tích vai trò mới của máy móc, AI, robot trong quá trình tạo giá trị và giá trị thặng dư.</li>
+          <li class="gsap-reveal">Khơi lại học thuyết giá trị & tính hai mặt của lao động (cụ thể/trừu tượng) của C.
+            Mác.</li>
+          <li class="gsap-reveal">Phân tích vai trò mới của máy móc, AI, robot trong quá trình tạo giá trị và giá trị
+            thặng dư.</li>
           <li class="gsap-reveal">Làm rõ nguồn gốc giá trị thặng dư trong nền kinh tế số & kinh tế tri thức.</li>
-          <li class="gsap-reveal">Liên hệ thực tiễn Việt Nam: định hướng CNH-HĐH gắn với kinh tế tri thức, chuyển đổi số, và đột phá nguồn nhân lực chất lượng cao.</li>
+          <li class="gsap-reveal">Liên hệ thực tiễn Việt Nam: định hướng CNH-HĐH gắn với kinh tế tri thức, chuyển đổi
+            số, và đột phá nguồn nhân lực chất lượng cao.</li>
         </ol>
       </div>
     </section>
@@ -2721,49 +2831,60 @@
         <div class="card-grid">
           <div class="info-card gsap-reveal">
             <h4 style="color: var(--accent2);">Lao động cụ thể</h4>
-            <p><em>Là lao động có ích dưới một hình thức cụ thể của những nghề nghiệp chuyên môn nhất định, tạo ra giá trị sử dụng của hàng hóa.</em></p>
+            <p><em>Là lao động có ích dưới một hình thức cụ thể của những nghề nghiệp chuyên môn nhất định, tạo ra giá
+                trị sử dụng của hàng hóa.</em></p>
             <p><strong>Hao phí sức lao động tạo ra giá trị sử dụng đặc thù.</strong></p>
-            <p>→ <strong><em>Kỷ nguyên AI:</em></strong> Chuyển từ thao tác vật lý sang lập trình, thiết kế thuật toán, giám sát hệ thống tự động, sáng tạo nội dung số.</p>
+            <p>→ <strong><em>Kỷ nguyên AI:</em></strong> Chuyển từ thao tác vật lý sang lập trình, thiết kế thuật toán,
+              giám sát hệ thống tự động, sáng tạo nội dung số.</p>
           </div>
           <div class="info-card gsap-reveal">
             <h4 style="color: var(--accent-gold);">Lao động trừu tượng</h4>
-            <p><em>Là lao động xã hội của người sản xuất hàng hóa không kể đến hình thức cụ thể; đó là sự hao phí sức lao động nói chung, tạo ra giá trị hàng hóa.</em></p>
+            <p><em>Là lao động xã hội của người sản xuất hàng hóa không kể đến hình thức cụ thể; đó là sự hao phí sức
+                lao động nói chung, tạo ra giá trị hàng hóa.</em></p>
             <p><strong>Hao phí thần kinh, trí óc nói chung, tạo ra giá trị của hàng hóa.</strong></p>
-            <p>→ <strong><em>Kỷ nguyên AI:</em></strong> Trở thành hao phí trí tuệ sâu, xử lý dữ liệu phức tạp. Chính chất xám này mới là nguồn gốc của giá trị mới xã hội.</p>
+            <p>→ <strong><em>Kỷ nguyên AI:</em></strong> Trở thành hao phí trí tuệ sâu, xử lý dữ liệu phức tạp. Chính
+              chất xám này mới là nguồn gốc của giá trị mới xã hội.</p>
           </div>
         </div>
-        <p class="lead lead--after-list gsap-reveal" style="margin-top: 1.5rem;">
-          <strong>Quá trình tạo giá trị:</strong> 
-          <br>- AI/Robot = tư liệu lao động phát triển → tăng năng suất, rút ngắn thời gian lao động tất yếu
-          <br>- Nhưng: AI chỉ chuyển giá trị cũ (hao mòn), <span class="highlight">không tự tạo giá trị mới</span>
-          <br>- Giá trị mới (v+m) vẫn do <span class="highlight">lao động sống</span> của con người tạo ra
-        </p>
-        <button type="button" class="btn-slide-secondary btn-slide-secondary--primary gsap-reveal" id="btn-ldtt-chart">(Minh họa Inforgraphic)</button>
+        <div class="info-card info-card--wide gsap-reveal" style="margin-top: 1.5rem;">
+          <h4 style="color: var(--danger);">Quá trình tạo giá trị</h4>
+          <p>&bull; AI/Robot là tư liệu lao động phát triển, giúp tăng năng suất và rút ngắn thời gian lao động tất yếu.
+            <br />
+            &bull; Nhưng AI chỉ chuyển giá trị cũ (hao mòn) mà <span class="highlight">không tự tạo giá trị mới</span>.
+            <br />
+            &bull; Giá trị mới (v+m) vẫn do <span class="highlight">lao động sống</span> của con người tạo ra.
+          </p>
+        </div>
+        <button type="button" class="btn-slide-secondary btn-slide-secondary--primary gsap-reveal"
+          id="btn-ldtt-chart">(Minh họa Inforgraphic)</button>
       </div>
     </section>
 
     <!-- 4 · Giá trị & Giá trị thặng dư trong kỷ nguyên AI -->
     <section class="slide slide--content no-media slide--bg-like-page2" data-i="4">
       <div class="slide-main">
-        <span class="milestone gsap-reveal"><span class="milestone__text">Trang 3 · Giá trị thặng dư thời đại số</span></span>
+        <span class="milestone gsap-reveal"><span class="milestone__text">Trang 3 · Giá trị thặng dư thời đại
+            số</span></span>
         <h2 class="gsap-reveal">Giá trị thặng dư từ đâu?</h2>
-        
+
         <div class="card-grid">
           <!-- Phần 1: Máy móc & Giá trị -->
           <div class="info-card gsap-reveal">
             <h4 style="color: var(--header-neon);">Nếu máy móc thay thế lao động, giá trị từ đâu?</h4>
             <ul style="list-style: none; padding: 0;">
               <li style="margin-bottom: 0.8rem;">
-                <span style="font-weight: 600; color: var(--text);">Máy móc/AI = Tư bản bất biến (c)</span><br/>
-                <span style="font-size: 0.95rem; color: var(--muted);">Chỉ chuyển giá trị hao mòn, không tự tạo giá trị thặng dư</span>
+                <span style="font-weight: 600; color: var(--text);">Máy móc/AI = Tư bản bất biến (c)</span><br />
+                <span style="font-size: 0.95rem; color: var(--muted);">Chỉ chuyển giá trị hao mòn, không tự tạo giá trị
+                  thặng dư</span>
               </li>
               <li style="margin-bottom: 0.8rem;">
-                <span style="font-weight: 600; color: var(--text);">Không có lao động sống</span><br/>
+                <span style="font-weight: 600; color: var(--text);">Không có lao động sống</span><br />
                 <span style="font-size: 0.95rem; color: var(--muted);">→ Quy trình dừng hoặc giá trị = 0</span>
               </li>
               <li style="margin-bottom: 0;">
-                <span style="font-weight: 600; color: var(--text);">Giá trị đơn vị ↓ do năng suất ↑</span><br/>
-                <span style="font-size: 0.95rem; color: var(--muted);">Nhưng tổng giá trị phụ thuộc vào chất lượng lao động trí tuệ</span>
+                <span style="font-weight: 600; color: var(--text);">Giá trị đơn vị ↓ do năng suất ↑</span><br />
+                <span style="font-size: 0.95rem; color: var(--muted);">Nhưng tổng giá trị phụ thuộc vào chất lượng lao
+                  động trí tuệ</span>
               </li>
             </ul>
           </div>
@@ -2773,34 +2894,42 @@
             <h4 style="color: var(--accent-gold);">GTTD được tạo ra thế nào trong kinh tế số?</h4>
             <ul style="list-style: none; padding: 0;">
               <li style="margin-bottom: 0.8rem;">
-                <span style="font-weight: 600; color: var(--accent2);">✓ Bắt nguồn từ lao động không công:</span><br/>
-                <span style="font-size: 0.95rem; color: var(--muted);">Kỹ sư data, lập trình viên, người vận hành AI</span>
+                <span style="font-weight: 600; color: var(--accent2);">✓ Bắt nguồn từ lao động không công:</span><br />
+                <span style="font-size: 0.95rem; color: var(--muted);">Kỹ sư data, lập trình viên, người vận hành
+                  AI</span>
               </li>
               <li style="margin-bottom: 0.8rem;">
-                <span style="font-weight: 600; color: var(--accent2);">✓ Khai thác GTTD tương đối:</span><br/>
-                <span style="font-size: 0.95rem; color: var(--muted);">AI tăng năng suất gián tiếp, tối ưu chuỗi cung ứng</span>
+                <span style="font-weight: 600; color: var(--accent2);">✓ Khai thác GTTD tương đối:</span><br />
+                <span style="font-size: 0.95rem; color: var(--muted);">AI tăng năng suất gián tiếp, tối ưu chuỗi cung
+                  ứng</span>
               </li>
               <li style="margin-bottom: 0;">
-                <span style="font-weight: 600; color: var(--danger);">⚠ Hiện tượng mới:</span><br/>
-                <span style="font-size: 0.95rem; color: var(--muted);">Dữ liệu người dùng & "lao động số không lương" (clickwork, labeling) → nguyên liệu tạo GTTD cho Big Tech</span>
+                <span style="font-weight: 600; color: var(--danger);">⚠ Hiện tượng mới:</span><br />
+                <span style="font-size: 0.95rem; color: var(--muted);">Dữ liệu người dùng & "lao động số không lương"
+                  (clickwork, labeling) → nguyên liệu tạo GTTD cho Big Tech</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div style="background: rgba(8,145,178,0.06); border-left: 4px solid var(--accent); border-radius: 6px; padding: 1rem; margin-top: 1.5rem;" class="gsap-reveal">
+        <div
+          style="background: rgba(8,145,178,0.06); border-left: 4px solid var(--accent); border-radius: 6px; padding: 1rem; margin-top: 1.5rem;"
+          class="gsap-reveal">
           <p style="margin: 0; font-size: 0.95rem; color: var(--text);">
-            <strong>Lưu ý:</strong> Đây là sự mở rộng biện chứng của học thuyết giá trị thặng dư, không phủ định lý luận gốc.
+            <strong>Lưu ý:</strong> Đây là sự mở rộng biện chứng của học thuyết giá trị thặng dư, không phủ định lý luận
+            gốc.
           </p>
         </div>
 
-        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(8,145,178,0.2);" class="gsap-reveal">
+        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(8,145,178,0.2);"
+          class="gsap-reveal">
           <p style="font-size: 0.9rem; color: var(--muted); margin: 0;">
             <strong>Nguồn:</strong> Giáo trình KTCT M-L (2021), tr. 82-93, 206-208
           </p>
         </div>
 
-        <button type="button" class="btn-slide-secondary btn-slide-secondary--primary gsap-reveal" id="btn-gttd-chart" style="margin-top: 1.5rem;">(Minh họa Inforgraphic)</button>
+        <button type="button" class="btn-slide-secondary btn-slide-secondary--primary gsap-reveal" id="btn-gttd-chart"
+          style="margin-top: 1.5rem;">(Minh họa Inforgraphic)</button>
       </div>
     </section>
 
@@ -2812,18 +2941,33 @@
         <div class="card-grid">
           <div class="info-card gsap-reveal">
             <h4 style="color: var(--header-neon);">Biện chứng Công Nghệ - Lao Động</h4>
-            <p>LLSX kỹ thuật hóa (AI) bắt buộc thay đổi QHSX lao động tổ chức. Lao động giản đơn bị đào thải mạnh, tạo cầu kéo cho kỹ năng số, tư duy sáng tạo phản biện.</p>
+            <p>&bull; LLSX kỹ thuật hóa (AI) bắt buộc thay đổi QHSX lao động tổ chức. <br />
+              &bull; Lao động giản đơn bị đào thải mạnh, tạo cầu kéo cho kỹ năng số, tư duy sáng tạo phản biện.
+            </p>
           </div>
           <div class="info-card gsap-reveal">
             <h4 style="color: var(--accent-gold);">Định hướng Việt Nam</h4>
-            <p>Bỏ mô hình giá rẻ, thâm dụng, chuyển hướng Đào tạo <em>STEM, AI, dữ liệu lớn</em> theo <strong>kinh tế tri thức</strong> nhằm thích ứng CNH-HĐH.</p>
+            <p>&bull; Chuyển từ "lao động giá rẻ" → <strong>"lao động tri thức, kỹ năng số, sáng tạo"</strong><br />
+              &bull; Gắn đào tạo với doanh nghiệp: STEM, AI, dữ liệu lớn, chuyển đổi số<br />
+              &bull; Reskilling/Upskilling cho lao động bị thay thế</p>
           </div>
         </div>
         <div class="info-card gsap-reveal" style="margin-top: 1rem;">
           <h4 style="color: var(--danger);">Bản chất XHCN</h4>
-          <p>Phát triển AI, tự động hóa để <em>giải phóng con người</em> khỏi tha hóa lao động, <strong>kết hợp công bằng, tiến bộ xã hội</strong> thay vì để con người làm nô lệ cho thuật toán thu lợi siêu ngạch mù quáng.</p>
+          <p>&bull;<strong> Con người là trung tâm</strong>, không phải nô lệ của thuật toán<br />
+            &bull; Phát triển kinh tế tri thức gắn với tiến bộ & công bằng xã hội<br />
+            &bull; Mục tiêu: <em>Dân giàu, nước mạnh, dân chủ, công bằng, văn minh</em></p>
         </div>
-        <button type="button" class="btn-slide-secondary btn-slide-secondary--primary gsap-reveal" id="btn-ai-hr-chart">(Minh họa Inforgraphic)</button>
+
+        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(8,145,178,0.2);"
+          class="gsap-reveal">
+          <p style="font-size: 0.9rem; color: var(--muted); margin: 0;">
+            <strong>Nguồn:</strong> Giáo trình KTCT M-L (2021), tr. 166-167, 208-210, 232-233
+          </p>
+        </div>
+
+        <button type="button" class="btn-slide-secondary btn-slide-secondary--primary gsap-reveal" id="btn-ai-hr-chart"
+          style="margin-top: 1.5rem;">(Minh họa Inforgraphic)</button>
       </div>
     </section>
 
@@ -2831,18 +2975,66 @@
     <section class="slide slide--content no-media slide--bg-like-page2" data-i="6">
       <div class="slide-main">
         <span class="milestone gsap-reveal"><span class="milestone__text">Trang 5 · Liên hệ Gen Z</span></span>
-        <h2 class="gsap-reveal">Liên hệ bối cảnh GenZ & Thị trường</h2>
-        <div style="background: rgba(8,145,178,0.08); border: 1px solid rgba(8,145,178,0.2); border-radius: 12px; padding: 1.5rem;" class="gsap-reveal">
-          <h3 style="margin-bottom: 0.5rem; color: #0c4a6e;">Sự chuyển mình của Gen Z</h3>
-          <p class="lead" style="margin: 0; margin-inline: 0; max-width: none; width: 100%; font-size: 1rem;">Gen Z (1997-2012) Việt Nam là lực lượng lao động số đặc hữu, chuyển mạnh từ làm thuê truyền thống sang <strong> Gig/Platform Labour </strong> (làm việc nền tảng) và đa kỹ năng (Prompt Engineering, Digital Marketing).</p>
+        <h2 class="gsap-reveal">Gen Z &amp; Kinh tế số:</h2>
+
+        <h3 class="gsap-reveal" style="color: var(--accent-gold); font-size: 1.25rem; margin-top: 0.5rem; margin-bottom: 0.25rem; display: flex; align-items: center; gap: 0.4rem;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1.25rem; height: 1.25rem;"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+          MỐI LIÊN HỆ BIỆN CHỨNG
+        </h3>
+        <div class="refs-table-wrap gsap-reveal">
+          <table class="refs-table" style="font-size: 0.95rem;">
+            <thead>
+              <tr>
+                <th scope="col" style="width:25%">Loại liên hệ</th>
+                <th scope="col">Biểu hiện cụ thể</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="color:#0369a1; font-weight: 700; white-space: nowrap;">
+                  Nhân–Quả <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1rem; height: 1rem; vertical-align: -0.125em; margin-left: 0.15rem;"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                </td>
+                <td>CMCN 4.0 → thay đổi cấu trúc lao động → lao động trí tuệ tạo GTTD tương đối</td>
+              </tr>
+              <tr>
+                <td style="color:#0369a1; font-weight: 700; white-space: nowrap;">
+                  Mâu thuẫn <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1rem; height: 1rem; vertical-align: -0.125em; margin-left: 0.15rem;"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><path d="M11 18H8a2 2 0 0 1-2-2V9"/></svg>
+                </td>
+                <td>Năng suất AI ↑ vs. thất nghiệp cấu trúc → Nhà nước dùng chính sách đào tạo lại, BHXH linh hoạt</td>
+              </tr>
+              <tr>
+                <td style="color:#0369a1; font-weight: 700; white-space: nowrap;">
+                  Kế thừa <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1rem; height: 1rem; vertical-align: -0.125em; margin-left: 0.15rem;"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 12 12 17 22 12"/><polyline points="2 17 12 22 22 17"/></svg>
+                </td>
+                <td>Kế thừa CNH truyền thống + bổ sung "kinh tế tri thức" → Đề án 123/QĐ-TTg, "Make in Vietnam"</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <ul class="points">
-          <li class="gsap-reveal"><strong>Nhân - Quả</strong> 
-            <p>(Công nghệ → Lao động → Giá trị): </p>
-            <p>- Nền tảng tự động sinh nội dung thay thế cơ bản, còn giá trị gia tăng nằm ở sự độc bản của <em>kỹ sư prompt & biên tập</em>.</p></li>
-          <li class="gsap-reveal"><strong>Mâu thuẫn</strong> (Động lực chuyển đổi thể chế): Tiềm năng thất nghiệp cấu trúc. Nhưng cũng là động lực để đẩy mạnh <em>Reskilling / Upskilling</em>.
-          <li class="gsap-reveal">Thanh niên cần chủ động ứng biến, đồng thời Nhà nước áp dụng chính sách <em>Make in Vietnam</em> để nắm công nghệ lõi.</li>
-        </ul>
+
+        <h3 class="gsap-reveal" style="color: var(--danger); font-size: 1.25rem; margin-top: 1rem; margin-bottom: 0.25rem; display: flex; align-items: center; gap: 0.4rem;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1.25rem; height: 1.25rem;"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          GEN Z VIỆT NAM (1997-2012)
+        </h3>
+        <div class="info-card info-card--wide gsap-reveal" style="padding: 1.25rem; padding-top: 1.25rem; margin-top: 0.5rem;">
+          <ul style="list-style: none; padding-left: 0; margin: 0; font-size: 1.05rem; line-height: 1.6; color: #0c4a6e; font-weight: 500;">
+            <li>&bull; ~25% dân số, lực lượng lao động số chủ chốt</li>
+            <li style="margin-top: 0.35rem;">&bull; <strong style="color: #0a3e61;">Xu hướng:</strong> Remote work, đa kỹ năng (AI prompt, data analysis), quan tâm đạo đức AI</li>
+            <li style="margin-top: 0.35rem;">&bull; <strong style="color: #0a3e61;">Tác động biện chứng:</strong>
+              <ul style="list-style: none; padding-left: 1.5rem; margin-top: 0.3rem;">
+                <li>→ AI tạo cơ hội việc làm mới, đòi hỏi tư duy phản biện</li>
+                <li>→ Chính sách: Đề án nhân lực số, chuẩn kỹ năng AI quốc gia</li>
+                <li>→ Gen Z thúc đẩy minh bạch dữ liệu, đào tạo thực chiến</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(8,145,178,0.2);" class="gsap-reveal">
+          <p style="font-size: 0.9rem; color: var(--muted); margin: 0; display: flex; align-items: center; gap: 0.35rem;">
+            <strong><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1rem; height: 1rem; vertical-align: -0.125em;"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>Số liệu:</strong> TCTK 2024, Bộ TT&TT 2024, ILO Report 2024
+          </p>
+        </div>
       </div>
     </section>
 
@@ -2852,7 +3044,8 @@
         <span class="milestone gsap-reveal"><span class="milestone__text">Trang 6 · Tổng kết</span></span>
         <h2 class="gsap-reveal">Kết luận bài học</h2>
         <ol class="points points--summary">
-          <li class="gsap-reveal">AI không hề "phủ định" lý luận Mác, mà minh chứng vai trò của lao động trí tuệ phức tạp quyết định lượng giá trị.</li>
+          <li class="gsap-reveal">AI không hề "phủ định" lý luận Mác, mà minh chứng vai trò của lao động trí tuệ phức
+            tạp quyết định lượng giá trị.</li>
           <li class="gsap-reveal">GTTD thời đại số tinh gọn hơn (Tương đối, lao động hành vi).</li>
           <li class="gsap-reveal">Giáo dục, NNL chất lượng cao là chìa khóa CNH-HĐH bền vững.</li>
         </ol>
@@ -2876,18 +3069,24 @@
             <tbody>
               <tr>
                 <td style="color:#0369a1; font-weight: 700;">ChatGPT-4o / Gemini</td>
-                <td>Gợi ý cấu trúc slide, rà soát thuật ngữ Marxist (Ch2, Ch3, Ch6 Giáo trình 2021) và kiểm tra chuẩn APA.</td>
-                <td>Nghiên cứu luận điểm, liên hệ bối cảnh Gen Z, dẫn chứng thực tiễn Việt Nam & biện luận các vấn đề XHCN.</td>
+                <td>Gợi ý cấu trúc slide, rà soát thuật ngữ Marxist (Ch2, Ch3, Ch6 Giáo trình 2021) và kiểm tra chuẩn
+                  APA.</td>
+                <td>Nghiên cứu luận điểm, liên hệ bối cảnh Gen Z, dẫn chứng thực tiễn Việt Nam & biện luận các vấn đề
+                  XHCN.</td>
               </tr>
               <tr>
                 <td style="color:#0369a1; font-weight: 700;">Notebook LLM</td>
-                <td>Tạo Inforgraphic trình bày như lý thuyết trong nội dung của phần Bối cảnh, Lý luận Mác Lê-nin, Giá trị thặng dư thời đại số, Biện chứng & Nguồn Nhân Lực Việt Nam.</td>
-                <td>Tạo ra sản phẩm sáng tạo, giúp người học nhìn thấy trực quan hóa về nội dung trình bày và hiểu rõ hơn về phần thuyết trình của nhóm.</td>
+                <td>Tạo Inforgraphic trình bày như lý thuyết trong nội dung của phần Bối cảnh, Lý luận Mác Lê-nin, Giá
+                  trị thặng dư thời đại số, Biện chứng & Nguồn Nhân Lực Việt Nam.</td>
+                <td>Tạo ra sản phẩm sáng tạo, giúp người học nhìn thấy trực quan hóa về nội dung trình bày và hiểu rõ
+                  hơn về phần thuyết trình của nhóm.</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p class="lead gsap-reveal" style="font-size: 0.95rem; margin-top: 1rem; color: #0c4a6e;"><strong>Cam kết:</strong> Không sử dụng AI để bịa đặt học thuật. Mọi lập luận Mác-Lênin gốc đều được đối chiếu chéo giáo trình & văn kiện Đảng.</p>
+        <p class="lead gsap-reveal" style="font-size: 0.95rem; margin-top: 1rem; color: #0c4a6e;"><strong>Cam
+            kết:</strong> Không sử dụng AI để bịa đặt học thuật. Mọi lập luận Mác-Lênin gốc đều được đối chiếu chéo giáo
+          trình & văn kiện Đảng.</p>
       </div>
     </section>
 
@@ -2909,27 +3108,32 @@
               <tr>
                 <td class="col-stt">1</td>
                 <td class="col-source">Giáo trình KTCT</td>
-                <td>Bộ Giáo dục và Đào tạo. (2021). <em>Giáo trình Kinh tế chính trị Mác-Lênin</em>. Hà Nội: NXB Chính trị quốc gia Sự thật.</td>
+                <td>Bộ Giáo dục và Đào tạo. (2021). <em>Giáo trình Kinh tế chính trị Mác-Lênin</em>. Hà Nội: NXB Chính
+                  trị quốc gia Sự thật.</td>
               </tr>
               <tr>
                 <td class="col-stt">2</td>
                 <td class="col-source">Văn kiện Đại hội XIII</td>
-                <td>Đảng Cộng sản Việt Nam. (2021). <em>Văn kiện Đại hội đại biểu toàn quốc lần thứ XIII (Tập 1)</em>. Hà Nội: NXB CTQG Sự thật.</td>
+                <td>Đảng Cộng sản Việt Nam. (2021). <em>Văn kiện Đại hội đại biểu toàn quốc lần thứ XIII (Tập 1)</em>.
+                  Hà Nội: NXB CTQG Sự thật.</td>
               </tr>
               <tr>
                 <td class="col-stt">3</td>
                 <td class="col-source">Đề án quốc gia</td>
-                <td>Thủ tướng Chính phủ. (2022). <em>Quyết định số 123/QĐ-TTg phê duyệt Đề án PT NNL CNTT ...</em>. Hà Nội: VP Chính phủ.</td>
+                <td>Thủ tướng Chính phủ. (2022). <em>Quyết định số 123/QĐ-TTg phê duyệt Đề án PT NNL CNTT ...</em>. Hà
+                  Nội: VP Chính phủ.</td>
               </tr>
               <tr>
                 <td class="col-stt">4</td>
                 <td class="col-source">Dữ liệu thống kê</td>
-                <td>Tổng cục Thống kê. (2024). <em>Thông cáo BC Tình hình kinh tế - xã hội quý IV/2024</em>. Truy xuất từ www.gso.gov.vn.</td>
+                <td>Tổng cục Thống kê. (2024). <em>Thông cáo BC Tình hình kinh tế - xã hội quý IV/2024</em>. Truy xuất
+                  từ www.gso.gov.vn.</td>
               </tr>
               <tr>
                 <td class="col-stt">5</td>
                 <td class="col-source">Báo cáo Kinh tế số</td>
-                <td>Bộ Thông tin và Truyền thông. (2024). <em>Báo cáo Kinh tế số Việt Nam 2024</em>. Cục Tin học hóa.</td>
+                <td>Bộ Thông tin và Truyền thông. (2024). <em>Báo cáo Kinh tế số Việt Nam 2024</em>. Cục Tin học hóa.
+                </td>
               </tr>
             </tbody>
           </table>
@@ -2942,7 +3146,8 @@
       <div class="slide-main">
         <span class="milestone gsap-reveal"><span class="milestone__text">Trang 9 · Phụ lục</span></span>
         <h2 class="gsap-reveal">Danh mục Định nghĩa</h2>
-        <p class="lead gsap-reveal" style="margin-bottom: 1rem;">Dùng để đối chiếu và hiểu rõ bài thuyết trình chuẩn xác theo giáo trình.</p>
+        <p class="lead gsap-reveal" style="margin-bottom: 1rem;">Dùng để đối chiếu và hiểu rõ bài thuyết trình chuẩn xác
+          theo giáo trình.</p>
         <div class="refs-table-wrap gsap-reveal">
           <table class="refs-table">
             <thead>
@@ -2961,7 +3166,8 @@
               <tr>
                 <td class="col-stt">2</td>
                 <td class="col-source">TB Bất biến (c)</td>
-                <td>Bộ phận tư bản (Tư liệu sản xuất) bảo toàn và chuyển đổi vẹn nguyên giá trị, không sinh m (tr. 82).</td>
+                <td>Bộ phận tư bản (Tư liệu sản xuất) bảo toàn và chuyển đổi vẹn nguyên giá trị, không sinh m (tr. 82).
+                </td>
               </tr>
               <tr>
                 <td class="col-stt">3</td>
@@ -3043,7 +3249,7 @@
       // Slide-based animations
       slides.forEach((slide, i) => {
         const index = i; // using actual index
-        
+
         // Update UI markers on scroll
         ScrollTrigger.create({
           trigger: slide,
@@ -3562,10 +3768,10 @@
   </script>
 
   <!-- Botpress Webchat v3.6 (inject + cấu hình bot trên bpcontent.cloud) -->
- 
+
   <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
   <script src="https://files.bpcontent.cloud/2026/04/23/15/20260423150429-5023NZZO.js" defer></script>
-      
-</body>
-</html>
 
+</body>
+
+</html>
