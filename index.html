@@ -701,6 +701,98 @@
       background: var(--accent-gold);
     }
 
+    /* Trang 3: hiển thị 4 ý theo 4 thẻ ngang để trực quan hơn */
+    .points.points--approach {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: clamp(0.7rem, 1.5vw, 1rem);
+      margin-top: 0.7rem;
+    }
+
+    .points.points--approach li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(0.9rem, 1.8vw, 1.1rem);
+      font-size: clamp(0.88rem, 1.1vw, 0.97rem);
+      line-height: 1.5;
+      text-align: center;
+      color: var(--text);
+      border-radius: 14px;
+      border: 1px solid rgba(8, 145, 178, 0.18);
+      background: rgba(255, 255, 255, 0.84);
+      box-shadow: 0 8px 24px rgba(8, 145, 178, 0.12);
+    }
+
+    .points.points--approach li::before {
+      content: none;
+    }
+
+    @media (max-width: 1100px) {
+      .points.points--approach {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 700px) {
+      .points.points--approach {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Trang 8: 3 kết luận dạng 3 thẻ ngang nổi bật */
+    .points.points--summary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(0.8rem, 1.7vw, 1.1rem);
+      margin-top: 0.85rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .points.points--summary li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: clamp(6.4rem, 14vh, 8.4rem);
+      padding: clamp(1rem, 2vw, 1.25rem);
+      text-align: center;
+      font-size: clamp(0.92rem, 1.2vw, 1rem);
+      line-height: 1.52;
+      color: #0c4a6e;
+      border-radius: 16px;
+      border: 1px solid rgba(8, 145, 178, 0.28);
+      background:
+        radial-gradient(ellipse 100% 85% at 50% 0%, rgba(6, 182, 212, 0.12), transparent 58%),
+        linear-gradient(165deg, rgba(255, 255, 255, 0.95), rgba(224, 247, 255, 0.92));
+      box-shadow:
+        0 12px 30px rgba(8, 145, 178, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    }
+
+    .points.points--summary li::before {
+      content: none;
+    }
+
+    .points.points--summary li:hover {
+      transform: translateY(-2px);
+      border-color: rgba(8, 145, 178, 0.42);
+      box-shadow:
+        0 16px 34px rgba(8, 145, 178, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.98);
+    }
+
+    @media (max-width: 1100px) {
+      .points.points--summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 700px) {
+      .points.points--summary {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .slide-aside {
       display: flex;
       flex-direction: column;
@@ -2576,13 +2668,13 @@
       <div class="slide-main">
         <span class="milestone gsap-reveal"><span class="milestone__text">Trang 1 · Bối cảnh</span></span>
         <h2 class="gsap-reveal">Câu hỏi trung tâm</h2>
-        <p class="question-block gsap-reveal">«Khi AI và robot thay thế ngày càng nhiều lao động thủ công và trí óc, bản chất của lao động và cơ chế tạo ra giá trị có bị 'xóa sổ' theo lý thuyết Mác, hay đang 'chuyển hóa' sang hình thái mới? Việt Nam cần phát triển nguồn nhân lực chất lượng cao thế nào?»</p>
+        <p class="question-block gsap-reveal"><em>"Khi <strong>AI và robot thay thế ngày càng nhiều lao động thủ công và trí óc</strong>, bản chất của <strong>lao động và cơ chế tạo ra giá trị có bị 'xóa sổ' theo lý thuyết Mác</strong>, hay đang 'chuyển hóa' sang hình thái mới? Việt Nam cần phát triển nguồn nhân lực chất lượng cao như thế nào trong quá trình công nghiệp hóa – hiện đại hóa?"</em></p>
         <p class="lead gsap-reveal" style="margin-top: 1rem;"><strong>Giải pháp tiếp cận:</strong></p>
-        <ol class="points">
-          <li class="gsap-reveal">Kế thừa học thuyết giá trị & chức năng hai mặt của lao động của C. Mác.</li>
-          <li class="gsap-reveal">Phân tích vai trò mới của máy móc, AI trong quá trình tạo giá trị (c & v).</li>
-          <li class="gsap-reveal">Làm rõ nguồn gốc thặng dư trong nền kinh tế tri thức số.</li>
-          <li class="gsap-reveal">Liên hệ: CNH-HĐH ở VN và đột phá nhân lực chất lượng cao theo hướng XHCN.</li>
+        <ol class="points points--approach">
+          <li class="gsap-reveal">Khơi lại học thuyết giá trị & tính hai mặt của lao động (cụ thể/trừu tượng) của C. Mác.</li>
+          <li class="gsap-reveal">Phân tích vai trò mới của máy móc, AI, robot trong quá trình tạo giá trị và giá trị thặng dư.</li>
+          <li class="gsap-reveal">Làm rõ nguồn gốc giá trị thặng dư trong nền kinh tế số & kinh tế tri thức.</li>
+          <li class="gsap-reveal">Liên hệ thực tiễn Việt Nam: định hướng CNH-HĐH gắn với kinh tế tri thức, chuyển đổi số, và đột phá nguồn nhân lực chất lượng cao.</li>
         </ol>
       </div>
     </section>
@@ -2595,13 +2687,15 @@
         <div class="card-grid">
           <div class="info-card gsap-reveal">
             <h4 style="color: var(--accent2);">Lao động cụ thể</h4>
-            <p>Hao phí sức lao động tạo ra <strong>giá trị sử dụng</strong> đặc thù.</p>
-            <p>→ <em>Kỷ nguyên AI:</em> Chuyển từ thao tác vật lý sang lập trình, thiết kế thuật toán, giám sát hệ thống tự động, sáng tạo nội dung số.</p>
+            <p><em>Là lao động có ích dưới một hình thức cụ thể của những nghề nghiệp chuyên môn nhất định, tạo ra giá trị sử dụng của hàng hóa.</em></p>
+            <p><strong>Hao phí sức lao động tạo ra giá trị sử dụng đặc thù.</strong></p>
+            <p>→ <strong><em>Kỷ nguyên AI:</em></strong> Chuyển từ thao tác vật lý sang lập trình, thiết kế thuật toán, giám sát hệ thống tự động, sáng tạo nội dung số.</p>
           </div>
           <div class="info-card gsap-reveal">
             <h4 style="color: var(--accent-gold);">Lao động trừu tượng</h4>
-            <p>Hao phí thần kinh, trí óc nói chung, tạo ra <strong>giá trị</strong> của hàng hóa.</p>
-            <p>→ <em>Kỷ nguyên AI:</em> Trở thành hao phí trí tuệ sâu, xử lý dữ liệu phức tạp. Chính chất xám này mới là nguồn gốc của giá trị mới xã hội.</p>
+            <p><em>Là lao động xã hội của người sản xuất hàng hóa không kể đến hình thức cụ thể; đó là sự hao phí sức lao động nói chung, tạo ra giá trị hàng hóa.</em></p>
+            <p><strong>Hao phí thần kinh, trí óc nói chung, tạo ra giá trị của hàng hóa.</strong></p>
+            <p>→ <strong><em>Kỷ nguyên AI:</em></strong> Trở thành hao phí trí tuệ sâu, xử lý dữ liệu phức tạp. Chính chất xám này mới là nguồn gốc của giá trị mới xã hội.</p>
           </div>
         </div>
         <p class="lead lead--after-list gsap-reveal" style="margin-top: 1.5rem;">
@@ -2656,7 +2750,7 @@
         <h2 class="gsap-reveal">Liên hệ bối cảnh GenZ & Thị trường</h2>
         <div style="background: rgba(8,145,178,0.08); border: 1px solid rgba(8,145,178,0.2); border-radius: 12px; padding: 1.5rem;" class="gsap-reveal">
           <h3 style="margin-bottom: 0.5rem; color: #0c4a6e;">Sự chuyển mình của Gen Z</h3>
-          <p class="lead" style="margin: 0; font-size: 1rem;">Gen Z (1997-2012) Việt Nam là lực lượng lao động số đặc hữu, chuyển mạnh từ làm thuê truyền thống sang <strong> Gig/Platform Labour </strong> (làm việc nền tảng) và đa kỹ năng (Prompt Engineering, Digital Marketing).</p>
+          <p class="lead" style="margin: 0; margin-inline: 0; max-width: none; width: 100%; font-size: 1rem;">Gen Z (1997-2012) Việt Nam là lực lượng lao động số đặc hữu, chuyển mạnh từ làm thuê truyền thống sang <strong> Gig/Platform Labour </strong> (làm việc nền tảng) và đa kỹ năng (Prompt Engineering, Digital Marketing).</p>
         </div>
         <ul class="points">
           <li class="gsap-reveal"><strong>Công nghệ → Lao động → Giá trị:</strong> Nền tảng tự động sinh nội dung thay thế cơ bản, còn giá trị gia tăng nằm ở sự độc bản của <em>kỹ sư prompt & biên tập</em>.</li>
@@ -2671,19 +2765,11 @@
       <div class="slide-main">
         <span class="milestone gsap-reveal"><span class="milestone__text">Trang 6 · Tổng kết</span></span>
         <h2 class="gsap-reveal">Kết luận bài học</h2>
-        <ol class="points" style="margin-bottom: 2rem;">
-          <li class="gsap-reveal">AI không hề "phủ định" lý luận Mác, mà minh chứng vai trò của <strong>lao động trí tuệ phức tạp</strong> quyết định lượng giá trị.</li>
+        <ol class="points points--summary">
+          <li class="gsap-reveal">AI không hề "phủ định" lý luận Mác, mà minh chứng vai trò của lao động trí tuệ phức tạp quyết định lượng giá trị.</li>
           <li class="gsap-reveal">GTTD thời đại số tinh gọn hơn (Tương đối, lao động hành vi).</li>
           <li class="gsap-reveal">Giáo dục, NNL chất lượng cao là chìa khóa CNH-HĐH bền vững.</li>
         </ol>
-        <div style="background: rgba(189, 30, 30, 0.1); border-left: 4px solid var(--accent); padding: 1rem; border-radius: 6px;" class="gsap-reveal">
-          <h3 style="color: var(--accent); margin-bottom: 0.5rem;">Câu hỏi dự kiến BGK:</h3>
-          <ul style="font-size: 0.95rem; margin-left: 1.25rem;">
-            <li>Nếu AI tự động hóa 90% sản xuất, bộ phận nào quyết định giá trị mới (Trong c + v + m)?</li>
-            <li>GTTD tương đối kỷ nguyên số có giống thời công nghiệp cơ khí hoá Marx sống không?</li>
-            <li>Cần ưu tiên "đào tạo mới chuyên gia AI" hay "đào tạo lại"?</li>
-          </ul>
-        </div>
       </div>
     </section>
 
