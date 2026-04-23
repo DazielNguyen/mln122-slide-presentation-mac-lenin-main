@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cờ VN — hạt &amp; bàn tay (Three.js + MediaPipe)</title>
+  <title>Lab c + v + m — MediaPipe tương tác</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@700;800&display=swap" rel="stylesheet" />
@@ -14,6 +14,8 @@
       --text: #e8ecf4;
       --muted: #9aa3b8;
       --accent: #da251d;
+      --accent-cyan: #22d3ee;
+      --accent-gold: #ffd166;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body {
@@ -65,7 +67,7 @@
       position: fixed;
       left: 12px;
       top: 12px;
-      max-width: min(420px, 92vw);
+      max-width: min(480px, 92vw);
       padding: 14px 16px;
       border-radius: 14px;
       background: var(--ui);
@@ -78,8 +80,57 @@
     #ui h1 {
       font-size: 15px;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       letter-spacing: 0.02em;
+    }
+    .ui-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .mode-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .mode-btn {
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 8px 6px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .mode-btn:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .mode-btn.is-active {
+      border-color: rgba(34, 211, 238, 0.65);
+      box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.3);
+      background: rgba(34, 211, 238, 0.15);
+    }
+    .mode-brief {
+      margin-bottom: 8px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .mode-brief strong {
+      display: block;
+      font-size: 12px;
+      color: #ffffff;
+      margin-bottom: 2px;
+    }
+    .mode-brief span {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.4;
     }
     .hints {
       list-style: none;
@@ -119,6 +170,88 @@
     }
     #btn:disabled { opacity: 0.45; cursor: not-allowed; }
 
+    #metrics {
+      position: fixed;
+      left: 12px;
+      bottom: max(12px, env(safe-area-inset-bottom, 0px));
+      width: min(480px, calc(100vw - 24px));
+      z-index: 3;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(7, 12, 22, 0.84);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+    }
+    .metrics-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .metrics-head strong {
+      font-size: 13px;
+      color: #ffffff;
+      letter-spacing: 0.01em;
+    }
+    .metrics-head span {
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .m-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 10px;
+    }
+    .m-item {
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 8px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .m-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      margin-bottom: 6px;
+      color: var(--muted);
+    }
+    .m-row strong {
+      color: #ffffff;
+      font-size: 12px;
+      letter-spacing: 0.01em;
+    }
+    .m-bar {
+      height: 6px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .m-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: inherit;
+      transition: width 0.16s ease;
+    }
+    .m-fill--c { background: linear-gradient(90deg, #0891b2, #22d3ee); }
+    .m-fill--v { background: linear-gradient(90deg, #22c55e, #84cc16); }
+    .m-fill--m { background: linear-gradient(90deg, #ef4444, #fb7185); }
+    .m-fill--risk { background: linear-gradient(90deg, #f59e0b, #ef4444); }
+    .m-fill--fair { background: linear-gradient(90deg, #6366f1, #a78bfa); }
+    .m-fill--new { background: linear-gradient(90deg, #fbbf24, #f59e0b); }
+    .metrics-note {
+      margin-top: 8px;
+      font-size: 12px;
+      line-height: 1.45;
+      color: #dbeafe;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 209, 102, 0.25);
+      background: rgba(255, 209, 102, 0.08);
+    }
+
     /* Khung xem camera — góc phải dưới (cùng stream với video ẩn cho MediaPipe) */
     .camera-preview-wrap {
       position: fixed;
@@ -148,6 +281,21 @@
       object-fit: cover;
       transform: scaleX(-1);
     }
+
+    @media (max-width: 900px) {
+      #metrics {
+        position: fixed;
+        left: 12px;
+        right: 12px;
+        width: auto;
+      }
+      .m-grid {
+        grid-template-columns: 1fr;
+      }
+      .camera-preview-wrap {
+        width: min(230px, 38vw);
+      }
+    }
   </style>
 </head>
 <body>
@@ -158,15 +306,59 @@
   </div>
   <a id="exit" href="index.html">Thoát</a>
   <div id="ui">
-    <h1>Cờ VN — điều khiển bằng tay</h1>
+    <h1>Lab c + v + m bằng cử chỉ tay</h1>
+    <p class="ui-sub">Flow: Chọn mode → Bật camera → Dùng cử chỉ để quan sát thay đổi chỉ số kinh tế chính trị.</p>
+    <div class="mode-tabs" role="tablist" aria-label="Chọn chế độ mô phỏng">
+      <button type="button" class="mode-btn is-active" data-mode="value" aria-selected="true">Mode 1 · Giá trị</button>
+      <button type="button" class="mode-btn" data-mode="surplus" aria-selected="false">Mode 2 · Thặng dư</button>
+      <button type="button" class="mode-btn" data-mode="hr" aria-selected="false">Mode 3 · Nguồn nhân lực</button>
+    </div>
+    <div class="mode-brief" aria-live="polite">
+      <strong id="mode-title">Mode 1: Giá trị hàng hóa</strong>
+      <span id="mode-goal">Mục tiêu: Quan sát c tăng không tự tạo giá trị mới nếu thiếu lao động sống (v).</span>
+    </div>
     <ul class="hints" aria-label="Gợi ý cử chỉ">
-      <li><span class="ic" aria-hidden="true">✊</span><span>Tụ cờ — <strong>một tay</strong> nắm đấm (hai tay trong khung = tim)</span></li>
-      <li><span class="ic" aria-hidden="true">✋</span><span>Tản + <strong>4 card một hàng</strong> · trỏ ngang → card nổi bật · <strong>OK 👌</strong> giữ → card đó phóng giữa màn, các card khác ẩn</span></li>
-      <li><span class="ic" aria-hidden="true">↔</span><span>Hất ngang nhanh · xung hạt</span></li>
-      <li><span class="ic" aria-hidden="true">🫶</span><span><strong>Hai tay</strong> trong khung (cổ tay tách vừa) → tim + THANKS FOR WATCHING</span></li>
+      <li><span class="ic" aria-hidden="true">✋</span><span>Mở bàn tay: tăng mức tự động hóa AI/robot (c).</span></li>
+      <li><span class="ic" aria-hidden="true">✊</span><span>Nắm tay: tăng hao phí lao động sống, ảnh hưởng v và m.</span></li>
+      <li><span class="ic" aria-hidden="true">👌</span><span>Giữ OK: tăng đầu tư đào tạo lại (reskilling/upskilling).</span></li>
+      <li><span class="ic" aria-hidden="true">↔</span><span>Hất ngang: trong mode thặng dư để đổi nhịp phân phối m.</span></li>
     </ul>
     <button type="button" id="btn">Bật camera &amp; bắt đầu</button>
   </div>
+
+  <section id="metrics" aria-live="polite">
+    <div class="metrics-head">
+      <strong>Bảng realtime: c + v + m</strong>
+      <span id="metrics-sub">Đọc theo lý luận Mác-Lênin</span>
+    </div>
+    <div class="m-grid">
+      <article class="m-item">
+        <div class="m-row"><span>c · Tư bản bất biến</span><strong id="metric-c">0%</strong></div>
+        <div class="m-bar"><div id="bar-c" class="m-fill m-fill--c"></div></div>
+      </article>
+      <article class="m-item">
+        <div class="m-row"><span>v · Tư bản khả biến</span><strong id="metric-v">0%</strong></div>
+        <div class="m-bar"><div id="bar-v" class="m-fill m-fill--v"></div></div>
+      </article>
+      <article class="m-item">
+        <div class="m-row"><span>m · Giá trị thặng dư</span><strong id="metric-m">0%</strong></div>
+        <div class="m-bar"><div id="bar-m" class="m-fill m-fill--m"></div></div>
+      </article>
+      <article class="m-item">
+        <div class="m-row"><span>Giá trị mới (từ lao động sống)</span><strong id="metric-new">0%</strong></div>
+        <div class="m-bar"><div id="bar-new" class="m-fill m-fill--new"></div></div>
+      </article>
+      <article class="m-item">
+        <div class="m-row"><span>Rủi ro thất nghiệp cấu trúc</span><strong id="metric-risk">0%</strong></div>
+        <div class="m-bar"><div id="bar-risk" class="m-fill m-fill--risk"></div></div>
+      </article>
+      <article class="m-item">
+        <div class="m-row"><span>Chỉ số công bằng xã hội</span><strong id="metric-fair">0%</strong></div>
+        <div class="m-bar"><div id="bar-fair" class="m-fill m-fill--fair"></div></div>
+      </article>
+    </div>
+    <p id="metrics-note" class="metrics-note">Máy móc (c) hỗ trợ năng suất, nhưng giá trị mới vẫn do lao động sống tạo ra.</p>
+  </section>
 
   <script type="module">
     import * as THREE from "three";
@@ -189,6 +381,79 @@
     const videoPreview = document.getElementById("webcam-preview");
     const previewWrap = document.getElementById("camera-preview-wrap");
     const btn = document.getElementById("btn");
+    const modeButtons = Array.from(document.querySelectorAll(".mode-btn"));
+    const modeTitle = document.getElementById("mode-title");
+    const modeGoal = document.getElementById("mode-goal");
+    const metricC = document.getElementById("metric-c");
+    const metricV = document.getElementById("metric-v");
+    const metricM = document.getElementById("metric-m");
+    const metricNew = document.getElementById("metric-new");
+    const metricRisk = document.getElementById("metric-risk");
+    const metricFair = document.getElementById("metric-fair");
+    const barC = document.getElementById("bar-c");
+    const barV = document.getElementById("bar-v");
+    const barM = document.getElementById("bar-m");
+    const barNew = document.getElementById("bar-new");
+    const barRisk = document.getElementById("bar-risk");
+    const barFair = document.getElementById("bar-fair");
+    const metricsSub = document.getElementById("metrics-sub");
+    const metricsNote = document.getElementById("metrics-note");
+
+    const clamp01 = (v) => Math.max(0, Math.min(1, v));
+
+    const modeMeta = {
+      value: {
+        title: "Mode 1: Giá trị hàng hóa",
+        goal: "Mục tiêu: Quan sát c tăng không tự tạo giá trị mới nếu thiếu lao động sống (v).",
+        sub: "Trọng tâm: nguồn gốc giá trị mới",
+      },
+      surplus: {
+        title: "Mode 2: Giá trị thặng dư",
+        goal: "Mục tiêu: So sánh cách m thay đổi khi tăng tự động hóa, cường độ lao động và phân phối.",
+        sub: "Trọng tâm: biến động tỷ suất m",
+      },
+      hr: {
+        title: "Mode 3: Nguồn nhân lực",
+        goal: "Mục tiêu: Thấy tác động của đào tạo lại đến rủi ro thất nghiệp và công bằng xã hội.",
+        sub: "Trọng tâm: reskilling trong kỷ nguyên AI",
+      },
+    };
+
+    let learnMode = "value";
+
+    const econ = {
+      automation: 0.42,
+      laborQuality: 0.54,
+      laborTime: 0.48,
+      training: 0.4,
+      socialPolicy: 0.52,
+      c: 0,
+      v: 0,
+      m: 0,
+      newValue: 0,
+      risk: 0,
+      fairness: 0,
+    };
+
+    function setLearnMode(nextMode) {
+      if (!modeMeta[nextMode]) return;
+      learnMode = nextMode;
+      modeButtons.forEach((b) => {
+        const active = b.dataset.mode === nextMode;
+        b.classList.toggle("is-active", active);
+        b.setAttribute("aria-selected", active ? "true" : "false");
+      });
+      modeTitle.textContent = modeMeta[nextMode].title;
+      modeGoal.textContent = modeMeta[nextMode].goal;
+      metricsSub.textContent = modeMeta[nextMode].sub;
+    }
+
+    modeButtons.forEach((b) => {
+      b.addEventListener("click", () => setLearnMode(b.dataset.mode));
+    });
+
+    const modeParam = new URLSearchParams(window.location.search).get("mode");
+    setLearnMode(modeMeta[modeParam] ? modeParam : "value");
 
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -432,7 +697,7 @@
     const points = new THREE.Points(geom, mat);
     scene.add(points);
 
-    /** Chữ VIET NAM sáng — sprite con của cờ, xoay cùng hạt */
+    /** Tiêu đề mode động — sprite sáng đi cùng cụm hạt */
     function createVietNamTitleSprite() {
       const cw = 1536;
       const ch = 384;
@@ -442,7 +707,7 @@
       const ctx = c.getContext("2d");
       const cx = cw / 2;
       const cy = ch / 2;
-      const text = "VIET NAM";
+      const text = "GIÁ TRỊ - LAO ĐỘNG - AI";
       ctx.font = '800 132px "Be Vietnam Pro", "Segoe UI", system-ui, sans-serif';
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
@@ -500,7 +765,7 @@
       const ctx = c.getContext("2d");
       const cx = cw / 2;
       const cy = ch / 2;
-      const text = "THANKS FOR WATCHING";
+      const text = "Thanks for your attentions";
       ctx.font = '800 108px "Be Vietnam Pro", "Segoe UI", system-ui, sans-serif';
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
@@ -545,7 +810,7 @@
     heartTitleSprite.visible = false;
     points.add(heartTitleSprite);
 
-    /** Một hàng 4 card tóm tắt kết luận (CSHT & KTTT) — chọn theo vị trí ngang tay */
+    /** Một hàng 4 card tóm tắt nội dung hiện tại của bài học */
     const SUMMARY_COUNT = 4;
     const ROW_SPACING = 1.58;
     const ROW_Z = -0.52;
@@ -618,10 +883,10 @@
     }
 
     const summaryPairs = [
-      ["Nhận định cốt lõi", "GT 2021 · kinh tế quyết định chính trị tinh thần"],
-      ["Cơ sở hạ tầng", "QHSX · thống trị · tàn dư · mầm mống"],
-      ["Kiến trúc thượng tầng", "Ý thức xã hội · thiết chế · tính giai cấp"],
-      ["Kết luận học phần", "Biện chứng · tác động trở lại · thực tiễn"],
+      ["Hai mặt lao động", "Cụ thể tạo giá trị sử dụng · Trừu tượng tạo giá trị"],
+      ["c + v + m", "AI thuộc c · Giá trị mới vẫn do lao động sống tạo ra"],
+      ["GTTD thời đại số", "Tăng năng suất, tối ưu hóa và lao động số vô hình"],
+      ["Định hướng Việt Nam", "Reskilling · Upskilling · Nhân lực chất lượng cao"],
     ];
 
     const summaryRing = new THREE.Group();
@@ -671,6 +936,101 @@
       const dx = a.x - b.x;
       const dy = a.y - b.y;
       return Math.hypot(dx, dy);
+    }
+
+    function applyGestureEconomy({ hasHand, fist, open, pinch, swipe, twoHands }) {
+      if (!hasHand) {
+        econ.laborTime = clamp01(econ.laborTime - 0.002);
+        econ.socialPolicy = clamp01(econ.socialPolicy - 0.0012);
+        return;
+      }
+
+      if (open) {
+        const up = learnMode === "value" ? 0.01 : learnMode === "surplus" ? 0.012 : 0.008;
+        econ.automation = clamp01(econ.automation + up);
+      } else {
+        econ.automation = clamp01(econ.automation - 0.0025);
+      }
+
+      if (fist) {
+        econ.laborTime = clamp01(econ.laborTime + (learnMode === "surplus" ? 0.012 : 0.008));
+        econ.laborQuality = clamp01(econ.laborQuality + (learnMode === "value" ? 0.007 : 0.004));
+      } else {
+        econ.laborTime = clamp01(econ.laborTime - 0.002);
+      }
+
+      if (pinch) {
+        const tr = learnMode === "hr" ? 0.014 : 0.008;
+        econ.training = clamp01(econ.training + tr);
+        econ.laborQuality = clamp01(econ.laborQuality + tr * 0.55);
+      } else {
+        econ.training = clamp01(econ.training - 0.0024);
+      }
+
+      if (twoHands) {
+        econ.socialPolicy = clamp01(econ.socialPolicy + 0.01);
+      } else {
+        econ.socialPolicy = clamp01(econ.socialPolicy - 0.0015);
+      }
+
+      if (learnMode === "surplus" && swipe !== 0) {
+        if (swipe > 0) {
+          econ.laborTime = clamp01(econ.laborTime + 0.04);
+          econ.socialPolicy = clamp01(econ.socialPolicy - 0.02);
+        } else {
+          econ.laborTime = clamp01(econ.laborTime - 0.03);
+          econ.socialPolicy = clamp01(econ.socialPolicy + 0.03);
+        }
+      }
+    }
+
+    function computeEconomy() {
+      const cShare = clamp01(0.28 + econ.automation * 0.62);
+      const vShare = clamp01(
+        0.2 + econ.laborQuality * 0.34 + econ.training * 0.24 + econ.laborTime * 0.28 - econ.automation * 0.16
+      );
+      const newValue = clamp01(vShare * (0.62 + econ.laborQuality * 0.38));
+      const mRate = clamp01(
+        0.16 + econ.laborTime * 0.34 + econ.automation * 0.18 + (1 - econ.socialPolicy) * 0.26
+      );
+      const mShare = clamp01(newValue * (0.32 + mRate * 0.68));
+      const risk = clamp01(econ.automation * 0.72 - econ.training * 0.42 + (1 - econ.socialPolicy) * 0.3);
+      const fairness = clamp01(econ.socialPolicy * 0.56 + econ.training * 0.34 + econ.laborQuality * 0.14 - econ.automation * 0.2);
+
+      econ.c = cShare;
+      econ.v = vShare;
+      econ.newValue = newValue;
+      econ.m = mShare;
+      econ.risk = risk;
+      econ.fairness = fairness;
+    }
+
+    function fmtPct(v) {
+      return `${Math.round(clamp01(v) * 100)}%`;
+    }
+
+    function renderEconomy() {
+      metricC.textContent = fmtPct(econ.c);
+      metricV.textContent = fmtPct(econ.v);
+      metricM.textContent = fmtPct(econ.m);
+      metricNew.textContent = fmtPct(econ.newValue);
+      metricRisk.textContent = fmtPct(econ.risk);
+      metricFair.textContent = fmtPct(econ.fairness);
+
+      barC.style.width = fmtPct(econ.c);
+      barV.style.width = fmtPct(econ.v);
+      barM.style.width = fmtPct(econ.m);
+      barNew.style.width = fmtPct(econ.newValue);
+      barRisk.style.width = fmtPct(econ.risk);
+      barFair.style.width = fmtPct(econ.fairness);
+
+      if (learnMode === "value") {
+        metricsNote.textContent = "Luận điểm: c hỗ trợ năng suất, nhưng giá trị mới vẫn do lao động sống (v) tạo ra; v tăng thì giá trị mới tăng rõ.";
+      } else if (learnMode === "surplus") {
+        metricsNote.textContent = "Luận điểm: m biến động theo tổ chức lao động và phân phối; hất phải tăng m nhanh nhưng công bằng giảm, hất trái giúp cân bằng hơn.";
+      } else {
+        metricsNote.textContent = "Luận điểm: đào tạo lại (OK) làm giảm rủi ro thất nghiệp cấu trúc và nâng chỉ số công bằng trong chuyển đổi số.";
+      }
     }
 
     /** Nắm đấm: nhiều đầu ngón gần cổ tay hơn so với lúc duỗi */
@@ -795,6 +1155,11 @@
       requestAnimationFrame(animate);
       const t = performance.now() * 0.001;
 
+      let gestureFist = false;
+      let gestureOpen = false;
+      let gesturePinch = false;
+      let gestureSwipe = 0;
+
       let lm = null;
       let lm1 = null;
       if (handLandmarker && video.readyState >= 2) {
@@ -843,6 +1208,12 @@
           !isFist(lm) &&
           !(lm1 && twoHandsHeartSimple(lm, lm1));
         const swipe = mode !== "heart" ? detectSwipe(wx) : 0;
+        const pinch = isOKPose(lm);
+
+        gestureFist = fist;
+        gestureOpen = open;
+        gestureSwipe = swipe;
+        gesturePinch = pinch;
 
         if (fist) {
           gather = Math.min(12, gather + 1);
@@ -876,6 +1247,17 @@
           hand3.set((lm[0].x - 0.5) * 5.5, -(lm[0].y - 0.5) * 4.2, 0.2);
         }
       }
+
+      applyGestureEconomy({
+        hasHand: !!lm,
+        fist: gestureFist,
+        open: gestureOpen,
+        pinch: gesturePinch,
+        swipe: gestureSwipe,
+        twoHands: twoH,
+      });
+      computeEconomy();
+      renderEconomy();
 
       const formedNow = mode === "flag" || mode === "heart";
       /** Giữ blend tim khi đang mode heart — nếu chỉ dùng twoH, mất 1 frame là shapeMorph tụt về 0 → gần như không thấy tim */

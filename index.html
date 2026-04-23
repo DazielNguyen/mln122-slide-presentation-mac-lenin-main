@@ -515,6 +515,42 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.28);
     }
 
+    .demo-mode-links {
+      margin-top: 0.95rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.6rem;
+      width: 100%;
+    }
+
+    .demo-mode-link {
+      text-decoration: none;
+      text-align: center;
+      font-family: var(--font-vn);
+      font-size: clamp(0.78rem, 1.05vw, 0.9rem);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      padding: 0.65rem 0.75rem;
+      border-radius: 12px;
+      border: 1px solid rgba(8, 145, 178, 0.3);
+      background: rgba(255, 255, 255, 0.82);
+      color: #0c4a6e;
+      box-shadow: 0 8px 20px rgba(8, 145, 178, 0.14);
+      transition: transform 0.22s var(--ease), border-color 0.22s var(--ease), box-shadow 0.22s var(--ease);
+    }
+
+    .demo-mode-link:hover {
+      transform: translateY(-2px);
+      border-color: rgba(8, 145, 178, 0.55);
+      box-shadow: 0 12px 28px rgba(8, 145, 178, 0.2);
+    }
+
+    @media (max-width: 820px) {
+      .demo-mode-links {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* Dialog — sơ đồ ba tầng CSHT (ảnh lớn, cuộn được) */
     .infra-chart-dialog {
       max-width: min(97vw, 80rem);
@@ -2483,9 +2519,9 @@
     <div class="progress-fill" id="progress-fill"></div>
   </div>
 
-  <a class="fab-flag-demo" href="flag-hands.html" target="_blank" rel="noopener" title="Demo cờ Việt Nam — Three.js &amp; bàn tay">
+  <a class="fab-flag-demo" href="flag-hands.html?mode=value" data-demo-launch title="Lab Mediapipe c + v + m">
     ★
-    <span>Mở demo cờ Việt Nam điều khiển bằng tay (Three.js)</span>
+    <span>Mở Lab MediaPipe c + v + m</span>
   </a>
 
   <button type="button" class="fab-ai-usage" id="btn-ai-usage" aria-haspopup="dialog" aria-controls="ai-usage-dialog" title="Khai báo sử dụng AI trong đề tài">
@@ -2751,6 +2787,11 @@
         <div style="background: rgba(8,145,178,0.08); border: 1px solid rgba(8,145,178,0.2); border-radius: 12px; padding: 1.5rem;" class="gsap-reveal">
           <h3 style="margin-bottom: 0.5rem; color: #0c4a6e;">Sự chuyển mình của Gen Z</h3>
           <p class="lead" style="margin: 0; margin-inline: 0; max-width: none; width: 100%; font-size: 1rem;">Gen Z (1997-2012) Việt Nam là lực lượng lao động số đặc hữu, chuyển mạnh từ làm thuê truyền thống sang <strong> Gig/Platform Labour </strong> (làm việc nền tảng) và đa kỹ năng (Prompt Engineering, Digital Marketing).</p>
+          <div class="demo-mode-links">
+            <a href="flag-hands.html?mode=value" data-demo-launch class="demo-mode-link">Vào Lab · Mode Giá trị</a>
+            <a href="flag-hands.html?mode=surplus" data-demo-launch class="demo-mode-link">Vào Lab · Mode Thặng dư</a>
+            <a href="flag-hands.html?mode=hr" data-demo-launch class="demo-mode-link">Vào Lab · Mode Nguồn nhân lực</a>
+          </div>
         </div>
         <ul class="points">
           <li class="gsap-reveal"><strong>Công nghệ → Lao động → Giá trị:</strong> Nền tảng tự động sinh nội dung thay thế cơ bản, còn giá trị gia tăng nằm ở sự độc bản của <em>kỹ sư prompt & biên tập</em>.</li>
@@ -3030,6 +3071,32 @@
           goToSlide(1);
         });
       }
+
+      const launchDemoSmooth = (url) => {
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduceMotion) {
+          window.location.href = url;
+          return;
+        }
+        document.body.animate(
+          [
+            { opacity: 1, filter: 'blur(0px)' },
+            { opacity: 0, filter: 'blur(1.5px)' }
+          ],
+          { duration: 240, easing: 'ease-out', fill: 'forwards' }
+        ).onfinish = () => {
+          window.location.href = url;
+        };
+      };
+
+      document.querySelectorAll('[data-demo-launch]').forEach((el) => {
+        el.addEventListener('click', (e) => {
+          e.preventDefault();
+          const href = el.getAttribute('href');
+          if (!href) return;
+          launchDemoSmooth(href);
+        });
+      });
 
       // TOC navigation (click + keyboard)
       document.querySelectorAll('.toc-node[data-target]').forEach(node => {
