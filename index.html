@@ -2230,17 +2230,14 @@
       font-weight: 700;
     }
 
-    /* Tăng độ tương phản cho các trang 4-6: nền sáng, chữ đậm, dễ đọc */
+    /* Tăng độ tương phản cho các trang 3, 5, 6: nền trắng, chữ tối, dễ đọc */
     .slide[data-i="3"] .info-card,
     .slide[data-i="5"] .info-card,
     .slide[data-i="6"] .info-card {
-      background:
-        radial-gradient(ellipse 95% 70% at 100% 0%, rgba(6, 182, 212, 0.08), transparent 56%),
-        linear-gradient(170deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 249, 255, 0.95) 100%);
-      border: 1px solid rgba(8, 145, 178, 0.22);
-      box-shadow:
-        0 10px 28px rgba(8, 145, 178, 0.14),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      background: #ffffff !important;
+      border: 1px solid rgba(8, 145, 178, 0.18) !important;
+      box-shadow: 0 10px 28px rgba(8, 145, 178, 0.1), inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+      backdrop-filter: none !important;
     }
 
     .slide[data-i="3"] .info-card h4,
@@ -2252,13 +2249,13 @@
     .slide[data-i="3"] .info-card p,
     .slide[data-i="5"] .info-card p,
     .slide[data-i="6"] .info-card p {
-      color: #0c4a6e;
+      color: #0c4a6e !important;
     }
 
     .slide[data-i="3"] .info-card p strong,
     .slide[data-i="5"] .info-card p strong,
     .slide[data-i="6"] .info-card p strong {
-      color: #0a3e61;
+      color: #0a3e61 !important;
     }
 
     .slide[data-i="3"] ul.points li,
@@ -2626,7 +2623,7 @@
       <div class="toc-shell">
         <header class="toc-header gsap-reveal">
           <p class="toc-eyebrow">Trang 0</p>
-          <h2 class="toc-title">Mục lục <em>trình chiếu</em></h2>
+          <h2 class="toc-title">Nội dung bài thuyết trình</h2>
           <p class="toc-lead">Chọn một mục để nhảy tới slide tương ứng hoặc dùng phím điều hướng.</p>
         </header>
 
@@ -2635,7 +2632,7 @@
             <li class="toc-node gsap-reveal" data-target="2" role="button" tabindex="0">
               <span class="toc-num" aria-hidden="true">01</span>
               <div class="toc-node-body">
-                <strong>Bối cảnh & Câu hỏi</strong>
+                <strong>Bối cảnh & Câu hỏi trung tâm</strong>
                 <span class="toc-meta">Tiếp cận & Định hướng</span>
               </div>
             </li>
@@ -2657,21 +2654,21 @@
               <span class="toc-num" aria-hidden="true">04</span>
               <div class="toc-node-body">
                 <strong>Mối quan hệ biện chứng</strong>
-                <span class="toc-meta">Lao động – Công nghệ & Phát triển NNL</span>
+                <span class="toc-meta">Lao động – Công nghệ</span>
               </div>
             </li>
             <li class="toc-node gsap-reveal" data-target="6" role="button" tabindex="0">
               <span class="toc-num" aria-hidden="true">05</span>
               <div class="toc-node-body">
                 <strong>Dẫn chứng & Liên hệ</strong>
-                <span class="toc-meta">Bối cảnh Gen Z & Thực tiễn VN</span>
+                <span class="toc-meta">Bối cảnh GenZ & Thực tiễn Việt Nam</span>
               </div>
             </li>
             <li class="toc-node gsap-reveal" data-target="7" role="button" tabindex="0">
               <span class="toc-num" aria-hidden="true">06</span>
               <div class="toc-node-body">
                 <strong>Kết luận bài học</strong>
-                <span class="toc-meta">Định hướng XHCN & Câu hỏi BGK</span>
+                <span class="toc-meta">Định hướng Xã Hội Chủ Nghĩa</span>
               </div>
             </li>
             <li class="toc-node gsap-reveal" data-target="8" role="button" tabindex="0">
@@ -2691,7 +2688,7 @@
             <li class="toc-node gsap-reveal" data-target="10" role="button" tabindex="0">
               <span class="toc-num" aria-hidden="true">09</span>
               <div class="toc-node-body">
-                <strong>[Phụ lục] Định nghĩa</strong>
+                <strong>Phụ lục về các Định nghĩa</strong>
                 <span class="toc-meta">Danh mục thuật ngữ & khái niệm</span>
               </div>
             </li>
@@ -2736,7 +2733,10 @@
           </div>
         </div>
         <p class="lead lead--after-list gsap-reveal" style="margin-top: 1.5rem;">
-          <strong>Quá trình tạo giá trị:</strong> <br>AI & Máy móc chỉ chuyển dần hao mòn (c) vào sản phẩm. Giá trị mới (v+m) <em>vẫn bắt nguồn từ sức lao động (sống)</em>, nhưng chuyển đổi mạnh thành lao động trí tuệ, phức tạp.
+          <strong>Quá trình tạo giá trị:</strong> 
+          <br>- AI/Robot = tư liệu lao động phát triển → tăng năng suất, rút ngắn thời gian lao động tất yếu
+          <br>- Nhưng: AI chỉ chuyển giá trị cũ (hao mòn), <span class="highlight">không tự tạo giá trị mới</span>
+          <br>- Giá trị mới (v+m) vẫn do <span class="highlight">lao động sống</span> của con người tạo ra
         </p>
         <button type="button" class="btn-slide-secondary btn-slide-secondary--primary gsap-reveal" id="btn-ldtt-chart">(Minh họa Inforgraphic)</button>
       </div>
@@ -2747,13 +2747,60 @@
       <div class="slide-main">
         <span class="milestone gsap-reveal"><span class="milestone__text">Trang 3 · Giá trị thặng dư thời đại số</span></span>
         <h2 class="gsap-reveal">Giá trị thặng dư từ đâu?</h2>
-        <p class="lead gsap-reveal">Máy móc tinh vi đến đâu vẫn thuộc <em>Tư bản bất biến (c)</em> - không tự đẻ ra giá trị thặng dư. Lợi nhuận siêu ngạch đến từ đâu?</p>
-        <ul class="points">
-          <li class="gsap-reveal">Từ <strong>lao động sống</strong> của con người: kỹ sư dữ liệu, người huấn luyện thuật toán, lao động sáng tạo trên nền tảng số.</li>
-          <li class="gsap-reveal">Khai thác <strong>Giá trị thặng dư tương đối</strong>: AI gián tiếp làm tăng năng suất, tối ưu hóa chuỗi cung ứng, hạ thấp giá trị sức lao động (v) để kéo dài thời gian lao động thặng dư (m).</li>
-          <li class="gsap-reveal"><strong style="color: var(--accent2);">Hiện tượng mới (Lao động số vô hình):</strong> Dữ liệu người dùng, UGC (User-generated content), hành vi click chuột trở thành nguyên liệu vô giá tạo nên giá trị khổng lồ cho các Big Tech mà không được trả lương (sự mở rộng biện chứng).</li>
-        </ul>
-        <button type="button" class="btn-slide-secondary btn-slide-secondary--primary gsap-reveal" id="btn-gttd-chart">(Minh họa Inforgraphic)</button>
+        
+        <div class="card-grid">
+          <!-- Phần 1: Máy móc & Giá trị -->
+          <div class="info-card gsap-reveal">
+            <h4 style="color: var(--header-neon);">Nếu máy móc thay thế lao động, giá trị từ đâu?</h4>
+            <ul style="list-style: none; padding: 0;">
+              <li style="margin-bottom: 0.8rem;">
+                <span style="font-weight: 600; color: var(--text);">Máy móc/AI = Tư bản bất biến (c)</span><br/>
+                <span style="font-size: 0.95rem; color: var(--muted);">Chỉ chuyển giá trị hao mòn, không tự tạo giá trị thặng dư</span>
+              </li>
+              <li style="margin-bottom: 0.8rem;">
+                <span style="font-weight: 600; color: var(--text);">Không có lao động sống</span><br/>
+                <span style="font-size: 0.95rem; color: var(--muted);">→ Quy trình dừng hoặc giá trị = 0</span>
+              </li>
+              <li style="margin-bottom: 0;">
+                <span style="font-weight: 600; color: var(--text);">Giá trị đơn vị ↓ do năng suất ↑</span><br/>
+                <span style="font-size: 0.95rem; color: var(--muted);">Nhưng tổng giá trị phụ thuộc vào chất lượng lao động trí tuệ</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Phần 2: GTTD trong kinh tế số -->
+          <div class="info-card gsap-reveal">
+            <h4 style="color: var(--accent-gold);">GTTD được tạo ra thế nào trong kinh tế số?</h4>
+            <ul style="list-style: none; padding: 0;">
+              <li style="margin-bottom: 0.8rem;">
+                <span style="font-weight: 600; color: var(--accent2);">✓ Bắt nguồn từ lao động không công:</span><br/>
+                <span style="font-size: 0.95rem; color: var(--muted);">Kỹ sư data, lập trình viên, người vận hành AI</span>
+              </li>
+              <li style="margin-bottom: 0.8rem;">
+                <span style="font-weight: 600; color: var(--accent2);">✓ Khai thác GTTD tương đối:</span><br/>
+                <span style="font-size: 0.95rem; color: var(--muted);">AI tăng năng suất gián tiếp, tối ưu chuỗi cung ứng</span>
+              </li>
+              <li style="margin-bottom: 0;">
+                <span style="font-weight: 600; color: var(--danger);">⚠ Hiện tượng mới:</span><br/>
+                <span style="font-size: 0.95rem; color: var(--muted);">Dữ liệu người dùng & "lao động số không lương" (clickwork, labeling) → nguyên liệu tạo GTTD cho Big Tech</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="background: rgba(8,145,178,0.06); border-left: 4px solid var(--accent); border-radius: 6px; padding: 1rem; margin-top: 1.5rem;" class="gsap-reveal">
+          <p style="margin: 0; font-size: 0.95rem; color: var(--text);">
+            <strong>Lưu ý:</strong> Đây là sự mở rộng biện chứng của học thuyết giá trị thặng dư, không phủ định lý luận gốc.
+          </p>
+        </div>
+
+        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(8,145,178,0.2);" class="gsap-reveal">
+          <p style="font-size: 0.9rem; color: var(--muted); margin: 0;">
+            <strong>Nguồn:</strong> Giáo trình KTCT M-L (2021), tr. 82-93, 206-208
+          </p>
+        </div>
+
+        <button type="button" class="btn-slide-secondary btn-slide-secondary--primary gsap-reveal" id="btn-gttd-chart" style="margin-top: 1.5rem;">(Minh họa Inforgraphic)</button>
       </div>
     </section>
 
@@ -2764,7 +2811,7 @@
         <h2 class="gsap-reveal">Công nghệ & Nguồn nhân lực</h2>
         <div class="card-grid">
           <div class="info-card gsap-reveal">
-            <h4 style="color: var(--header-neon);">Biện chứng C.Nghệ - L.Động</h4>
+            <h4 style="color: var(--header-neon);">Biện chứng Công Nghệ - Lao Động</h4>
             <p>LLSX kỹ thuật hóa (AI) bắt buộc thay đổi QHSX lao động tổ chức. Lao động giản đơn bị đào thải mạnh, tạo cầu kéo cho kỹ năng số, tư duy sáng tạo phản biện.</p>
           </div>
           <div class="info-card gsap-reveal">
@@ -2790,8 +2837,10 @@
           <p class="lead" style="margin: 0; margin-inline: 0; max-width: none; width: 100%; font-size: 1rem;">Gen Z (1997-2012) Việt Nam là lực lượng lao động số đặc hữu, chuyển mạnh từ làm thuê truyền thống sang <strong> Gig/Platform Labour </strong> (làm việc nền tảng) và đa kỹ năng (Prompt Engineering, Digital Marketing).</p>
         </div>
         <ul class="points">
-          <li class="gsap-reveal"><strong>Công nghệ → Lao động → Giá trị:</strong> Nền tảng tự động sinh nội dung thay thế cơ bản, còn giá trị gia tăng nằm ở sự độc bản của <em>kỹ sư prompt & biên tập</em>.</li>
-          <li class="gsap-reveal"><strong>Mâu thuẫn mới:</strong> Tiềm năng thất nghiệp cấu trúc. Nhưng cũng là động lực để đẩy mạnh <em>Reskilling / Upskilling</em>.</li>
+          <li class="gsap-reveal"><strong>Nhân - Quả</strong> 
+            <p>(Công nghệ → Lao động → Giá trị): </p>
+            <p>- Nền tảng tự động sinh nội dung thay thế cơ bản, còn giá trị gia tăng nằm ở sự độc bản của <em>kỹ sư prompt & biên tập</em>.</p></li>
+          <li class="gsap-reveal"><strong>Mâu thuẫn</strong> (Động lực chuyển đổi thể chế): Tiềm năng thất nghiệp cấu trúc. Nhưng cũng là động lực để đẩy mạnh <em>Reskilling / Upskilling</em>.
           <li class="gsap-reveal">Thanh niên cần chủ động ứng biến, đồng thời Nhà nước áp dụng chính sách <em>Make in Vietnam</em> để nắm công nghệ lõi.</li>
         </ul>
       </div>
